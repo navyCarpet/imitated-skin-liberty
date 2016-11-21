@@ -14,3 +14,30 @@
 .ui-front {
 	z-index: 1003;
 }
+
+.res-wrapper {
+	padding-bottom: 20px;
+}
+
+.r-head, .r-body {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.r-head {
+	background: #dbcfcf;
+	border-bottom: 0px;
+}
+
+.r-head.first-author {
+	background: #a89b9b;
+}
+
+.r-body.r-hidden-body {
+	background: gray;
+	color: white;
+}
+
+.r-body {
+	background: whitesmoke;
+}
