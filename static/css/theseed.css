@@ -27,6 +27,7 @@
 .r-head {
 	background: #dbcfcf;
 	border-bottom: 0px;
+	padding: 5px 10px;
 }
 
 .r-head.first-author {
@@ -40,4 +41,18 @@
 
 .r-body {
 	background: whitesmoke;
+	padding: 10px;
+}
+
+.more-box {
+	border: 1px solid black;
+	margin: 30px;
+	padding: 10px;
+	display: block;
+	width: 80px;
+	background: whitesmoke;
+}
+
+.res.res-type-status .r-body {
+	background: darkorange;
 }

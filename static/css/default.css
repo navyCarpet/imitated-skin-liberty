@@ -348,33 +348,23 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item {
-    width: 7.5rem;
+    width: 15rem;
     border: 1px solid #e1e8ed;
     border-top-left-radius: 0.35rem;
-    background-color: #f5f8fa;
-}
-
-.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item+.nav-item {
-    margin-left: 0;
-    border-left: 0;
-    border-top-left-radius: 0;
     border-top-right-radius: 0.35rem;
+    background-color: #f5f8fa;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link {
     border: 0;
     border-radius: 0;
     border-top-left-radius: 0.35rem;
+    border-top-right-radius: 0.35rem;
     text-align: center;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     color: #6e7478;
     position: relative;
-}
-
-.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item+.nav-item .nav-link {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0.35rem;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link.active,
@@ -393,7 +383,7 @@ del, s, strike {
     left: -1px;
     bottom: -1px;
     content: " ";
-    width: 7.5rem;
+    width: 15rem;
     display: block;
     border-bottom: 2px solid #4188f1;
 }
