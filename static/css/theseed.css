@@ -73,3 +73,7 @@
     float: right;
     margin-top: 10px;
 }
+
+s:hover, strike:hover, del:hover{
+    color:#666;background-color:#eee;text-decoration:none;
+}
