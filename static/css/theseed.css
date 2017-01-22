@@ -103,3 +103,8 @@ s:hover, strike:hover, del:hover{
 .wiki-article .wiki-quote {
     border-left: 5px solid #80ADEF;
 }
+
+button.btn.btn-block:hover {
+    background: #5d92de;
+    color: white;
+}
