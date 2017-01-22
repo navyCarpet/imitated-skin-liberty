@@ -116,3 +116,8 @@ table.wiki-closure tbody tr td {
 table.wiki-closure tbody tr td p {
     margin-bottom: 0;
 }
+
+.res.res-type-status .r-body {
+    background: #FFCC66;
+    padding-bottom: 10px;
+}
