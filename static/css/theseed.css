@@ -77,3 +77,25 @@
 s:hover, strike:hover, del:hover{
     color:#666;background-color:#eee;text-decoration:none;
 }
+
+.wiki-article div.wiki-category {
+    border: 1px solid #e1e8ed;
+    padding: 0.4rem;
+    padding-left: 1rem;
+    box-shadow: 0.15rem 0.15rem 0 0 #cfdae2;
+    border-radius: 0.35rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.wiki-article .wiki-quote p {
+    padding: 10px;
+}
+
+.wiki-quote .wiki-list {
+    margin-left: 30px;
+}
+
+.wiki-article .wiki-quote {
+    border-left: 5px solid #80ADEF;
+}
