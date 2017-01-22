@@ -121,3 +121,7 @@ table.wiki-closure tbody tr td p {
     background: #FFCC66;
     padding-bottom: 10px;
 }
+
+.r-body.r-hidden-body {
+    padding-bottom: 10px;
+}
