@@ -128,4 +128,5 @@ table.wiki-closure tbody tr td p {
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .title > h1 {
     word-break: break-all;
+    min-height: 33px;
 }
