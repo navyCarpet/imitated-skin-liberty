@@ -130,3 +130,7 @@ table.wiki-closure tbody tr td p {
     word-break: break-all;
     min-height: 33px;
 }
+
+.wiki-article h2 {
+    word-break: break-all;
+}
