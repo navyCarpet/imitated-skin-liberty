@@ -125,3 +125,7 @@ table.wiki-closure tbody tr td p {
 .r-body.r-hidden-body {
     padding-bottom: 10px;
 }
+
+.Liberty .content-wrapper .liberty-content .liberty-content-header .title > h1 {
+    word-break: break-all;
+}
