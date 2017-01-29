@@ -39,6 +39,10 @@
 	color: white;
 }
 
+.Liberty .content-wrapper .liberty-content {
+	margin-top: -20px;
+}
+
 .r-body {
 	background: whitesmoke;
 	padding: 10px;
@@ -76,4 +80,57 @@
 
 s:hover, strike:hover, del:hover{
     color:#666;background-color:#eee;text-decoration:none;
+}
+
+.wiki-article div.wiki-category {
+    border: 1px solid #e1e8ed;
+    padding: 0.4rem;
+    padding-left: 1rem;
+    box-shadow: 0.15rem 0.15rem 0 0 #cfdae2;
+    border-radius: 0.35rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.wiki-article .wiki-quote p {
+    padding: 10px;
+}
+
+.wiki-quote .wiki-list {
+    margin-left: 30px;
+}
+
+.wiki-article .wiki-quote {
+    border-left: 5px solid #80ADEF;
+}
+
+button.btn.btn-block:hover {
+    background: #5d92de;
+    color: white;
+}
+
+table.wiki-closure tbody tr td {
+    padding: 10px;
+}
+
+table.wiki-closure tbody tr td p {
+    margin-bottom: 0;
+}
+
+.res.res-type-status .r-body {
+    background: #FFCC66;
+    padding-bottom: 10px;
+}
+
+.r-body.r-hidden-body {
+    padding-bottom: 10px;
+}
+
+.Liberty .content-wrapper .liberty-content .liberty-content-header .title > h1 {
+    word-break: break-all;
+    min-height: 33px;
+}
+
+.wiki-article h2 {
+    word-break: break-all;
 }
