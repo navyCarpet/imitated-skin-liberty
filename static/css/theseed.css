@@ -142,6 +142,14 @@ table.diff tbody {
 .ui-widget-content li:hover {
     background: #cfddf2;
 }
+
 .ui-widget-content {
     font-size: 13px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid transparent;
+    background: none;
+    font-weight: unset;
+    color: unset;
 }
