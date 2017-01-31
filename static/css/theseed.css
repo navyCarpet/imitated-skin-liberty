@@ -134,3 +134,7 @@ table.wiki-closure tbody tr td p {
 .wiki-article h2 {
     word-break: break-all;
 }
+
+table.diff tbody {
+    font-family: "";
+}
