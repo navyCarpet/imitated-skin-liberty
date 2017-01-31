@@ -138,3 +138,10 @@ table.wiki-closure tbody tr td p {
 table.diff tbody {
     font-family: "";
 }
+
+.ui-widget-content li:hover {
+    background: #cfddf2;
+}
+.ui-widget-content {
+    font-size: 13px;
+}
