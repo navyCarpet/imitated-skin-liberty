@@ -43,5 +43,16 @@ $(function() {
 			location.href = "/w/" + encodeURIComponent(val);
 		}
 	});
+
+$(".wiki-fn-content").click(function(){
+    var target=$(this).attr('href');
+    target=target.replace("#","");
+    var $tmp=$("span[class=target][id=\""+ target+"\"]").parent().clone();
+    $tmp.children("span[class=target]").remove();
+    $tmp.children("a[href^='#rfn-']").remove();
+    $("#footnoteModal .modal-header").html("<h5 class=\"modal-title\">각주: "+ $(this).text()+"</h5>");
+    $("#footnoteModal .modal-body").html($tmp.html());$("#footnoteModal").modal('show');
+    return false;
+});
 });
 
