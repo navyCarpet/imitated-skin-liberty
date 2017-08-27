@@ -201,7 +201,7 @@ div.scroll-buttons {
     100% {transform: rotate(2deg);}
 }
 
-.res-loading .r-head {
+.res-loading[data-visible="true"] .r-head {
     animation: loading-head-animation 1s infinite;
 }
 
@@ -209,6 +209,6 @@ div.scroll-buttons {
     height: 50px;
 }
 
-.res-loading .res {
+.res-loading[data-visible="true"] .res {
     animation: loading-res-animation 1s infinite;
 }
