@@ -21,7 +21,7 @@
 
 .r-head, .r-body {
 	border: 1px solid black;
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 .r-head {
@@ -46,6 +46,8 @@
 .r-body {
 	background: whitesmoke;
 	padding: 10px;
+    overflow: scroll;
+    max-height: 50vh;
 }
 
 .more-box {
