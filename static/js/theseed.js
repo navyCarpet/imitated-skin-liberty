@@ -1,6 +1,23 @@
 $(function() {
+	var isVideoAvailable = (function(){
+		var v = document.createElement('video');
+		return v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '');
+	 })();
 	$(".wiki-article img.wiki-lazy-image").removeClass('wiki-lazy-image').removeClass('wiki-lazy-loading').each(function () {
-		$(this).attr('src', $(this).attr("data-original"));
+		var img = $(this);
+		var playAsVideo = imgTag.attr('data-video-src') && isVideoAvailable;
+		if(playAsVideo) {
+			// senkawa skin 참고함.
+			var videoTag = $("<video class='wiki-image' loop autoplay muted playsinline>");
+			videoTag.attr('src', img.attr('data-video-src'));
+			videoTag.attr('poster', '/skins/senkawa/img/loading.gif');
+			if(img.attr('width')) videoTag.attr('width', img.attr('width'));
+			if(img.attr('height')) videoTag.attr('height', img.attr('height'));
+			img.after(videoTag);
+			img.remove();
+		} else {
+			img.attr('src', $(this).attr("data-original"));
+		}
 	});
 	$("#searchform").submit(function() { return false; });
 	$("#searchInput").keypress(function (event) {
