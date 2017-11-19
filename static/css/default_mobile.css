@@ -148,7 +148,8 @@
 @media (max-width: 397px) {
     .Liberty .nav-wrapper .navbar .navbar-brand {
         width: 5rem;
-        background: transparent url(../img/logo.png?2015-12-18T21:00:00Z) no-repeat scroll left center/auto 1.5rem
+        /* 모바일에서 Libre 로고 나타내는 거 수정 */
+        /*background: transparent url(../img/logo.png?2015-12-18T21:00:00Z) no-repeat scroll left center/auto 1.5rem*/
     }
 
     .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link::after {
