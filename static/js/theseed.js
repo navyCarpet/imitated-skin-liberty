@@ -10,7 +10,7 @@ $(function() {
 			// senkawa skin 참고함.
 			var videoTag = $("<video class='wiki-image' loop autoplay muted playsinline>");
 			videoTag.attr('src', img.attr('data-video-src'));
-			videoTag.attr('poster', '/skins/senkawa/img/loading.gif');
+			videoTag.attr('poster', '/skins/liberty/img/loading.gif');
 			if(img.attr('width')) videoTag.attr('width', img.attr('width'));
 			if(img.attr('height')) videoTag.attr('height', img.attr('height'));
 			img.after(videoTag);
