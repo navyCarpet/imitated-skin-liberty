@@ -1,7 +1,7 @@
 $(function() {
 	var isVideoAvailable = (function(){
 		var v = document.createElement('video');
-		return v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '');
+		return v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.4D401E').replace(/no/, '');
 	 })();
 	$(".wiki-article img.wiki-lazy-image").removeClass('wiki-lazy-image').removeClass('wiki-lazy-loading').each(function () {
 		var img = $(this);
