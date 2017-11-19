@@ -5,7 +5,7 @@ $(function() {
 	 })();
 	$(".wiki-article img.wiki-image-loading").removeClass('wiki-image-loading').each(function () {
 		var img = $(this);
-		var playAsVideo = imgTag.attr('data-video-src') && isVideoAvailable;
+		var playAsVideo = img.attr('data-video-src') && isVideoAvailable;
 		if(playAsVideo) {
 			// senkawa skin 참고함.
 			var videoTag = $("<video class='wiki-image' loop autoplay muted playsinline>");
