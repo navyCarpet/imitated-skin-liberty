@@ -16,7 +16,7 @@ $(function() {
 			img.after(videoTag);
 			img.remove();
 		} else {
-			img.attr('src', $(this).attr("data-original"));
+			img.attr('src', $(this).attr("data-src"));
 		}
 	});
 	$("#searchform").submit(function() { return false; });
