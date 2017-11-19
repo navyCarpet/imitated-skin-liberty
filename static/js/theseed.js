@@ -3,7 +3,7 @@ $(function() {
 		var v = document.createElement('video');
 		return v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.4D401E').replace(/no/, '');
 	 })();
-	$(".wiki-article img.wiki-lazy-image").removeClass('wiki-lazy-image').removeClass('wiki-lazy-loading').each(function () {
+	$(".wiki-article img.wiki-image-loading").removeClass('wiki-image-loading').each(function () {
 		var img = $(this);
 		var playAsVideo = imgTag.attr('data-video-src') && isVideoAvailable;
 		if(playAsVideo) {
