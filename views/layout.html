@@ -39,14 +39,14 @@
                         <a class="dropdown-item" href="/contribution/author/{{ member.username }}/document">내 문서 기여 목록</a>
                         <a class="dropdown-item" href="/contribution/author/{{ member.username }}/discuss">내 토론 기여 목록</a>
                         <div class="dropdown-divider"></div>
-                        <a href="/mypage" class="dropdown-item">내 정보</a>
+                        <a href="/member/mypage" class="dropdown-item">내 정보</a>
                         <div class="dropdown-divider view-logout"></div>
-                        <a href="/logout?redirect={{ url | url_encode }}" class="dropdown-item view-logout">로그아웃</a>
+                        <a href="/member/logout?redirect={{ url | url_encode }}" class="dropdown-item view-logout">로그아웃</a>
                     </div>
                 </div>
-                <a href="/logout?redirect={{ url | url_encode }}" class="hide-logout logout-btn"><span class="fa fa-sign-out"></span></a>
+                <a href="/member/logout?redirect={{ url | url_encode }}" class="hide-logout logout-btn"><span class="fa fa-sign-out"></span></a>
                 {% else %}
-                <a href="/login?redirect={{ url | url_encode }}" class="none-outline">
+                <a href="/member/login?redirect={{ url | url_encode }}" class="none-outline">
                     <span class="fa fa-sign-in"></span>
                 </a>
                 {% endif %}
