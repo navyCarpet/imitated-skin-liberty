@@ -140,7 +140,7 @@
                 {% if skinInfo.viewName == 'wiki' and date %}
                 <ul class="footer-info">
                     <li class="footer-info-lastmod"> 이 문서는 {{ date | to_date | localdate('Y-m-d H:i:sO') }} 에 마지막으로 바뀌었습니다.</li>
-                    <li class="footer-info-copyright">모든 문서는 <a class="external" rel="nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</a>에 따라 사용할 수 있습니다.</li>
+                    <li class="footer-info-copyright">{{ config.getString('wiki.copyright_text', '') }}</li>
                 </ul>
                 {% endif %}
                 <ul class="footer-places">
@@ -152,8 +152,6 @@
                         <li class="footer-places-mobileview"><a href="https://librewiki.net/index.php?title=%EB%A6%AC%EB%B8%8C%EB%A0%88_%EC%9C%84%ED%82%A4:%ED%98%84%EA%B4%80&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">모바일 보기(확장기능)</a></li> -->
                 </ul>
                 <ul class="footer-icons">
-                    <li class="footer-copyrightico">
-                        <a href="https://creativecommons.org/licenses/by-sa/3.0/"><img src="/resources/assets/licenses/cc-by-sa.png" alt="크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0" width="88" height="31"></a> </li>
                     <li class="footer-poweredbyico">
                         <a href="//theseed.io/">Powered by the seed Engine</a>
                     </li>
