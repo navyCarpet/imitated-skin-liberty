@@ -112,11 +112,11 @@
                         <div class="dropdown-menu dropdown-menu-right" role="menu">
                             <a href="/xref/{{ document|encode_doc }}" class="dropdown-item">역링크</a>
                             <a href="/delete/{{ document|encode_doc }}" class="dropdown-item">삭제</a>
-			    <a href="/move/{{ document|encode_doc }}" class="dropdown-item">이동</a>
-			    <a href="/acl/{{ document|encode_doc }}" class="dropdown-item">ACL</a>
-				{% if user %}
-                <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여내역</a>
-                {% endif %}
+                            <a href="/move/{{ document|encode_doc }}" class="dropdown-item">이동</a>
+                            <a href="/acl/{{ document|encode_doc }}" class="dropdown-item">ACL</a>
+                            {% if user %}
+                            <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여내역</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
