@@ -114,6 +114,9 @@
                             <a href="/delete/{{ document|encode_doc }}" class="dropdown-item">삭제</a>
 			    <a href="/move/{{ document|encode_doc }}" class="dropdown-item">이동</a>
 			    <a href="/acl/{{ document|encode_doc }}" class="dropdown-item">ACL</a>
+				{% if user %}
+                <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여내역</a>
+                {% endif %}
                         </div>
                     </div>
                 </div>
