@@ -1,6 +1,5 @@
 {
-	"override_views": [
-	],
+	"override_views": [],
 	"static_files": [
 		"css/font-awesome.min.css",
 		"bootstrap/css/bootstrap.min.css",
@@ -45,8 +44,7 @@
 			"css/theseed.css"
 		]
 	},
-	"manual_file_targets": {
-	},
+	"manual_file_targets": {},
 	"body_classes": [
 		"Liberty"
 	],
