@@ -25,6 +25,7 @@ $(".wiki-heading").each(function () {
             e.preventDefault();
         });
 })
+
 $(".wiki-heading").click(function (e) {
     if (e.target.tagName === 'A') return;
     var paragraph = $(this).next();

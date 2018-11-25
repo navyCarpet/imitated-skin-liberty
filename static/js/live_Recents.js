@@ -59,10 +59,7 @@ function ShowAjaxRecentList(parent)
  * Vector-specific scripts
  */
 var recentIntervalHandle = null;
-
 jQuery( function ( jQuery ) {
-
-
 	var width = jQuery(window).width();
 	if(width > 1023)
 	{
@@ -77,7 +74,6 @@ jQuery( function ( jQuery ) {
 	//만약에 화면의 사이즈가 작아 최근 변경글이 안보일 시, 갱신을 하지 않는다.
 	jQuery(window).resize(recentIntervalCheck);
 } );
-
 
 var recentIntervalCheck = function(){
 	var width = jQuery(window).width();
