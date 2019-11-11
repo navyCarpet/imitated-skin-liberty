@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 100;
     src: local('Noto Sans Thin'), local('NotoSans-Thin'),local('Noto Sans CJK KR Thin'),
-    url(../../fonts/eot/NotoSansKR-Thin-Hestia.woff) format('eot'),
+    url(../../fonts/eot/NotoSansKR-Thin-Hestia.eot) format('eot'),
     url(../../fonts/woff/NotoSansKR-Thin-Hestia.woff) format('woff');
 }
 
