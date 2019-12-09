@@ -61,15 +61,7 @@
                 <div id="pt-notifications" class="navbar-notification">
                     <a href="#"><span class="label label-danger"></span></a>
                 </div>
-                <form id="searchform" class="form-inline">
-                    <div class="input-group">
-                        <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off">
-                        <span class="input-group-btn">
-                            <button type="submit" name="go" value="보기" id="searchGoButton" class="btn btn-secondary"><span class="fa fa-eye"></span></button>
-                            <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary"><span class="fa fa-search"></span></button>
-                        </span>
-                    </div>
-                </form>
+                <search-form />
             </nav>
         </div>
         <div class="content-wrapper">
@@ -847,6 +839,7 @@ import Common from '~/mixins/common';
 import Setting from '~/components/setting';
 import LocalDate from '~/components/localDate';
 import RecentCard from './recentCard';
+import SearchForm from './searchForm';
 
 if (process.browser) {
     try {
@@ -861,7 +854,8 @@ export default {
     components: {
         Setting,
         LocalDate,
-        RecentCard
+        RecentCard,
+        SearchForm
     }
 }
 </script>

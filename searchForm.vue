@@ -1,0 +1,71 @@
+<template>
+    <form id="searchform" class="form-inline" v-on:submit.prevent>
+        <div class="input-group">
+            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="keyEnter" @keydown.tab="keyEnter" @keydown.up="keyUp" @keydown.down="keyDown">
+            <span class="input-group-btn">
+                <button type="submit" name="go" value="보기" id="searchGoButton" class="btn btn-secondary" @click="onClickGo"><span class="fa fa-eye"></span></button>
+                <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
+            </span>
+        </div>
+        <div v-if="show" class="v-autocomplete-list">
+            <div class="v-autocomplete-list-item" v-for="(item, i) in internalItems" @click="onClickItem(item)" v-bind:key="i" :class="{'v-autocomplete-item-active': i === cursor}" @mouseover="cursor = i">
+                <div>{{ item }}</div>
+            </div>
+        </div>
+    </form>
+</template>
+
+<script>
+import AutocompleteMixin from '~/mixins/autocomplete';
+import Common from '~/mixins/common';
+
+export default {
+    mixins: [AutocompleteMixin],
+    methods: {
+        onClickSearch() {
+            if (!this.searchText) return;
+            this.$router.push('/search/' + encodeURIComponent(this.searchText));
+        },
+        onClickGo() {
+            if (!this.searchText) return;
+            this.$router.push(Common.filters.doc_action_link(this.searchText,'w'));
+        }
+    }
+}
+</script>
+
+<style scoped>
+.v-autocomplete-list {
+    position: absolute;
+    z-index: 3;
+    border: 1px solid #CCC;
+    background-color: #fff;
+    width: 10.8rem;
+}
+
+@media (max-width: 1023px) {
+    .v-autocomplete-list {
+        width: 100%;
+    }
+}
+
+.theseed-dark-mode .v-autocomplete-list {
+  background-color: #2d2f34;
+    border: 1px solid #383b40;
+}
+
+.v-autocomplete-list-item {
+  cursor: pointer;
+  color: #373a3c;
+  padding: 0.5rem;
+}
+.theseed-dark-mode .v-autocomplete-list-item {
+  color: #ddd;
+}
+ .v-autocomplete-list-item.v-autocomplete-item-active {
+  background-color: #f3f6fa;
+}
+.theseed-dark-mode .v-autocomplete-list-item.v-autocomplete-item-active {
+  background-color: #383b40;
+}
+</style>
