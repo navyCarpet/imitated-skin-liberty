@@ -820,8 +820,6 @@ Public License instead of this License.  But first, please read
             <nuxt-link class="scroll-bottom" to="#bottom" id="right"><i class="fa fa-arrow-down" aria-hidden="true"></i></nuxt-link>
         </div>
         <setting />
-        <quick-i-p-a-c-l />
-        <quick-suspend-account />
     </div>
 </template>
 
