@@ -852,7 +852,6 @@ Public License instead of this License.  But first, please read
 </template>
 
 <style>
-@import "ionicons/dist/css/ionicons.min.css";
 @import "./css/font-awesome.min.css";
 @import "./bootstrap/css/bootstrap.min.css";
 @import "./css/font/Noto Sans KR.css";
@@ -863,10 +862,8 @@ Public License instead of this License.  But first, please read
 
 <script>
 import fetchExternalGet from '~/components/api';
-import Common from '~/components/common';
+import Common from '~/mixins/common';
 import Setting from '~/components/setting';
-import QuickIPACL from '~/components/quickIPACL';
-import QuickSuspendAccount from '~/components/quickSuspendAccount';
 import LocalDate from '~/components/localDate';
 
 if (process.browser) {
@@ -878,11 +875,9 @@ if (process.browser) {
     } catch(e) {}
 }
 export default {
-	mixins: [Common],
-	components: {
-		Setting,
-		QuickIPACL,
-        QuickSuspendAccount,
+    mixins: [Common],
+    components: {
+        Setting,
         LocalDate
     },
     data() {
