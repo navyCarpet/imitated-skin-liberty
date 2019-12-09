@@ -83,25 +83,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="live-recent-content">
-                            <ul class="live-recent-list" id="live-recent-list">
-                                <template v-if="recent.length === 0">
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                </template>
-                                <template v-else>
-                                    <li><nuxt-link class="recent-item" v-bind:key="r.document" :to="r.document | doc_action_link('w')">[<local-date :date="r.date" format="H:i:s" />] {{ r.document}}</nuxt-link></li>
-                                </template>
-                            </ul>
-                        </div>
+                        <recent-card />
                         <div class="live-recent-footer">
                             <nuxt-link to="/RecentChanges" title="최근 변경내역"><span class="label label-info">더보기</span></nuxt-link>
                         </div>
@@ -861,10 +843,10 @@ Public License instead of this License.  But first, please read
 </style>
 
 <script>
-import fetchExternalGet from '~/components/api';
 import Common from '~/mixins/common';
 import Setting from '~/components/setting';
 import LocalDate from '~/components/localDate';
+import RecentCard from './recentCard';
 
 if (process.browser) {
     try {
@@ -878,29 +860,8 @@ export default {
     mixins: [Common],
     components: {
         Setting,
-        LocalDate
-    },
-    data() {
-        return {
-            recent: [],
-            timer: null
-        };
-    },
-    mounted() {
-        this.timer = setInterval(() => {
-            this.updateRecent();
-        }, 30000);
-        this.updateRecent();
-    },
-    methods: {
-        async updateRecent() {
-            try {
-                this.recent = (await fetchExternalGet('/sidebar.json', () => {}).then((result) => {})).data;
-            } catch(e) {}
-        }
-    },
-    beforeDestroy() {
-        if (this.timer) clearInterval(this.timer);
+        LocalDate,
+        RecentCard
     }
 }
 </script>
