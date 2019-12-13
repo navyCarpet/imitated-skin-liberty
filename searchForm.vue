@@ -24,7 +24,7 @@ export default {
     methods: {
         onClickSearch() {
             if (!this.searchText) return;
-            this.$router.push('/search/' + encodeURIComponent(this.searchText));
+            this.$router.push('/Search?q=' + encodeURIComponent(this.searchText));
         },
         onClickGo() {
             if (!this.searchText) return;
