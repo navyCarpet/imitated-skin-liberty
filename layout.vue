@@ -42,10 +42,10 @@
                                 <img class="profile-img" :src="$store.state.session.member.gravatar_url">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <nuxt-link :to="$store.state.session.member.username | user_doc | doc_action_link('w')" class="dropdown-item">{{ $store.state.session.member.username }}</nuxt-link>
+                                <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'w')" class="dropdown-item">{{ $store.state.session.member.username }}</nuxt-link>
                                 <div class="dropdown-divider"></div>
-                                <nuxt-link class="dropdown-item" :to="$store.state.session.member.username | contribution_author_link">내 문서 기여 목록</nuxt-link>
-                                <nuxt-link class="dropdown-item" :to="$store.state.session.member.username | contribution_author_link_discuss">내 토론 기여 목록</nuxt-link>
+                                <nuxt-link class="dropdown-item" :to="contribution_author_link($store.state.session.member.username)">내 문서 기여 목록</nuxt-link>
+                                <nuxt-link class="dropdown-item" :to="contribution_author_link_discuss($store.state.session.member.username)">내 토론 기여 목록</nuxt-link>
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link to="/member/mypage" class="dropdown-item">내 정보</nuxt-link>
                                 <div class="dropdown-divider view-logout"></div>
@@ -86,19 +86,19 @@
                 <div class="liberty-content-header">
                     <div class="content-tools" v-if="$store.state.page.data.document">
                         <div class="btn-group" role="group" aria-label="content-tools">
-                            <nuxt-link :to="$store.state.page.data.document | doc_action_link('w')" class="btn btn-secondary tools-btn">문서</nuxt-link>
-                            <nuxt-link :to="$store.state.page.data.document | doc_action_link('edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
-                            <nuxt-link :to="$store.state.page.data.document | doc_action_link('discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
-                            <nuxt-link :to="$store.state.page.data.document | doc_action_link('history')"  class="btn btn-secondary tools-btn">기록</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')" class="btn btn-secondary tools-btn">문서</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">기록</nuxt-link>
                             <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <span class="caret"></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <nuxt-link :to="$store.state.page.data.document | doc_action_link('backlink')" class="dropdown-item">역링크</nuxt-link>
-                                <nuxt-link :to="$store.state.page.data.document | doc_action_link('delete')" class="dropdown-item">삭제</nuxt-link>
-                                <nuxt-link :to="$store.state.page.data.document | doc_action_link('move')"  class="dropdown-item">이동</nuxt-link>
-                                <nuxt-link :to="$store.state.page.data.document | doc_action_link('acl')"  class="dropdown-item">ACL</nuxt-link>
-                                <nuxt-link :to="$store.state.page.data.document.title | contribution_author_link" class="dropdown-item">기여내역</nuxt-link>
+                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="dropdown-item">역링크</nuxt-link>
+                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'delete')" class="dropdown-item">삭제</nuxt-link>
+                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'move')"  class="dropdown-item">이동</nuxt-link>
+                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="dropdown-item">ACL</nuxt-link>
+                                <nuxt-link :to="contribution_author_link($store.state.page.data.document.title)" class="dropdown-item">기여내역</nuxt-link>
                                 <template v-if="$store.state.page.data.menus">
                                     <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="dropdown-item" v-text="m.title" />
                                 </template>
@@ -115,7 +115,7 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
-                        현재 진행중인 <nuxt-link :to="$store.state.session.member.username | user_doc | doc_action_link('discuss')">사용자 토론</nuxt-link>이 있습니다.
+                        현재 진행중인 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'discuss')">사용자 토론</nuxt-link>이 있습니다.
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
