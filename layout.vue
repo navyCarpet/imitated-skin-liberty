@@ -829,6 +829,7 @@ Public License instead of this License.  But first, please read
 @import "./css/font/Noto Sans KR.css";
 @import "./css/default.css";
 @import './css/default_mobile.css';
+@import "./css/dark.css";
 
 </style>
 
