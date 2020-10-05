@@ -99,6 +99,18 @@
                                 <nuxt-link :to="doc_action_link($store.state.page.data.document, 'move')"  class="dropdown-item">이동</nuxt-link>
                                 <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="dropdown-item">ACL</nuxt-link>
                                 <nuxt-link :to="contribution_author_link($store.state.page.data.document.title)" class="dropdown-item">기여내역</nuxt-link>
+                                <nuxt-link  v-if="$store.state.page.data.starred"
+                                            :to="doc_action_link($store.state.page.data.document, 'member/unstar')"
+                                            class="dropdown-item">
+                                    <span class="fa fa-star"></span>
+                                    <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '' }}</span>
+                                </nuxt-link>
+                                <nuxt-link  v-else 
+                                            :to="doc_action_link($store.state.page.data.document, 'member/star')"
+                                            class="dropdown-item">
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '' }}</span>
+                                </nuxt-link>
                                 <template v-if="$store.state.page.data.menus">
                                     <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="dropdown-item" v-text="m.title" />
                                 </template>
