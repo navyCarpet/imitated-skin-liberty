@@ -213,8 +213,3 @@ div.scroll-buttons {
 .res-loading[data-visible="true"] .res {
     animation: loading-res-animation 1s infinite;
 }
-
-.navbar-fixed-bottom, .navbar-fixed-top {
-    position: absolute;
-}
-
