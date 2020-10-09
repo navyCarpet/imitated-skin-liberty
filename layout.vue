@@ -48,6 +48,8 @@
                                 <nuxt-link class="dropdown-item" :to="contribution_author_link_discuss($store.state.session.member.username)">내 토론 기여 목록</nuxt-link>
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link to="/member/mypage" class="dropdown-item">내 정보</nuxt-link>
+                                <div class="dropdown-divider"></div>
+                                <nuxt-link to="/member/starred_documents" class="dropdown-item">내 문서함</nuxt-link>
                                 <div class="dropdown-divider view-logout"></div>
                                 <nuxt-link :to="{path:'/member/logout',query:{redirect:$route.fullPath}}" class="dropdown-item view-logout">로그아웃</nuxt-link>
                             </div>
