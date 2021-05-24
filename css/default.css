@@ -695,3 +695,7 @@ div.scroll-buttons {
 .navbar-fixed-top {
     position: absolute;
 }
+
+.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed {
+    z-index: 1;
+}
