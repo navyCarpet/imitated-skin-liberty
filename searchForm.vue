@@ -3,7 +3,6 @@
         <div class="input-group">
             <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="keyEnter" @keydown.tab="keyEnter" @keydown.up="keyUp" @keydown.down="keyDown">
             <span class="input-group-btn">
-                <button type="submit" name="go" value="보기" id="searchGoButton" class="btn btn-secondary" @click="onClickGo"><span class="fa fa-eye"></span></button>
                 <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
             </span>
         </div>
@@ -24,12 +23,8 @@ export default {
     methods: {
         onClickSearch() {
             if (!this.searchText) return;
-            this.$router.push('/Search?q=' + encodeURIComponent(this.searchText));
+            this.$router.push('/Go?q=' + encodeURIComponent(this.searchText));
         },
-        onClickGo() {
-            if (!this.searchText) return;
-            this.$router.push(Common.methods.doc_action_link(this.searchText,'w'));
-        }
     }
 }
 </script>
