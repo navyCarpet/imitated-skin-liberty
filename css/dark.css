@@ -50,6 +50,10 @@ body.theseed-dark-mode {
 	background: black;
 }
 
+.theseed-dark-mode .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username:hover {
+	color: #ddd;
+}
+
 .theseed-dark-mode a.dropdown-item {
 	color: #ddd;
 }
