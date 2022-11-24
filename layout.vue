@@ -53,8 +53,8 @@
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link class="dropdown-item" :to="contribution_author_link($store.state.session.member.username)">내 문서 기여 목록</nuxt-link>
                                 <nuxt-link class="dropdown-item" :to="contribution_author_link_discuss($store.state.session.member.username)">내 토론 기여 목록</nuxt-link>
-                                <div class="dropdown-divider view-logout"></div>
-                                <nuxt-link :to="{path:'/member/logout',query:{redirect:$route.fullPath}}" class="dropdown-item view-logout">로그아웃</nuxt-link>
+                                <div class="dropdown-divider"></div>
+                                <nuxt-link :to="{path:'/member/logout',query:{redirect:$route.fullPath}}" class="dropdown-item">로그아웃</nuxt-link>
                             </div>
                         </div>
                     </template>
@@ -70,7 +70,7 @@
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link class="dropdown-item" :to="contribution_ip_link($store.state.session.ip)">내 문서 기여 목록</nuxt-link>
                                 <nuxt-link class="dropdown-item" :to="contribution_ip_link_discuss($store.state.session.ip)">내 토론 기여 목록</nuxt-link>
-                                <div class="dropdown-divider view-logout"></div>
+                                <div class="dropdown-divider"></div>
                                 <nuxt-link :to="{path:'/member/login',query:{redirect:$route.fullPath}}" class="dropdown-item">로그인</nuxt-link>
                             </div>
                         </div>
