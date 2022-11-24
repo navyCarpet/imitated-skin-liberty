@@ -6,13 +6,13 @@
                 <nuxt-link class="navbar-brand" to="/"></nuxt-link>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근바뀜</span></nuxt-link>
+                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 바뀜</span></nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/RecentDiscuss"><span class="fa fa-comments"></span><span class="hide-title">최근토론</span></nuxt-link>
+                        <nuxt-link class="nav-link" to="/RecentDiscuss"><span class="fa fa-comments"></span><span class="hide-title">최근 토론</span></nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/random"><span class="fa fa-random"></span><span class="hide-title">임의문서</span></nuxt-link>
+                        <nuxt-link class="nav-link" to="/random"><span class="fa fa-random"></span><span class="hide-title">임의 문서</span></nuxt-link>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-fix" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -29,7 +29,6 @@
                             <nuxt-link to="/RandomPage" class="dropdown-item">RandomPage</nuxt-link>
                             <nuxt-link to="/Upload" class="dropdown-item">업로드</nuxt-link>
                             <nuxt-link to="/License" class="dropdown-item">라이선스</nuxt-link>
-                            <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                             <template v-if="$store.state.session.menus.length">
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link v-for="m in $store.state.session.menus" :to="m.l" v-bind:key="m.l" class="dropdown-item" v-text="m.t"/>
@@ -44,23 +43,38 @@
                                 <img class="profile-img" :src="$store.state.session.member.gravatar_url">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'w')" class="dropdown-item">{{ $store.state.session.member.username }}</nuxt-link>
+                                <div class="username dropdown-item">$store.state.session.member.username</div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
+                                <div class="dropdown-divider"></div>
+                                <nuxt-link to="/member/mypage" class="dropdown-item">내 정보</nuxt-link>
+                                <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'w')" class="dropdown-item">내 사용자 문서</nuxt-link>
+                                <nuxt-link to="/member/starred_documents" class="dropdown-item">내 문서함</nuxt-link>
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link class="dropdown-item" :to="contribution_author_link($store.state.session.member.username)">내 문서 기여 목록</nuxt-link>
                                 <nuxt-link class="dropdown-item" :to="contribution_author_link_discuss($store.state.session.member.username)">내 토론 기여 목록</nuxt-link>
-                                <div class="dropdown-divider"></div>
-                                <nuxt-link to="/member/mypage" class="dropdown-item">내 정보</nuxt-link>
-                                <div class="dropdown-divider"></div>
-                                <nuxt-link to="/member/starred_documents" class="dropdown-item">내 문서함</nuxt-link>
                                 <div class="dropdown-divider view-logout"></div>
                                 <nuxt-link :to="{path:'/member/logout',query:{redirect:$route.fullPath}}" class="dropdown-item view-logout">로그아웃</nuxt-link>
                             </div>
                         </div>
-                        <nuxt-link :to="{path:'/member/logout',query:{redirect:$route.fullPath}}" class="hide-logout logout-btn"><span class="fa fa-sign-out"></span></nuxt-link>
                     </template>
-                    <nuxt-link v-else :to="{path:'/member/login',query:{redirect:$route.fullPath}}" class="none-outline">
-                        <span class="fa fa-sign-in"></span>
-                    </nuxt-link>
+                    <template v-else>
+                        <div class="dropdown login-menu">
+                            <a class="dropdown-toggle" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="fa fa-sign-in"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
+                                <div class="username dropdown-item">$store.state.session.ip</div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
+                                <div class="dropdown-divider"></div>
+                                <nuxt-link class="dropdown-item" :to="contribution_ip_link($store.state.session.ip)">내 문서 기여 목록</nuxt-link>
+                                <nuxt-link class="dropdown-item" :to="contribution_ip_link_discuss($store.state.session.ip)">내 토론 기여 목록</nuxt-link>
+                                <div class="dropdown-divider view-logout"></div>
+                                <nuxt-link :to="{path:'/member/login',query:{redirect:$route.fullPath}}" class="dropdown-item">로그인</nuxt-link>
+                            </div>
+                        </div>
+                    </template>
                 </div>
                 <div id="pt-notifications" class="navbar-notification">
                     <a href="#"><span class="label label-danger"></span></a>
@@ -75,19 +89,22 @@
                         <div class="live-recent-header">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="liberty-recent-tab1">최근바뀜</a>
+                                    <a class="nav-link active" id="liberty-recent-tab1">최근 바뀜</a>
                                 </li>
                             </ul>
                         </div>
                         <recent-card />
                         <div class="live-recent-footer">
-                            <nuxt-link to="/RecentChanges" title="최근 변경내역"><span class="label label-info">더보기</span></nuxt-link>
+                            <nuxt-link to="/RecentChanges" title="최근 변경내역"><span class="label label-info">더 보기</span></nuxt-link>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
+                    <div class="title">
+                        <h1 v-text="$store.state.page.title"/>
+                    </div>
                     <div class="content-tools" v-if="$store.state.page.data.document">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')" class="btn btn-secondary tools-btn">문서</nuxt-link>
@@ -121,9 +138,6 @@
                                 </template>
                             </div>
                         </div>
-                    </div>
-                    <div class="title">
-                        <h1 v-text="$store.state.page.title"/>
                     </div>
                 </div>
                 <div class="liberty-content-main wiki-article">
