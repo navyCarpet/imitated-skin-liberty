@@ -19,15 +19,15 @@
                             <span class="fa fa-gear"></span><span class="hide-title">도구</span>
                         </a>
                         <div class="dropdown-menu" role="menu">
+                            <nuxt-link to="/NeededPages" class="dropdown-item">작성이 필요한 문서</nuxt-link>
                             <nuxt-link to="/OrphanedPages" class="dropdown-item">고립된 문서</nuxt-link>
                             <nuxt-link to="/UncategorizedPages" class="dropdown-item">분류가 되지 않은 문서</nuxt-link> 
-                            <nuxt-link to="/NeededPages" class="dropdown-item">작성이 필요한 문서</nuxt-link>
                             <nuxt-link to="/OldPages" class="dropdown-item">편집된 지 오래된 문서</nuxt-link>
                             <nuxt-link to="/ShortestPages" class="dropdown-item">내용이 짧은 문서</nuxt-link>
                             <nuxt-link to="/LongestPages" class="dropdown-item">내용이 긴 문서</nuxt-link>
                             <nuxt-link to="/BlockHistory" class="dropdown-item">차단 내역</nuxt-link>
                             <nuxt-link to="/RandomPage" class="dropdown-item">RandomPage</nuxt-link>
-                            <nuxt-link to="/Upload" class="dropdown-item">업로드</nuxt-link>
+                            <nuxt-link to="/Upload" class="dropdown-item">파일 올리기</nuxt-link>
                             <nuxt-link to="/License" class="dropdown-item">라이선스</nuxt-link>
                             <template v-if="$store.state.session.menus.length">
                                 <div class="dropdown-divider"></div>
