@@ -466,7 +466,6 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools {
-    float: right;
     padding-right: 1rem;
     padding-top: 1rem;
     position: absolute;
