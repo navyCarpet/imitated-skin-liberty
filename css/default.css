@@ -8,10 +8,6 @@
 
 }
 
-input:hover, button:hover, select:hover {
-    transition: 0.3s;
-}
-
 html {
     font-size: 15px;
     font-smoothing: antialiased;
@@ -23,12 +19,10 @@ body {
 
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Nanum Gothic", "KoPubDotum M", "Noto Sans Korean", "Noto Sans", "Malgun Gothic", "맑은 고딕", sans-serif;
-    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, b {
     font-family: "Nanum Gothic", "KoPubDotum B", "Noto Sans Korean", "Noto Sans", "Malgun Gothic", "맑은 고딕", sans-serif;
-
 }
 
 input[type=password] {
@@ -59,27 +53,11 @@ h6 {
     font-size: 1.1rem;
 }
 
-ol, ul, p {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    margin-bottom: 0.8rem;
-}
-
 ol {
-    margin: 0 !important;
-    margin-left: 2.2rem !important;
-    margin-right: 1rem !important;
     list-style-image: none;
 }
 
 pre {
-    display: block;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
     background-color: #f5f8fa;
     border: 1px solid #e1e8ed;
     border-radius: 0.35rem;
@@ -88,10 +66,6 @@ pre {
 
 a:focus {
     outline: 0;
-}
-
-p {
-    overflow-wrap: break-word;
 }
 
 ul {
@@ -132,11 +106,6 @@ hr {
     border-top: 1px solid #e1e8ed;
 }
 
-
-html input[type=button]:hover, html input[type=submit]:hover, button:hover, #mw-editform-cancel:hover {
-    background-color: #449d44;
-}
-
 label {
     vertical-align: middle;
     word-break: keep-all;
@@ -164,7 +133,7 @@ del, s, strike {
 .Liberty .nav-wrapper {
     min-height: 2.8rem;
     background-color: #4188f1;
-    z-index: 1001;
+    z-index: 100;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
@@ -396,6 +365,8 @@ del, s, strike {
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content .live-recent-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content .live-recent-list li {
@@ -455,6 +426,7 @@ del, s, strike {
     margin-right: 16rem;
     padding: 0;
     padding-bottom: 1rem;
+    word-break: break-all;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header {
@@ -505,6 +477,7 @@ del, s, strike {
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .title {
     padding: 1rem;
+    min-height: 65px;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .contentSub {
@@ -516,6 +489,7 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-content .liberty-content-header .title>h1 {
     color: #000;
     font-weight: bold;
+    margin: 0;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .header-ads {
@@ -581,28 +555,12 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-footer ul {
     list-style-type: none;
     list-style-image: none;
-}
-
-.Liberty .content-wrapper .liberty-footer ul {
-    margin-bottom: 0.8rem;
     display: inline-block;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.Liberty .content-wrapper .liberty-footer .footer-places li {
-    text-align: left;
-    float: left;
-    margin-right: 0.8rem;
-}
-
-.Liberty .content-wrapper .liberty-footer .footer-icons {
-    margin-bottom: 0;
-}
-
-.Liberty .content-wrapper .liberty-footer .footer-icons li {
-    margin-right: 0.8rem;
-    float: left;
-}
 /* 컨텐츠 하단 수정 End */
 
 /* 부트스트랩 커스텀 */
