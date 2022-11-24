@@ -243,6 +243,10 @@ del, s, strike {
     line-height: 1.4rem;
 }
 
+#login-menu>.fa {
+    line-height: 0.6rem;
+}
+
 .Liberty .nav-wrapper .navbar .navbar-login .login-menu {
     float: left;
     cursor: pointer;
