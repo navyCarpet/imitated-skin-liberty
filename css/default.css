@@ -294,6 +294,20 @@ del, s, strike {
     left: auto;
     right: 1.15rem;
 }
+
+.Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username {
+    cursor: default;
+    text-align: right;
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: unset;
+    word-break: break-all;
+}
+
+.Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username:hover {
+    background-color: transparent;
+    color: #373a3c;
+}
 /* 네비 수정 End */
 
 /* 오른쪽 메뉴 수정 */
@@ -415,7 +429,7 @@ del, s, strike {
     top: 25.73rem;
     width: 15rem;
 }
-    /* 오른쪽 메뉴 수정 End */
+/* 오른쪽 메뉴 수정 End */
 
 /* 컨텐츠 수정 */
 .Liberty .content-wrapper {
@@ -433,6 +447,7 @@ del, s, strike {
     border: 1px solid #e1e8ed;
     border-radius: 0.35rem 0.35rem 0 0;
     background-color: #f5f8fa;
+    position: relative;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .liberty-notice {
@@ -450,6 +465,9 @@ del, s, strike {
     float: right;
     padding-right: 1rem;
     padding-top: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn {
@@ -490,6 +508,7 @@ del, s, strike {
     color: #000;
     font-weight: bold;
     margin: 0;
+    line-height: 1.1;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .header-ads {
