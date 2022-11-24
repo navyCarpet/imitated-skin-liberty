@@ -62,6 +62,7 @@ pre {
     border: 1px solid #e1e8ed;
     border-radius: 0.35rem;
     padding: 0.8rem;
+    overflow-x: scroll;
 }
 
 a:focus {
