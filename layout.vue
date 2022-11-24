@@ -61,7 +61,7 @@
                     <template v-else>
                         <div class="dropdown login-menu">
                             <a class="dropdown-toggle" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="fa fa-sign-in"></span>
+                                <span class="fa fa-user"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
                                 <div class="username dropdown-item">$store.state.session.ip</div>
