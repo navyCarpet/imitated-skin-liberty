@@ -20,6 +20,7 @@
                         </a>
                         <div class="dropdown-menu" role="menu">
                             <nuxt-link to="/OrphanedPages" class="dropdown-item">고립된 문서</nuxt-link>
+                            <nuxt-link to="/UncategorizedPages" class="dropdown-item">분류가 되지 않은 문서</nuxt-link> 
                             <nuxt-link to="/NeededPages" class="dropdown-item">작성이 필요한 문서</nuxt-link>
                             <nuxt-link to="/OldPages" class="dropdown-item">편집된 지 오래된 문서</nuxt-link>
                             <nuxt-link to="/ShortestPages" class="dropdown-item">내용이 짧은 문서</nuxt-link>
