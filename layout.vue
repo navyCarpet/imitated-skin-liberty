@@ -190,6 +190,14 @@
                             </template>
                         </div>
                     </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'thread'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론 목록</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
                 </div>
                 <div class="liberty-content-main wiki-article">
                     <div v-if="$store.state.session.member && $store.state.session.member.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.member.user_document_discuss" class="alert alert-info fade in" id="userDiscussAlert" role="alert">
