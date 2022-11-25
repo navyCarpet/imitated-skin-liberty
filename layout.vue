@@ -912,10 +912,7 @@ Public License instead of this License.  But first, please read
             <nuxt-link class="scroll-bottom" to="#bottom" id="right"><i class="fa fa-arrow-down" aria-hidden="true"></i></nuxt-link>
         </div>
         <setting>
-            <setting-item-select label="사이드바 고정" ckey="liberty.sidebarfixed" default="no">
-                <option value="yes">활성화</option>
-                <option value="no">비활성화</option>
-            </setting-item-select>
+            <setting-item-checkbox label="사이드바 고정" ckey="liberty.sidebarfixed" />
         </setting>
     </div>
 </template>
@@ -933,6 +930,7 @@ Public License instead of this License.  But first, please read
 <script>
 import Common from '~/mixins/common';
 import Setting from '~/components/setting';
+import SettingItemCheckbox from '~/components/settingItemCheckbox';
 import LocalDate from '~/components/localDate';
 import RecentCard from './recentCard';
 import SearchForm from './searchForm';
@@ -949,6 +947,7 @@ export default {
     mixins: [Common],
     components: {
         Setting,
+        SettingItemCheckbox,
         LocalDate,
         RecentCard,
         SearchForm
