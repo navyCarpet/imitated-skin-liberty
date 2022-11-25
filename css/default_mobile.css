@@ -53,12 +53,12 @@
     .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools {
         text-align: right;
         padding: 0.5rem;
+        border-top: 1px solid #e1e8ed;
     }
 
     .Liberty .content-wrapper .liberty-content .liberty-content-header .title {
         padding: 0.5rem;
         min-height: 48px;
-        border-bottom: 1px solid #e1e8ed;
     }
 
     .Liberty .content-wrapper .liberty-content .liberty-content-header .contentSub {
