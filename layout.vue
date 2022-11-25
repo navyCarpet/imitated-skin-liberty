@@ -119,6 +119,7 @@
                             <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
+                            <small v-else-if="$store.state.page.data.rev'">(r{{$store.state.page.data.rev}} 판)</small>
                         </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
