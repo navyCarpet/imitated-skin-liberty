@@ -890,7 +890,7 @@ Public License instead of this License.  But first, please read
                 </div>
                 <div class="liberty-footer" id="bottom">
                     <ul class="footer-info" v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.date">
-                        <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" /> 에 마지막으로 수정되었습니다.</li>
+                        <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" /> 에 마지막으로 편집되었습니다.</li>
                         <li class="footer-info-copyright" v-html="$store.state.config['wiki.copyright_text']" />
                     </ul>
                     <ul class="footer-places">
