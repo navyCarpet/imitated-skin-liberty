@@ -120,6 +120,10 @@
                             <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
                             <small v-else-if="$store.state.page.data.rev'">(r{{$store.state.page.data.rev}} 판)</small>
+                            <small v-else-if="$store.state.page.viewName === 'revert'">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
+                            <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
+                            <small v-else-if="$store.state.page.viewName === 'raw'">(r{{$store.state.page.data.rev}} RAW)</small>
+                            <small v-else-if="$store.state.page.viewName === 'blame'">(r{{$store.state.page.data.rev}} Blame)</small>
                         </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
@@ -152,8 +156,8 @@
                     </div>
                     <div class="content-tools" v-else-if="$store.state.page.viewName === 'backlink'">
                         <div class="btn-group" role="group" aria-label="content-tools">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
                             </template>
@@ -171,6 +175,16 @@
                     </div>
                     <div class="content-tools" v-else-if="$store.state.page.viewName === 'history'">
                         <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'raw' || $store.state.page.viewName === 'diff'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
