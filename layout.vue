@@ -6,7 +6,7 @@
                 <nuxt-link class="navbar-brand" to="/"></nuxt-link>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 바뀜</span></nuxt-link>
+                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></nuxt-link>
                     </li>
                     <li class="nav-item">
                         <nuxt-link class="nav-link" to="/RecentDiscuss"><span class="fa fa-comments"></span><span class="hide-title">최근 토론</span></nuxt-link>
@@ -91,7 +91,7 @@
                         <div class="live-recent-header">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="liberty-recent-tab1">최근 바뀜</a>
+                                    <a class="nav-link active" id="liberty-recent-tab1">최근 변경</a>
                                 </li>
                             </ul>
                         </div>
