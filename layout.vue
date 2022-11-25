@@ -43,8 +43,7 @@
                                 <img class="profile-img" :src="$store.state.session.member.gravatar_url">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b></div>
-                                <div class="username dropdown-item">Member</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b><br>Member</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
@@ -65,8 +64,7 @@
                                 <span class="fa fa-user"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b></div>
-                                <div class="username dropdown-item">Please login!</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b><br>Please login!</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
