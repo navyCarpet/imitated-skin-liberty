@@ -5,7 +5,6 @@
 /* 태그 수정 */
 * {
     outline: none;
-
 }
 
 html {
@@ -169,7 +168,12 @@ del, s, strike {
     line-height: 1.4rem;
 }
 
-.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover, .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover {
+	background-color: #023e98;
+}
+
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover,
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
     transition: 0.3s;
 }
 
