@@ -117,7 +117,7 @@
                             <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
-                            <small v-else-if="$store.state.page.data.rev'">(r{{$store.state.page.data.rev}} 판)</small>
+                            <small v-else-if="$store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
                             <small v-else-if="$store.state.page.viewName === 'revert'">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
                             <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
                             <small v-else-if="$store.state.page.viewName === 'raw'">(r{{$store.state.page.data.rev}} RAW)</small>
