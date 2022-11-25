@@ -5,7 +5,6 @@
 /* 태그 수정 */
 * {
     outline: none;
-
 }
 
 html {
@@ -14,7 +13,7 @@ html {
 }
 
 body {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -55,6 +54,7 @@ h6 {
 
 ol {
     list-style-image: none;
+    font-size: 0.9rem;
 }
 
 pre {
@@ -168,7 +168,12 @@ del, s, strike {
     line-height: 1.4rem;
 }
 
-.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover, .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover {
+	background-color: #023e98;
+}
+
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover,
+.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
     transition: 0.3s;
 }
 
@@ -302,7 +307,6 @@ del, s, strike {
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username {
     cursor: default;
     text-align: right;
-    font-weight: 700;
     font-size: 1rem;
     white-space: unset;
     word-break: break-all;

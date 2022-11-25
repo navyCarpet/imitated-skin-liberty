@@ -6,7 +6,7 @@
                 <nuxt-link class="navbar-brand" to="/"></nuxt-link>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 바뀜</span></nuxt-link>
+                        <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></nuxt-link>
                     </li>
                     <li class="nav-item">
                         <nuxt-link class="nav-link" to="/RecentDiscuss"><span class="fa fa-comments"></span><span class="hide-title">최근 토론</span></nuxt-link>
@@ -43,7 +43,8 @@
                                 <img class="profile-img" :src="$store.state.session.member.gravatar_url">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item">{{ $store.state.session.member.username }}</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b></div>
+                                <div class="username dropdown-item">Member</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
@@ -64,7 +65,8 @@
                                 <span class="fa fa-user"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item">{{ $store.state.session.ip }}</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b></div>
+                                <div class="username dropdown-item">Please login!</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
@@ -89,7 +91,7 @@
                         <div class="live-recent-header">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="liberty-recent-tab1">최근 바뀜</a>
+                                    <a class="nav-link active" id="liberty-recent-tab1">최근 변경</a>
                                 </li>
                             </ul>
                         </div>
@@ -106,17 +108,17 @@
                         <h1 v-if="$store.state.page.data.document">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">
                                 <span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}
-                                <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
-                                <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
-                                <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
-                                <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
-                                <small v-else-if="$store.state.page.viewName === 'move'">(이동)</small>
-                                <small v-else-if="$store.state.page.viewName === 'delete'">(삭제)</small>
-                                <small v-else-if="$store.state.page.viewName === 'acl'">(ACL)</small>
-                                <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
-                                <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
-                                <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
                             </nuxt-link>
+                            <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
+                            <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
+                            <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
+                            <small v-else-if="$store.state.page.viewName === 'move'">(이동)</small>
+                            <small v-else-if="$store.state.page.viewName === 'delete'">(삭제)</small>
+                            <small v-else-if="$store.state.page.viewName === 'acl'">(ACL)</small>
+                            <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
+                            <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
                         </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
@@ -140,7 +142,7 @@
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.user"
-                                            :to="contribution_author_link($store.state.page.data.document.title)" class="btn btn-secondary tools-btn">기여내역</nuxt-link>
+                                            :to="contribution_author_link($store.state.page.data.document.title)" class="btn btn-secondary tools-btn">기여</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="btn btn-secondary tools-btn">ACL</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />

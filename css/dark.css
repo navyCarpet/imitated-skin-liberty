@@ -7,6 +7,12 @@ body.theseed-dark-mode {
 	background-color: black;
 }
 
+.dropdown-menu .dropdown-item:hover {
+    background-color: #5997f3;
+    color: #fff;
+    transition: 0.3s;
+}
+
 .theseed-dark-mode .Liberty .content-wrapper .liberty-content .liberty-content-header .title > h1 {
 	color: #ddd;
 }
@@ -22,12 +28,11 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .Liberty .nav-wrapper {
-	background-color: #014841;
+	background-color: #2d2f34;
 }
 
-.theseed-dark-mode .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus,
-.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover {
-	background-color: #023e98;
+.theseed-dark-mode .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover {
+    background-color: #383b40;
 }
 
 .theseed-dark-mode .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:active,
@@ -65,7 +70,7 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .dropdown-menu.dropdown-menu-right {
-	background: black;
+	background: #2d2f34;
 }
 
 .theseed-dark-mode .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username,
@@ -86,7 +91,7 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .dropdown-menu .dropdown-item:hover {
-	background-color: #023e98;
+	background-color: #383b40;
 }
 
 .theseed-dark-mode .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link.active,
@@ -118,7 +123,7 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .dropdown-menu {
-	background-color: black;
+	background-color: #2d2f34;
 }
 
 .theseed-dark-mode .liberty-content-main.wiki-article a {
