@@ -103,11 +103,12 @@
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
                     <div class="title">
-                        <h1 v-text="$store.state.page.title"/>
+                        <h1 v-if="$store.state.page.data.document && $store.state.page.data.document.namespace != '문서'"><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace">{{ $store.state.page.data.document.namespace }}:</span>{{ $store.state.page.data.document.title }}</nuxt-link></h1>
+                        <h1 v-else-if="$store.state.page.data.document && $store.state.page.data.document.namespace == '문서'""><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">{{ $store.state.page.title }}</nuxt-link></h1>
+                        <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
                     <div class="content-tools" v-if="$store.state.page.data.document">
                         <div class="btn-group" role="group" aria-label="content-tools">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')" class="btn btn-secondary tools-btn">문서</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.discuss_progress"
                                         :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary btn-discuss-progress tools-btn">토론</nuxt-link>
