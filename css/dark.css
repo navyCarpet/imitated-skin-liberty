@@ -3,6 +3,10 @@ body.theseed-dark-mode {
 	background-color: black;
 }
 
+.theseed-dark-mode pre {
+    background-color: #2d2f34;
+}
+
 .theseed-dark-mode .Liberty .content-wrapper .liberty-content .liberty-content-header {
 	background-color: black;
 }
@@ -70,7 +74,7 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .dropdown-menu.dropdown-menu-right {
-	background: #2d2f34;
+	background: #16171A;
 }
 
 .theseed-dark-mode .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username,
@@ -123,7 +127,7 @@ body.theseed-dark-mode {
 }
 
 .theseed-dark-mode .dropdown-menu {
-	background-color: #2d2f34;
+	background-color: #16171A;
 }
 
 .theseed-dark-mode .liberty-content-main.wiki-article a {

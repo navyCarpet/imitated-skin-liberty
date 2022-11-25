@@ -108,7 +108,6 @@ hr {
 }
 
 label {
-    vertical-align: middle;
     word-break: keep-all;
 }
 
@@ -512,6 +511,7 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn.btn-danger:focus,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn.btn-danger:active {
     background-color: #d9534f;
+    border-color: #adadad;
     color: white;
 }
 

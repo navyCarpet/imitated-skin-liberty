@@ -43,8 +43,7 @@
                                 <img class="profile-img" :src="$store.state.session.member.gravatar_url">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b></div>
-                                <div class="username dropdown-item">Member</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b><br>Member</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
@@ -65,8 +64,7 @@
                                 <span class="fa fa-user"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-                                <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b></div>
-                                <div class="username dropdown-item">Please login!</div>
+                                <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b><br>Please login!</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
                                 <div class="dropdown-divider"></div>
@@ -119,6 +117,11 @@
                             <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
+                            <small v-else-if="$store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
+                            <small v-else-if="$store.state.page.viewName === 'revert'">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
+                            <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
+                            <small v-else-if="$store.state.page.viewName === 'raw'">(r{{$store.state.page.data.rev}} RAW)</small>
+                            <small v-else-if="$store.state.page.viewName === 'blame'">(r{{$store.state.page.data.rev}} Blame)</small>
                         </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
@@ -151,8 +154,8 @@
                     </div>
                     <div class="content-tools" v-else-if="$store.state.page.viewName === 'backlink'">
                         <div class="btn-group" role="group" aria-label="content-tools">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
                             </template>
@@ -172,6 +175,24 @@
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'raw' || $store.state.page.viewName === 'diff'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'thread'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론 목록</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
                             </template>
@@ -869,7 +890,7 @@ Public License instead of this License.  But first, please read
                 </div>
                 <div class="liberty-footer" id="bottom">
                     <ul class="footer-info" v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.date">
-                        <li class="footer-info-lastmod"> 이 문서는 <local-date :date="$store.state.page.data.date" /> 에 마지막으로 바뀌었습니다.</li>
+                        <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" /> 에 마지막으로 편집되었습니다.</li>
                         <li class="footer-info-copyright" v-html="$store.state.config['wiki.copyright_text']" />
                     </ul>
                     <ul class="footer-places">
