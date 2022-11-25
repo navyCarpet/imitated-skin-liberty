@@ -525,6 +525,10 @@ del, s, strike {
     line-height: 1.1;
 }
 
+.Liberty .content-wrapper .liberty-content .liberty-content-header .title .namespace {
+    color: #545454;
+}
+
 .Liberty .content-wrapper .liberty-content .liberty-content-header .header-ads {
     margin: 1rem;
     margin-bottom: 0;

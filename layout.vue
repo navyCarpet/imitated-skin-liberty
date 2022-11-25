@@ -103,43 +103,61 @@
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
                     <div class="title">
-                        <h1 v-text="$store.state.page.title"/>
+                        <h1 v-if="$store.state.page.data.document && $store.state.page.data.document.namespace != '문서'"><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace">{{ $store.state.page.data.document.namespace }}:</span>{{ $store.state.page.data.document.title }}</nuxt-link></h1>
+                        <h1 v-else-if="$store.state.page.data.document && $store.state.page.data.document.namespace == '문서'""><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">{{ $store.state.page.title }}</nuxt-link></h1>
+                        <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
-                    <div class="content-tools" v-if="$store.state.page.data.document">
+                    <div class="content-tools" v-if="$store.state.page.viewName === 'wiki'">
                         <div class="btn-group" role="group" aria-label="content-tools">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')" class="btn btn-secondary tools-btn">문서</nuxt-link>
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link v-if="$store.state.page.data.starred"
+                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn">
+                                <span class="fa fa-star"></span>
+                                <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
+                            </nuxt-link>
+                            <nuxt-link v-else-if="$store.state.page.viewName === 'wiki'"
+                                             :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
+                                <span class="fa fa-star-o"></span>
+                                <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
+                            </nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.discuss_progress"
                                         :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary btn-discuss-progress tools-btn">토론</nuxt-link>
                             <nuxt-link v-else
                                         :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
-                            <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="dropdown-item">역링크</nuxt-link>
-                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'delete')" class="dropdown-item">삭제</nuxt-link>
-                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'move')"  class="dropdown-item">이동</nuxt-link>
-                                <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="dropdown-item">ACL</nuxt-link>
-                                <nuxt-link v-if="$store.state.page.data.user"
-                                            :to="contribution_author_link($store.state.page.data.document.title)" class="dropdown-item">기여내역</nuxt-link>
-                                <nuxt-link  v-if="$store.state.page.data.starred"
-                                            :to="doc_action_link($store.state.page.data.document, 'member/unstar')"
-                                            class="dropdown-item">
-                                    <span class="fa fa-star"></span>
-                                    <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
-                                </nuxt-link>
-                                <nuxt-link  v-else-if="$store.state.page.viewName === 'wiki'"
-                                            :to="doc_action_link($store.state.page.data.document, 'member/star')"
-                                            class="dropdown-item">
-                                    <span class="fa fa-star-o"></span>
-                                    <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
-                                </nuxt-link>
-                                <template v-if="$store.state.page.data.menus">
-                                    <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="dropdown-item" v-text="m.title" />
-                                </template>
-                            </div>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="btn btn-secondary tools-btn">ACL</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'backlink'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'edit' || $store.state.page.viewName === 'edit_request' || $store.state.page.viewName === 'new_edit_request'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'delete')" class="btn btn-danger tools-btn">삭제</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'move')"  class="btn btn-secondary tools-btn">이동</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
+                        </div>
+                    </div>
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'history'">
+                        <div class="btn-group" role="group" aria-label="content-tools">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
+                            <template v-if="$store.state.page.data.menus">
+                                <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
+                            </template>
                         </div>
                     </div>
                 </div>
