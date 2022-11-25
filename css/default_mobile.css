@@ -42,7 +42,8 @@
     }
     
     .Liberty .content-wrapper .liberty-content .liberty-content-header {
-        display: block;
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .Liberty .content-wrapper .liberty-content .liberty-content-header .liberty-notice {
