@@ -104,9 +104,7 @@
                 <div class="liberty-content-header">
                     <div class="title">
                         <h1 v-if="$store.state.page.data.document">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">
-                                <span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}
-                            </nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
                             <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
                             <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
@@ -117,11 +115,11 @@
                             <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
-                            <small v-else-if="$store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
-                            <small v-else-if="$store.state.page.viewName === 'revert'">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
+                            <small v-else-if="$store.state.page.viewName === 'revert' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
                             <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
-                            <small v-else-if="$store.state.page.viewName === 'raw'">(r{{$store.state.page.data.rev}} RAW)</small>
-                            <small v-else-if="$store.state.page.viewName === 'blame'">(r{{$store.state.page.data.rev}} Blame)</small>
+                            <small v-else-if="$store.state.page.viewName === 'raw' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} RAW)</small>
+                            <small v-else-if="$store.state.page.viewName === 'blame' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} Blame)</small>
+                            <small v-else-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
                         </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
@@ -206,6 +204,9 @@
                             <span class="sr-only">Close</span>
                         </button>
                         현재 진행 중인 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'discuss')">사용자 토론</nuxt-link>이 있습니다.
+                    </div>
+                    <div v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev && $store.state.page.data.date" class="alert alert-danger" role="alert">
+                        문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
