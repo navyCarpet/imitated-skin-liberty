@@ -105,8 +105,7 @@
                     <div class="title">
                         <h1 v-if="$store.state.page.data.document">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">
-                                <span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>
-                                {{$store.state.page.data.document.title}}
+                                <span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}
                                 <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
                                 <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
                                 <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
@@ -141,7 +140,7 @@
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.user"
-                                            :to="contribution_author_link($store.state.page.data.document.title)" class="dropdown-item">기여내역</nuxt-link>
+                                            :to="contribution_author_link($store.state.page.data.document.title)" class="btn btn-secondary tools-btn">기여내역</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="btn btn-secondary tools-btn">ACL</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
