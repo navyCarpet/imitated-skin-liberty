@@ -141,7 +141,7 @@
                             </template>
                         </div>
                     </div>
-                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'edit' || $store.state.page.viewName === 'edit_request' || $store.state.page.viewName === 'new_edit_request'">
+                    <div class="content-tools" v-else-if="$store.state.page.viewName === 'edit' || $store.state.page.viewName === 'edit_edit_request'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'delete')" class="btn btn-danger tools-btn">삭제</nuxt-link>
