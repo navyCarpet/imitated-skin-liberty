@@ -103,8 +103,22 @@
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
                     <div class="title">
-                        <h1 v-if="$store.state.page.data.document && $store.state.page.data.document.namespace != '문서'"><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace">{{ $store.state.page.data.document.namespace }}:</span>{{ $store.state.page.data.document.title }}</nuxt-link></h1>
-                        <h1 v-else-if="$store.state.page.data.document && $store.state.page.data.document.namespace == '문서'""><nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">{{ $store.state.page.title }}</nuxt-link></h1>
+                        <h1 v-if="$store.state.page.data.document">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">
+                                <span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>
+                                {{$store.state.page.data.document.title}}
+                                <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
+                                <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
+                                <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
+                                <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
+                                <small v-else-if="$store.state.page.viewName === 'move'">(이동)</small>
+                                <small v-else-if="$store.state.page.viewName === 'delete'">(삭제)</small>
+                                <small v-else-if="$store.state.page.viewName === 'acl'">(ACL)</small>
+                                <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
+                                <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
+                                <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
+                            </nuxt-link>
+                        </h1>
                         <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki'">
