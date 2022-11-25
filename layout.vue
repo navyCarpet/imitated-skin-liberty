@@ -140,6 +140,8 @@
                                         :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
+                            <nuxt-link v-if="$store.state.page.data.user"
+                                            :to="contribution_author_link($store.state.page.data.document.title)" class="dropdown-item">기여내역</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'acl')"  class="btn btn-secondary tools-btn">ACL</nuxt-link>
                             <template v-if="$store.state.page.data.menus">
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
