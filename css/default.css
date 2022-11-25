@@ -326,7 +326,7 @@ del, s, strike {
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed {
     position: fixed;
-    z-index: 999;
+    z-index: 1;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent {
@@ -699,8 +699,4 @@ div.scroll-buttons {
 
 .navbar-fixed-top {
     position: absolute;
-}
-
-.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed {
-    z-index: 1;
 }
