@@ -169,7 +169,6 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover, .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
-    background-color: #71a5f4;
     transition: 0.3s;
 }
 
@@ -509,7 +508,6 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn.btn-danger:focus,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn.btn-danger:active {
     background-color: #d9534f;
-    border-color: #d9534f;
     color: white;
 }
 
@@ -554,7 +552,6 @@ del, s, strike {
     background-color: #fff;
     padding: 1rem;
     overflow: hidden;
-    line-height: 1.6rem;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-main .social-buttons {
