@@ -324,7 +324,7 @@ del, s, strike {
     position: relative;
 }
 
-.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed {
+.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed.fixed {
     position: fixed;
     z-index: 1;
 }
