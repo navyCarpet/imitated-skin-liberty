@@ -102,27 +102,6 @@
             </div>
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
-                    <div class="title">
-                        <h1 v-if="$store.state.page.data.document">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
-                            <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
-                            <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
-                            <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
-                            <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
-                            <small v-else-if="$store.state.page.viewName === 'move'">(이동)</small>
-                            <small v-else-if="$store.state.page.viewName === 'delete'">(삭제)</small>
-                            <small v-else-if="$store.state.page.viewName === 'acl'">(ACL)</small>
-                            <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
-                            <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
-                            <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
-                            <small v-else-if="$store.state.page.viewName === 'revert' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
-                            <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
-                            <small v-else-if="$store.state.page.viewName === 'raw' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} RAW)</small>
-                            <small v-else-if="$store.state.page.viewName === 'blame' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} Blame)</small>
-                            <small v-else-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
-                        </h1>
-                        <h1 v-else>{{ $store.state.page.title }}</h1>
-                    </div>
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link v-if="$store.state.page.data.starred"
@@ -195,6 +174,27 @@
                                 <nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
                             </template>
                         </div>
+                    </div>
+                    <div class="title">
+                        <h1 v-if="$store.state.page.data.document">
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
+                            <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
+                            <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
+                            <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
+                            <small v-else-if="$store.state.page.viewName === 'move'">(이동)</small>
+                            <small v-else-if="$store.state.page.viewName === 'delete'">(삭제)</small>
+                            <small v-else-if="$store.state.page.viewName === 'acl'">(ACL)</small>
+                            <small v-else-if="$store.state.page.viewName === 'thread' || $store.state.page.viewName === 'thread_list'">(토론)</small>
+                            <small v-else-if="$store.state.page.viewName === 'thread_list_close'">(닫힌 토론)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit_request_close'">(닫힌 편집 요청)</small>
+                            <small v-else-if="$store.state.page.viewName === 'revert' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}}로 되돌리기)</small>
+                            <small v-else-if="$store.state.page.viewName === 'diff'">(비교)</small>
+                            <small v-else-if="$store.state.page.viewName === 'raw' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} RAW)</small>
+                            <small v-else-if="$store.state.page.viewName === 'blame' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} Blame)</small>
+                            <small v-else-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev">(r{{$store.state.page.data.rev}} 판)</small>
+                        </h1>
+                        <h1 v-else>{{ $store.state.page.title }}</h1>
                     </div>
                 </div>
                 <div class="liberty-content-main wiki-article">
