@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -302,7 +302,6 @@ del, s, strike {
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username {
     cursor: default;
     text-align: right;
-    font-weight: 700;
     font-size: 1rem;
     white-space: unset;
     word-break: break-all;
