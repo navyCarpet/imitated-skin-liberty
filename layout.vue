@@ -913,6 +913,7 @@ Public License instead of this License.  But first, please read
         </div>
         <setting>
             <setting-item-checkbox label="사이드바 고정" ckey="liberty.sidebarfixed" />
+            <setting-item-checkbox label="페이지 이동 시 검색 창 초기화 안 함" ckey="liberty.nosearchreset" />
         </setting>
     </div>
 </template>
