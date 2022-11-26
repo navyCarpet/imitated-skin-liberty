@@ -276,7 +276,7 @@ del, s, strike {
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu {
     top: 120%;
-    right: -1rem;
+    right: -0.5rem;
     z-index: 1002;
 }
 
@@ -293,14 +293,14 @@ del, s, strike {
     border-bottom-color: #e1e8ed;
     border-width: 0.8rem;
     left: auto;
-    right: 1.15rem;
+    right: 0.6rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu:after {
     border-bottom-color: #fff;
     border-width: 0.78rem;
     left: auto;
-    right: 1.15rem;
+    right: 0.6rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username {
