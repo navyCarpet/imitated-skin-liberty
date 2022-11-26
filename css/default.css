@@ -554,7 +554,7 @@ del, s, strike {
     border-right: 1px solid #e1e8ed;
     background-color: #fff;
     padding: 1rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-main .social-buttons {
