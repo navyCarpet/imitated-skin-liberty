@@ -646,10 +646,6 @@ del, s, strike {
     border-radius: 0.35rem;
 }
 
-.btn:hover {
-    transition: 0.3s;
-}
-
 .btn:active, .btn:focus {
     outline: 0;
 }
