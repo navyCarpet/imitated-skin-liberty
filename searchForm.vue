@@ -25,6 +25,15 @@ export default {
             if (!this.searchText) return;
             this.$router.push('/Go?q=' + encodeURIComponent(this.searchText));
         },
+    },
+    watch: {
+      $route(to, from) {
+        if (to.path != from.path) {
+          if ($store.state.localConfig['liberty.nosearchreset'] === false) {
+            this.searchText = '';
+          }
+        }
+      }
     }
 }
 </script>
