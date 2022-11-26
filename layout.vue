@@ -84,7 +84,7 @@
         </div>
         <div class="content-wrapper">
             <div class="liberty-sidebar">
-                <div class="liberty-right-fixed" v-bind:class="{ 'fixed': $store.state.localConfig['liberty.sidebarfixed'] === 'yes' }">
+                <div class="liberty-right-fixed" v-bind:class="{ 'fixed': $store.state.localConfig['liberty.sidebarfixed'] === true }">
                     <div class="live-recent">
                         <div class="live-recent-header">
                             <ul class="nav nav-tabs">
