@@ -207,7 +207,7 @@
                         현재 진행 중인 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'discuss')">사용자 토론</nuxt-link>이 있습니다.
                     </div>
                     <div v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev && $store.state.page.data.date" class="alert alert-danger" role="alert">
-                        문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
+                        [주의!] 문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
@@ -892,7 +892,7 @@ Public License instead of this License.  But first, please read
                 </div>
                 <div class="liberty-footer" id="bottom">
                     <ul class="footer-info" v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.date">
-                        <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" /> 에 마지막으로 편집되었습니다.</li>
+                        <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" />에 마지막으로 편집되었습니다.</li>
                         <li class="footer-info-copyright" v-html="$store.state.config['wiki.copyright_text']" />
                     </ul>
                     <ul class="footer-places">
