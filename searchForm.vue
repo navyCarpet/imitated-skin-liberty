@@ -1,7 +1,7 @@
 <template>
     <form id="searchform" class="form-inline" v-on:submit.prevent>
         <div class="input-group">
-            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="onGoSearch()" @keydown.tab="onGoSearch()" @keydown.up="keyUp" @keydown.down="keyDown">
+            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="onGoSearch" @keydown.tab="onGoSearch" @keydown.up="keyUp" @keydown.down="keyDown">
             <span class="input-group-btn">
               <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
               <button type="submit" name="fulltext" value="보기" id="searchWikiButton" class="btn btn-secondary" @click="onWikiSearch"><span class="fa fa-arrow-right"></span></button>
