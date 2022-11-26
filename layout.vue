@@ -200,7 +200,7 @@
                 </div>
                 <div class="liberty-content-main wiki-article">
                     <div v-if="$store.state.session.member && $store.state.session.member.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.member.user_document_discuss" class="alert alert-info fade in" id="userDiscussAlert" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="userDiscussTimeUpdate">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="$store.state.localConfig['wiki.hide_user_document_discuss'] = $store.state.session.member.user_document_discuss;">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
@@ -952,11 +952,6 @@ export default {
         LocalDate,
         RecentCard,
         SearchForm
-    },
-    methods: {
-        userDiscussTimeUpdate() {
-            $store.state.localConfig['wiki.hide_user_document_discuss'] = $store.state.session.member.user_document_discuss;
-        },
     }
 }
 </script>
