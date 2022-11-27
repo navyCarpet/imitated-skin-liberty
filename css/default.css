@@ -54,7 +54,6 @@ h6 {
 
 ol {
     list-style-image: none;
-    font-size: 0.9rem;
 }
 
 pre {
@@ -276,7 +275,7 @@ del, s, strike {
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu {
     top: 120%;
-    right: -1rem;
+    right: -0.5rem;
     z-index: 1002;
 }
 
@@ -293,14 +292,14 @@ del, s, strike {
     border-bottom-color: #e1e8ed;
     border-width: 0.8rem;
     left: auto;
-    right: 1.15rem;
+    right: 0.6rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu:after {
     border-bottom-color: #fff;
     border-width: 0.78rem;
     left: auto;
-    right: 1.15rem;
+    right: 0.6rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username {
@@ -481,6 +480,11 @@ del, s, strike {
     padding: 0.4rem 0.8rem;
 }
 
+.Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn .fa-star {
+    color: #ff6200;
+    margin-right: 0.1em;
+}
+
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .dropdown-toggle {
     padding: 0.4rem 0.3rem;
 }
@@ -554,7 +558,7 @@ del, s, strike {
     border-right: 1px solid #e1e8ed;
     background-color: #fff;
     padding: 1rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-main .social-buttons {
@@ -624,7 +628,6 @@ del, s, strike {
 .dropdown-menu .dropdown-item:hover {
     background-color: #5997f3;
     color: #fff;
-    transition: 0.3s;
 }
 
 .dropdown-divider {
@@ -645,10 +648,6 @@ del, s, strike {
 .btn {
     box-shadow: none;
     border-radius: 0.35rem;
-}
-
-.btn:hover {
-    transition: 0.3s;
 }
 
 .btn:active, .btn:focus {

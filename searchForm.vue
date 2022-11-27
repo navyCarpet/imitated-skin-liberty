@@ -1,9 +1,10 @@
 <template>
     <form id="searchform" class="form-inline" v-on:submit.prevent>
         <div class="input-group">
-            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="keyEnter" @keydown.tab="keyEnter" @keydown.up="keyUp" @keydown.down="keyDown">
+            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keyup.enter="onGoSearch" @keydown.tab="onGoSearch" @keydown.up="keyUp" @keydown.down="keyDown">
             <span class="input-group-btn">
-                <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
+              <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
+              <button type="submit" name="fulltext" value="보기" id="searchWikiButton" class="btn btn-secondary" @click="onWikiSearch"><span class="fa fa-arrow-right"></span></button>
             </span>
         </div>
         <div v-if="show" class="v-autocomplete-list">
@@ -21,10 +22,27 @@ import Common from '~/mixins/common';
 export default {
     mixins: [AutocompleteMixin],
     methods: {
-        onClickSearch() {
+        onGoSearch() {
             if (!this.searchText) return;
             this.$router.push('/Go?q=' + encodeURIComponent(this.searchText));
         },
+        onClickSearch() {
+            if (!this.searchText) return;
+            this.$router.push('/Search?q=' + encodeURIComponent(this.searchText));
+        },
+        onWikiSearch() {
+            if (!this.searchText) return;
+            this.$router.push(this.$router.push(Common.methods.doc_action_link(this.searchText, 'w')););
+        }
+    },
+    watch: {
+      $route(to, from) {
+        if (to.path != from.path) {
+          if ($store.state.localConfig["liberty.nosearchreset"] !== true) {
+            this.searchText = '';
+          }
+        }
+      }
     }
 }
 </script>
