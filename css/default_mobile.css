@@ -54,6 +54,7 @@
         text-align: right;
         padding: 0.5rem;
         border-top: 1px solid #e1e8ed;
+        float: unset;
     }
 
     .Liberty .content-wrapper .liberty-content .liberty-content-header .title {
