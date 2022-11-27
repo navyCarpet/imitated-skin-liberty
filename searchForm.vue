@@ -32,7 +32,7 @@ export default {
         },
         onWikiSearch() {
             if (!this.searchText) return;
-            this.$router.push(this.$router.push(Common.methods.doc_action_link(this.searchText, 'w')););
+            this.$router.push(Common.methods.doc_action_link(this.searchText, 'w'));
         }
     },
     watch: {
