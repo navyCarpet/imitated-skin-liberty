@@ -46,8 +46,8 @@
                                 <div class="username dropdown-item"><b>{{ $store.state.session.member.username }}</b><br>Member</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
-                                <a href="#" v-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] !== true" @click="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: true}); return;" class="dropdown-item">다크 테마로</a>
-                                <a href="#" v-else-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] === true" @click="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: false}); return;" class="dropdown-item">라이트 테마로</a>
+                                <a href="#" v-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] !== true" @click.prevent="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: true}); return;" class="dropdown-item">다크 테마로</a>
+                                <a href="#" v-else-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] === true" @click.prevent="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: false}); return;" class="dropdown-item">라이트 테마로</a>
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link to="/member/mypage" class="dropdown-item">내 정보</nuxt-link>
                                 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'w')" class="dropdown-item">내 사용자 문서</nuxt-link>
@@ -69,8 +69,8 @@
                                 <div class="username dropdown-item"><b>{{ $store.state.session.ip }}</b><br>Please login!</div>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" @click.prevent="$modal.show('theseed-setting');" class="dropdown-item">설정</a>
-                                <a href="#" v-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] !== true" @click="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: true}); return;" class="dropdown-item">다크 테마로</a>
-                                <a href="#" v-else-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] === true" @click="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: false}); return;" class="dropdown-item">라이트 테마로</a>
+                                <a href="#" v-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] !== true" @click.prevent="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: true}); return;" class="dropdown-item">다크 테마로</a>
+                                <a href="#" v-else-if="$store.state.localConfig['wiki.no_use_prefers_color'] === true && $store.state.localConfig['wiki.dark_mode'] === true" @click.prevent="$store.commit('localConfigSetValue', {key: 'wiki.dark_mode', value: false}); return;" class="dropdown-item">라이트 테마로</a>
                                 <div class="dropdown-divider"></div>
                                 <nuxt-link class="dropdown-item" :to="contribution_ip_link($store.state.session.ip)">내 문서 기여 목록</nuxt-link>
                                 <nuxt-link class="dropdown-item" :to="contribution_ip_link_discuss($store.state.session.ip)">내 토론 기여 목록</nuxt-link>
