@@ -38,7 +38,7 @@ export default {
     watch: {
       $route(to, from) {
         if (to.path != from.path) {
-          if ($store.state.localConfig["liberty.nosearchreset"] !== true) {
+          if (this.$store.state.localConfig["liberty.nosearchreset"] !== true) {
             this.searchText = '';
           }
         }
