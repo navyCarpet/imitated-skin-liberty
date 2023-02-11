@@ -119,10 +119,7 @@
                                 <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
                             </nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
-                            <nuxt-link v-if="$store.state.page.data.discuss_progress"
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary btn-discuss-progress tools-btn">토론</nuxt-link>
-                            <nuxt-link v-else
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn" v-bind:class="{ 'btn-discuss-progress': $store.state.page.data.discuss_progress }">토론</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.user"
@@ -136,10 +133,7 @@
                     <div class="content-tools" v-else-if="$store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
-                            <nuxt-link v-if="$store.state.page.data.discuss_progress"
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary btn-discuss-progress tools-btn">토론</nuxt-link>
-                            <nuxt-link v-else
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn" v-bind:class="{ 'btn-discuss-progress': $store.state.page.data.discuss_progress }">토론</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.user"
