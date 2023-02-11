@@ -217,14 +217,14 @@
                 </div>
                 <div class="liberty-content-main wiki-article">
                     <div v-if="$store.state.session.member && $store.state.session.member.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.member.user_document_discuss" class="alert alert-info fade in" id="userDiscussAlert" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @close="$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss})">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
                         현재 진행 중인 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'discuss')">사용자 토론</nuxt-link>이 있습니다.
                     </div>
                     <div v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev && $store.state.page.data.date" class="alert alert-danger" role="alert">
-                        [주의!] 문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
+                        <b>[주의!]</b> 문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
@@ -969,6 +969,13 @@ export default {
         LocalDate,
         RecentCard,
         SearchForm
+    },
+    mounted() {
+        if (document.getElementById('userDiscussAlert')) {
+            $('#userDiscussAlert').on('closed.bs.alert', function () {
+                $store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss});
+            });
+        }
     }
 }
 </script>
