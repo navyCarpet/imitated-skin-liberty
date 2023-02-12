@@ -973,7 +973,7 @@ export default {
     mounted() {
         if (document.getElementById('userDiscussAlert')) {
             $('#userDiscussAlert').on('closed.bs.alert', function () {
-                this.$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss});
+                this.$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: this.$store.state.session.member.user_document_discuss});
             });
         }
     }
