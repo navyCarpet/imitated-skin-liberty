@@ -217,7 +217,7 @@
                 </div>
                 <div class="liberty-content-main wiki-article">
                     <div v-if="$store.state.session.member && $store.state.session.member.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.member.user_document_discuss" class="alert alert-info fade in" id="userDiscussAlert" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss})">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
@@ -969,13 +969,6 @@ export default {
         LocalDate,
         RecentCard,
         SearchForm
-    },
-    mounted() {
-        if (document.getElementById('userDiscussAlert')) {
-            $('#userDiscussAlert').on('closed.bs.alert', function () {
-                this.$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: this.$store.state.session.member.user_document_discuss});
-            });
-        }
     }
 }
 </script>
