@@ -106,23 +106,20 @@
             </div>
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
-                    <div class="content-tools" v-if="$store.state.page.viewName === 'wiki'">
+                    <div class="content-tools" v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link v-if="$store.state.page.data.starred"
                                         :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn">
                                 <span class="fa fa-star"></span>
-                                <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
+                                <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
-                            <nuxt-link v-else-if="$store.state.page.viewName === 'wiki'"
+                            <nuxt-link v-else-if="$store.state.page.data.star_count >= 0"
                                              :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
                                 <span class="fa fa-star-o"></span>
-                                <span class="star-count">{{ $store.state.page.data.star_count ? $store.state.page.data.star_count : '0' }}</span>
+                                <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
-                            <nuxt-link v-if="$store.state.page.data.discuss_progress"
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary btn-discuss-progress tools-btn">토론</nuxt-link>
-                            <nuxt-link v-else
-                                        :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn">토론</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn" v-bind:class="{ 'btn-discuss-progress': $store.state.page.data.discuss_progress }">토론</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'history')"  class="btn btn-secondary tools-btn">역사</nuxt-link>
                             <nuxt-link v-if="$store.state.page.data.user"
@@ -181,9 +178,10 @@
                     </div>
                     <div class="title">
                         <h1 v-if="$store.state.page.data.document">
-                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace != '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
+                            <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace !== '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
                             <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.section">(r{{$store.state.page.data.body.baserev}} 문단 편집)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.baserev === 0">(새 문서 생성)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
                             <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
                             <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
@@ -205,14 +203,14 @@
                 </div>
                 <div class="liberty-content-main wiki-article">
                     <div v-if="$store.state.session.member && $store.state.session.member.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.member.user_document_discuss" class="alert alert-info fade in" id="userDiscussAlert" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @close="$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss})">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="$store.commit('localConfigSetValue', {key: 'wiki.hide_user_document_discuss', value: $store.state.session.member.user_document_discuss})">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
                         현재 진행 중인 <nuxt-link :to="doc_action_link(user_doc($store.state.session.member.username), 'discuss')">사용자 토론</nuxt-link>이 있습니다.
                     </div>
                     <div v-if="$store.state.page.viewName === 'wiki' && $store.state.page.data.rev && $store.state.page.data.date" class="alert alert-danger" role="alert">
-                        [주의!] 문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
+                        <b>[주의!]</b> 문서의 이전 버전(<local-date :date="$store.state.page.data.date" />에 수정)을 보고 있습니다. <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')">최신 버전으로 이동</nuxt-link>
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
