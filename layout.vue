@@ -936,8 +936,8 @@ import Common from '~/mixins/common';
 import Setting from '~/components/setting';
 import SettingItemCheckbox from '~/components/settingItemCheckbox';
 import LocalDate from '~/components/localDate';
-import RecentCard from './recentCard';
-import SearchForm from './searchForm';
+import RecentCard from './components/recentCard';
+import SearchForm from './components/searchForm';
 
 if (process.browser) {
     try {
