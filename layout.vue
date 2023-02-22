@@ -80,9 +80,6 @@
                         </div>
                     </template>
                 </div>
-                <div id="pt-notifications" class="navbar-notification">
-                    <a href="#"><span class="label label-danger"></span></a>
-                </div>
                 <search-form />
             </nav>
         </div>
@@ -105,6 +102,9 @@
                 </div>
             </div>
             <div class="container-fluid liberty-content">
+                <div id="site-notice" class="notification" v-if="$store.state.config['wiki.sitenotice']">
+                    <span class="label label-danger" v-html="$store.state.config['wiki.sitenotice']" />
+                </div>
                 <div class="liberty-content-header">
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
