@@ -297,6 +297,7 @@ del, s, strike {
     font-size: 1rem;
     white-space: unset;
     word-break: break-all;
+    padding: 3px 15px
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu .username:hover {
