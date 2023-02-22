@@ -113,7 +113,7 @@
                                 <span class="fa fa-star"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
-                            <nuxt-link v-else-if="$store.state.page.data.star_count >= 0"
+                            <nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
                                              :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
                                 <span class="fa fa-star-o"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
