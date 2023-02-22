@@ -181,7 +181,7 @@
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace !== '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
                             <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.section">(r{{$store.state.page.data.body.baserev}} 문단 편집)</small>
-                            <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.baserev === 0">(새 문서 생성)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.baserev === '0'">(새 문서 생성)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
                             <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
                             <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
