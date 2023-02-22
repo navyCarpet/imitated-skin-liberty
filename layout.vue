@@ -80,9 +80,6 @@
                         </div>
                     </template>
                 </div>
-                <div id="pt-notifications" class="navbar-notification">
-                    <a href="#"><span class="label label-danger"></span></a>
-                </div>
                 <search-form />
             </nav>
         </div>
@@ -105,6 +102,9 @@
                 </div>
             </div>
             <div class="container-fluid liberty-content">
+                <div id="site-notice" class="notification" v-if="$store.state.config['wiki.sitenotice']">
+                    <span class="label label-danger" v-html="$store.state.config['wiki.sitenotice']" />
+                </div>
                 <div class="liberty-content-header">
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
@@ -113,7 +113,7 @@
                                 <span class="fa fa-star"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
-                            <nuxt-link v-else-if="$store.state.page.data.star_count >= 0"
+                            <nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
                                              :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
                                 <span class="fa fa-star-o"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
@@ -181,7 +181,7 @@
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace !== '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
                             <small v-if="$store.state.page.viewName === 'edit_edit_request'">(편집 요청)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.section">(r{{$store.state.page.data.body.baserev}} 문단 편집)</small>
-                            <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.baserev === 0">(새 문서 생성)</small>
+                            <small v-else-if="$store.state.page.viewName === 'edit' && $store.state.page.data.body.baserev === '0'">(새 문서 생성)</small>
                             <small v-else-if="$store.state.page.viewName === 'edit'">(r{{$store.state.page.data.body.baserev}} 편집)</small>
                             <small v-else-if="$store.state.page.viewName === 'history'">(문서 역사)</small>
                             <small v-else-if="$store.state.page.viewName === 'backlink'">(역링크)</small>
