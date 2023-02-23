@@ -109,12 +109,12 @@
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link v-if="$store.state.page.data.starred"
-                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn" v-tooltip="Unstar">
+                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn" v-tooltip="`Unstar`">
                                 <span class="fa fa-star"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
                             <nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
-                                             :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn" v-tooltip="Star">
+                                             :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn" v-tooltip="`Star`">
                                 <span class="fa fa-star-o"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
