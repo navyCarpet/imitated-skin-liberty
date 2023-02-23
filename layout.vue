@@ -152,7 +152,7 @@
 								<nuxt-link v-for="m in $store.state.page.data.menus" v-bind:key="m.to" :to="m.to" class="btn btn-secondary tools-btn" v-text="m.title" />
 							</template>
 						</div>
-					</div>               
+					</div>
                     <div class="title">
                         <h1 v-if="$store.state.page.data.document">
                             <nuxt-link :to="doc_action_link($store.state.page.data.document, 'w')"><span class="namespace" v-if="$store.state.page.data.document.namespace !== '문서'">{{$store.state.page.data.document.namespace}}:</span>{{$store.state.page.data.document.title}}</nuxt-link>
@@ -191,7 +191,7 @@
                     </div>
                     <nuxt />
                     <div v-if="$store.state.page.viewName === 'license'">
-                        <h2>Liberty 스킨 라이선스</h2>
+                        <h2>Liberty skin license</h2>
                         <pre>
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
