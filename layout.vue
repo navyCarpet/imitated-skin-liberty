@@ -109,12 +109,12 @@
                     <div class="content-tools" v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
                         <div class="btn-group" role="group" aria-label="content-tools">
                             <nuxt-link v-if="$store.state.page.data.starred"
-                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn">
+                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn" v-tooltip="Unstar">
                                 <span class="fa fa-star"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
                             <nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
-                                             :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
+                                             :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn" v-tooltip="Star">
                                 <span class="fa fa-star-o"></span>
                                 <span class="star-count">{{ $store.state.page.data.star_count }}</span>
                             </nuxt-link>
@@ -932,12 +932,16 @@ Public License instead of this License.  But first, please read
 </style>
 
 <script>
+import Vue from 'vue';
+import VTooltip from 'v-tooltip';
 import Common from '~/mixins/common';
 import Setting from '~/components/setting';
 import SettingItemCheckbox from '~/components/settingItemCheckbox';
 import LocalDate from '~/components/localDate';
 import RecentCard from './recentCard';
 import SearchForm from './searchForm';
+
+Vue.use(VTooltip);
 
 if (process.browser) {
     try {
