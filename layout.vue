@@ -932,16 +932,12 @@ Public License instead of this License.  But first, please read
 </style>
 
 <script>
-import Vue from 'vue';
-import VTooltip from 'v-tooltip';
 import Common from '~/mixins/common';
 import Setting from '~/components/setting';
 import SettingItemCheckbox from '~/components/settingItemCheckbox';
 import LocalDate from '~/components/localDate';
 import RecentCard from './recentCard';
 import SearchForm from './searchForm';
-
-Vue.use(VTooltip);
 
 if (process.browser) {
     try {
