@@ -480,7 +480,8 @@ del, s, strike {
     padding: 0.4rem 0.8rem;
 }
 
-.Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn .fa-star {
+.Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn .fa-star,
+.Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn .fa-star-o {
     color: #ff6200;
     margin-right: 0.1em;
 }
