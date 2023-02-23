@@ -110,15 +110,15 @@
 						<div class="btn-group" role="group" aria-label="content-tools">
 							<template v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
 								<nuxt-link v-if="$store.state.page.data.starred"
-										:to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn">
-									<span class="fa fa-star"></span>
-									<span class="star-count">{{ $store.state.page.data.star_count }}</span>
-								</nuxt-link>
-								<nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
-										:to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn">
-									<span class="fa fa-star-o"></span>
-									<span class="star-count">{{ $store.state.page.data.star_count }}</span>
-								</nuxt-link>
+                                        :to="doc_action_link($store.state.page.data.document, 'member/unstar')" class="btn btn-secondary tools-btn" v-tooltip="`Unstar`">
+                                <span class="fa fa-star"></span>
+                                <span class="star-count">{{ $store.state.page.data.star_count }}</span>
+                            </nuxt-link>
+                            <nuxt-link v-else-if="$store.state.page.data.star_count || $store.state.page.data.star_count === 0"
+                                       :to="doc_action_link($store.state.page.data.document, 'member/star')" class="btn btn-secondary tools-btn" v-tooltip="`Star`">
+                                <span class="fa fa-star-o"></span>
+                                <span class="star-count">{{ $store.state.page.data.star_count }}</span>
+                            </nuxt-link>
 								<nuxt-link :to="doc_action_link($store.state.page.data.document, 'backlink')" class="btn btn-secondary tools-btn">역링크</nuxt-link>
 								<nuxt-link :to="doc_action_link($store.state.page.data.document, 'discuss')"  class="btn btn-secondary tools-btn" v-bind:class="{ 'btn-discuss-progress': $store.state.page.data.discuss_progress }">토론</nuxt-link>
 								<nuxt-link :to="doc_action_link($store.state.page.data.document, 'edit')" class="btn btn-secondary tools-btn">편집</nuxt-link>
