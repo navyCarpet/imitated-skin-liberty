@@ -40,6 +40,7 @@ export default {
         if (to.path != from.path) {
           if (this.$store.state.localConfig["liberty.nosearchreset"] !== true) {
             this.searchTextModel = '';
+            this.searchText = '';
           }
         }
       }
@@ -63,7 +64,7 @@ export default {
 }
 
 .theseed-dark-mode .v-autocomplete-list {
-  background-color: #2d2f34;
+    background-color: #2d2f34;
     border: 1px solid #383b40;
 }
 
