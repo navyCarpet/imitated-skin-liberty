@@ -106,7 +106,7 @@
                     <span class="label label-danger" v-html="$store.state.config['wiki.sitenotice']" />
                 </div>
                 <div class="liberty-content-header">
-					<div class="content-tools">
+					<div class="content-tools" v-if="['wiki', 'notfound', 'backlink', 'edit', 'edit_edit_request', 'history', 'raw', 'diff', 'thread'].includes($store.state.page.viewName) || $store.state.page.data.menus">
 						<div class="btn-group" role="group" aria-label="content-tools">
 							<template v-if="$store.state.page.viewName === 'wiki' || $store.state.page.viewName === 'notfound'">
 								<nuxt-link v-if="$store.state.page.data.starred"
