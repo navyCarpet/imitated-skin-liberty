@@ -213,6 +213,7 @@ del, s, strike {
     border-color: #5997f3;
     color: #fff;
     outline: 0;
+    transition: .3s;
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .btn .fa {
