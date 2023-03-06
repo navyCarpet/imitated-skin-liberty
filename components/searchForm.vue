@@ -40,7 +40,7 @@ export default {
         if (to.path != from.path) {
           if (this.$store.state.localConfig["liberty.nosearchreset"] !== true) {
             this.searchTextModel = '';
-            this.searchText = '';
+            this.inputChange();
           }
         }
       }
