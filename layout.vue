@@ -85,7 +85,7 @@
         </div>
         <div class="content-wrapper">
             <div class="liberty-sidebar">
-                <div class="liberty-right-fixed" v-bind:class="{ 'fixed': $store.state.localConfig['liberty.sidebarfix'] === true }">
+                <div class="liberty-right-fixed" v-bind:class="{ 'fixed': $store.state.localConfig['liberty.fixed_sidebar'] === true }">
                     <div class="live-recent">
                         <div class="live-recent-header">
                             <ul class="nav nav-tabs">
@@ -892,8 +892,8 @@ Public License instead of this License.  But first, please read
             <nuxt-link class="scroll-bottom" to="#bottom" id="right"><i class="fa fa-arrow-down" aria-hidden="true"></i></nuxt-link>
         </div>
         <setting>
-            <setting-item-checkbox label="사이드바 고정" ckey="liberty.sidebarfix" />
-            <setting-item-checkbox label="페이지 이동 시 검색 창 초기화" ckey="liberty.searchclear" default="checked" />
+            <setting-item-checkbox label="사이드바 고정" ckey="liberty.fixed_sidebar" />
+            <setting-item-checkbox label="페이지 이동 시 검색 창 초기화" ckey="liberty.reset_search_on_move" default="checked" />
         </setting>
     </div>
 </template>
