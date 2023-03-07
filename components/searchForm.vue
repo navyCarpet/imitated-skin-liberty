@@ -38,7 +38,7 @@ export default {
     watch: {
       $route(to, from) {
         if (to.path != from.path) {
-          if (this.$store.state.localConfig["liberty.searchclear"] !== false) {
+          if (this.$store.state.localConfig["liberty.reset_search_on_move"] !== false) {
             this.searchTextModel = '';
             this.internalItems = {};
           }
