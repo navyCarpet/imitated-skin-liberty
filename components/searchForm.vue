@@ -38,9 +38,9 @@ export default {
     watch: {
       $route(to, from) {
         if (to.path != from.path) {
-          if (this.$store.state.localConfig["liberty.nosearchreset"] !== true) {
+          if (this.$store.state.localConfig["liberty.reset_search_on_move"] !== false) {
             this.searchTextModel = '';
-            this.inputChange();
+            this.internalItems = {};
           }
         }
       }
@@ -69,17 +69,17 @@ export default {
 }
 
 .v-autocomplete-list-item {
-  cursor: pointer;
-  color: #373a3c;
-  padding: 0.5rem;
+    cursor: pointer;
+    color: #373a3c;
+    padding: 0.5rem;
 }
 .theseed-dark-mode .v-autocomplete-list-item {
-  color: #ddd;
+    color: #ddd;
 }
  .v-autocomplete-list-item.v-autocomplete-item-active {
-  background-color: #f3f6fa;
+    background-color: #f3f6fa;
 }
 .theseed-dark-mode .v-autocomplete-list-item.v-autocomplete-item-active {
-  background-color: #383b40;
+    background-color: #383b40;
 }
 </style>
