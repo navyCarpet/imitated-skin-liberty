@@ -127,9 +127,10 @@ del, s, strike {
 /* 네비 수정 */
 .Liberty .nav-wrapper {
     min-height: 2.8rem;
-    background-color: #4188f1;
+    background-color: var(--liberty-navbar-color, #4188f1);
     z-index: 100;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    font-weight: bold;
 }
 
 .Liberty .nav-wrapper .navbar {
@@ -140,10 +141,13 @@ del, s, strike {
 
 .Liberty .nav-wrapper .navbar .navbar-brand {
     height: 2.8rem;
-    width: 6.6rem;
-    background: transparent url("../img/logo.png") no-repeat scroll left center/auto 1.9rem;
-    padding: 0;
-    margin: 0;
+    width: var(--liberty-navbar-logo-width, 6.6rem);
+    background-image: var(--liberty-navbar-logo-image, none);
+    background-repeat: no-repeat no-repeat;
+    background-size: auto var(--liberty-navbar-logo-size, 1.9rem);
+    background-position: left center;
+    margin: var(--liberty-navbar-logo-margin, 0);
+    padding: var(--liberty-navbar-logo-padding, 0);
 }
 
 .Liberty .nav-wrapper .navbar .navbar-nav .nav-item {
@@ -209,7 +213,7 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .btn:hover, .Liberty .nav-wrapper .navbar .form-inline .btn:focus {
-    background-color: #4188f1;
+    background-color: var(--liberty-navbar-color, #4188f1);
     border-color: #5997f3;
     color: #fff;
     outline: 0;
@@ -365,7 +369,7 @@ del, s, strike {
     content: " ";
     width: 15rem;
     display: block;
-    border-bottom: 2px solid #4188f1;
+    border-bottom: 2px solid var(--liberty-navbar-color, #4188f1);
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content {

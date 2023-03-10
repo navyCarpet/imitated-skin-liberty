@@ -1,9 +1,9 @@
 <template>
-    <div class="Liberty">
+    <div class="Liberty" :style="skinConfig">
         <div id="top"></div>
         <div class="nav-wrapper navbar-fixed-top">
             <nav class="navbar navbar-dark">
-                <nuxt-link class="navbar-brand" to="/"></nuxt-link>
+                <nuxt-link class="navbar-brand" to="/" v-text="$store.state.config['skin.liberty.navbar_logo_text']"/>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
                         <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></nuxt-link>
@@ -875,9 +875,7 @@ Public License instead of this License.  But first, please read
                         <li class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" />에 마지막으로 편집되었습니다.</li>
                         <li class="footer-info-copyright" v-html="$store.state.config['wiki.copyright_text']" />
                     </ul>
-                    <ul class="footer-places">
-
-                    </ul>
+                    <ul class="footer-places" v-html="$store.state.config['skin.liberty.footer_html']" />
                     <ul class="footer-icons">
                         <li class="footer-poweredbyico">
                             <a href="//gitlab.com/librewiki/Liberty-MW-Skin">Liberty</a> | <a href="//theseed.io/">the seed</a>
@@ -932,6 +930,19 @@ export default {
         LocalDate,
         RecentCard,
         SearchForm
+    },
+    computed: {
+        skinConfig() {
+            return {
+                '--liberty-navbar-color': this.$store.state.config['skin.liberty.navbar_color'],
+                '--liberty-navbar-logo-image': this.$store.state.config['skin.liberty.navbar_logo_image'],
+                '--liberty-navbar-logo-minimum-width': this.$store.state.config['skin.liberty.navbar_logo_minimum_width'],
+                '--liberty-navbar-logo-width': this.$store.state.config['skin.liberty.navbar_logo_width'],
+                '--liberty-navbar-logo-size': this.$store.state.config['skin.liberty.navbar_logo_size'],
+                '--liberty-navbar-logo-padding': this.$store.state.config['skin.liberty.navbar_logo_padding'],
+                '--liberty-navbar-logo-margin': this.$store.state.config['skin.liberty.navbar_logo_margin'],
+            };
+        }
     }
 }
 </script>
