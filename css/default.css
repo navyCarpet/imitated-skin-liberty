@@ -247,6 +247,8 @@ del, s, strike {
 
 #login-menu>.fa {
     line-height: 0.6rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-menu {
