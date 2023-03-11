@@ -223,7 +223,6 @@ del, s, strike {
 
 .Liberty .nav-wrapper .navbar .form-inline .btn:hover, .Liberty .nav-wrapper .navbar .form-inline .btn:focus {
     background-color: var(--liberty-navbar-color, #4188f1);
-    border-color: #5997f3;
     color: #fff;
     outline: 0;
     transition: .3s;
@@ -425,7 +424,7 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-footer .label {
-    background-color: #5997f3;
+    background-color: var(--liberty-navbar-color, #5997f3);
     padding: 0.4rem;
     font-size: 0.8rem;
     font-weight: 400;
@@ -639,7 +638,7 @@ del, s, strike {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #5997f3;
+    background-color: var(--liberty-navbar-color, #5997f3);
     color: #fff;
 }
 
