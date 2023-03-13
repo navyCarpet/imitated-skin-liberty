@@ -1,16 +1,18 @@
 <template>
     <form id="searchform" class="form-inline" v-on:submit.prevent>
         <div class="input-group">
-            <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keydown.enter="onGoSearch" @keydown.tab="onGoSearch" @keydown.up="keyUp" @keydown.down="keyDown">
-            <span class="input-group-btn">
-              <button type="submit" name="fulltext" value="검색" id="searchSearchButton" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
-              <button type="submit" name="fulltext" value="보기" id="searchWikiButton" class="btn btn-secondary" @click="onWikiSearch"><span class="fa fa-arrow-right"></span></button>
-            </span>
-        </div>
-        <div v-if="show" class="v-autocomplete-list">
-            <div class="v-autocomplete-list-item" v-for="(item, i) in internalItems" @click="onClickItem(item)" v-bind:key="i" :class="{'v-autocomplete-item-active': i === cursor}" @mouseover="cursor = i">
-                <div>{{ item }}</div>
+            <div class="input-search">
+                <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off" v-on:input="searchText = $event.target.value" v-model="searchTextModel" @blur="blur" @focus="focus" @input="inputChange" @keydown.enter="onSubmit" @keydown.tab="onSubmit" @keydown.up="keyUp" @keydown.down="keyDown">
+                <div v-if="show" class="v-autocomplete-list">
+                    <div class="v-autocomplete-list-item" v-for="(item, i) in internalItems" @click="onClickItem(item)" v-bind:key="i" :class="{'v-autocomplete-item-active': i === cursor}" @mouseover="cursor = i">
+                        <div>{{ item }}</div>
+                    </div>
+                </div>
             </div>
+            <span class="input-group-btn">
+              <button type="submit" name="fulltext" value="검색" class="btn btn-secondary" @click="onClickSearch"><span class="fa fa-search"></span></button>
+              <button type="submit" name="fulltext" value="보기" class="btn btn-secondary" @click="onClickMove"><span class="fa fa-arrow-right"></span></button>
+            </span>
         </div>
     </form>
 </template>
@@ -22,7 +24,7 @@ import Common from '~/mixins/common';
 export default {
     mixins: [AutocompleteMixin],
     methods: {
-        onGoSearch() {
+        onSubmit() {
             if (!this.searchText) return;
             this.$router.push('/Go?q=' + encodeURIComponent(this.searchText));
         },
@@ -30,20 +32,20 @@ export default {
             if (!this.searchText) return;
             this.$router.push('/Search?q=' + encodeURIComponent(this.searchText));
         },
-        onWikiSearch() {
+        onClickMove() {
             if (!this.searchText) return;
             this.$router.push(Common.methods.doc_action_link(this.searchText, 'w'));
         }
     },
     watch: {
-      $route(to, from) {
-        if (to.path != from.path) {
-          if (this.$store.state.localConfig["liberty.reset_search_on_move"] !== false) {
-            this.searchTextModel = '';
-            this.internalItems = {};
-          }
+        $route(to, from) {
+            if (this.$store.state.localConfig["liberty.reset_search_on_move"] !== false) {
+                this.searchTextModel = '';
+                this.searchText = '';
+                this.cursor = -1;
+                this.internalItems = [];
+            }
         }
-      }
     }
 }
 </script>

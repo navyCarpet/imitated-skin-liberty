@@ -200,10 +200,19 @@ del, s, strike {
     border-radius: 0;
     border-top-left-radius: 0.35rem;
     border-bottom-left-radius: 0.35rem;
+    float: none;
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .form-control:focus {
     border-right-color: #e1e8ed;
+}
+
+.Liberty .nav-wrapper .navbar .form-inline .input-search {
+    display: table-cell;
+    float: left;
+    position: relative;
+    width: 100%;
+    z-index: 4;
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .btn {
@@ -214,7 +223,6 @@ del, s, strike {
 
 .Liberty .nav-wrapper .navbar .form-inline .btn:hover, .Liberty .nav-wrapper .navbar .form-inline .btn:focus {
     background-color: var(--liberty-navbar-color, #4188f1);
-    border-color: #5997f3;
     color: #fff;
     outline: 0;
     transition: .3s;
@@ -238,6 +246,8 @@ del, s, strike {
 
 #login-menu>.fa {
     line-height: 0.6rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-menu {
@@ -414,7 +424,7 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-footer .label {
-    background-color: #5997f3;
+    background-color: var(--liberty-navbar-color, #5997f3);
     padding: 0.4rem;
     font-size: 0.8rem;
     font-weight: 400;
@@ -628,7 +638,7 @@ del, s, strike {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #5997f3;
+    background-color: var(--liberty-navbar-color, #5997f3);
     color: #fff;
 }
 
