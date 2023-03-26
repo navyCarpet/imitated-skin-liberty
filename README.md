@@ -1,5 +1,5 @@
 ## 개요
-유라위키에 이용되는 리버티 스킨입니다. [imitated seed](https://github.com/gdl-blue/imitated-seed-2)용 스킨입니다.
+유라위키에 이용되는 리버티 스킨이며 [imitated seed](https://github.com/gdl-blue/imitated-seed-2)용 스킨입니다.
 
 PR 환영합니다.
 
