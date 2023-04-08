@@ -26,9 +26,15 @@
                     <a href="/RandomPage" class="dropdown-item">RandomPage</a>
                     <a href="/Upload" class="dropdown-item">업로드(미작동)</a>
                     <a href="/License" class="dropdown-item">라이선스</a>
-                    {%if perms.has('grant','login_history','aclgroup') %}
+                    {%if perms.has('grant','login_history','aclgroup','ipacl','suspend_account') %}
 					<div class="dropdown-divider"></div>
                     {% endif %}
+		    {%if perms.has('ipacl') %}
+                        <a href="/admin/ipacl" class="dropdown-item">IPACL</a>	
+		    {% endif %}
+		    {%if perms.has('suspend_account') %}
+                        <a href="/admin/suspend_account" class="dropdown-item">계정 차단</a>
+                    {% endif %}	
                     {%if perms.has('grant') %}
                         <a href="/admin/grant" class="dropdown-item">권한</a>
                     {% endif %}
