@@ -26,7 +26,7 @@
                     <a href="/RandomPage" class="dropdown-item">RandomPage</a>
                     <a href="/Upload" class="dropdown-item">업로드</a>
                     <a href="/License" class="dropdown-item">라이선스</a>
-                    {%if perms.has('ipacl','suspend_account','grant','login_history','admin') %}
+                    {%if perms.has('ipacl','aclgroup','suspend_account','grant','login_history','admin') %}
 		            <div class="dropdown-divider"></div>
                     {% endif %}
                     {%if perms.has('ipacl') %}
