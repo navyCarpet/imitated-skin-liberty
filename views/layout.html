@@ -67,9 +67,23 @@
                     </div>
                 </div>
             {% else %}
-                <a href="/member/login?redirect={{ url | url_encode }}" class="none-outline">
-                    <span class="fa fa-user"></span>
-                </a>
+                <div class="dropdown login-menu">
+                    <a class="dropdown-toggle fa fa-user" style="text-decoration:none;padding:5px" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+                    <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
+                        <div style="text-align: right;"><b style="font-size:1rem">
+                        <script type="text/javascript">
+                            function getIP(json) {
+                                document.write(json.ip);
+                            }
+                        </script>
+                        <script type="text/javascript" src="https://api.ipify.org?format=jsonp&amp;callback=getIP"></script>&nbsp;&nbsp;&nbsp;&nbsp;</b><br>Please login!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div class="dropdown-divider view-logout"></div>
+                        <a href="/contribution/ip/#/document" class="dropdown-item">내 문서 기여 목록</a>
+                        <a href="/contribution/ip/#/discuss" class="dropdown-item">내 토론 기여 목록</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/member/login?redirect={{ url | url_encode }}" class="dropdown-item">로그인</a>
+                    </div>
+                </div>
             {% endif %}
         <br>
         </div>
