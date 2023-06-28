@@ -1,5 +1,5 @@
 ## 개요
-리버티 스킨을 the seed 엔진에서 사용할 수 있게 포팅함.
+리버티 스킨을 [imitated seed](https://github.com/gdl-blue/imitated-seed-2) 엔진에서 사용할 수 있게 포팅함.
 
 PR 환영합니다.
 
