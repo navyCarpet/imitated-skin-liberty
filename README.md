@@ -4,4 +4,4 @@
 PR 환영합니다.
 
 ## 원작
-[Liberty Skin](https://gitlab.com/librewiki/Liberty-MW-Skin) Made by [Librewiki](https://librewiki.net/)
+[liberty-skin](https://github.com/librewiki/liberty-skin) → [theseed-skin-liberty](https://github.com/namu-theseed/theseed-skin-liberty)
