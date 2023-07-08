@@ -518,6 +518,10 @@ del, s, strike {
     font-weight: bold;
 }
 
+.main_title_a, .main_title_a:hover, .main_title_a:active {
+    color: #000;
+}
+
 .Liberty .content-wrapper .liberty-content .liberty-content-header .header-ads {
     margin: 1rem;
     margin-bottom: 0;
