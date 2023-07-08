@@ -149,6 +149,9 @@
                 </h1>
         </div>
         <div class="liberty-content-main wiki-article">
+	    {% if config.getString('wiki.sitenotice', null) %}
+            {{ config.getString('wiki.sitenotice', '')|safe }}
+            {% endif %}
             {% if user_document_discuss %}
                 <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
