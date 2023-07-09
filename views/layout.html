@@ -131,7 +131,12 @@
             {% if document %}
                 <div class="content-tools">
                     <div class="btn-group" role="group" aria-label="content-tools">
+                        {% if skinInfo.viewName == 'wiki' %}
+                        {% if starred %}
+                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star">{{ star_count }}</span>
+                        {% else %}
                         <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o"></span>{{ star_count }}</a>
+                        {% endif %}
                         <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                         <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                         <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
@@ -140,6 +145,18 @@
                         <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
                         {% endif %}
                         <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                        {% endif %}
+                        {% if skinInfo.viewName == 'edit' %}
+                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                        <a href="/delete/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">삭제</a>
+                        <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
+                        {% elseif skinInfo.viewName == 'xref' %}
+                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                        {% elseif skinInfo.viewName == 'history' %}
+                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}
