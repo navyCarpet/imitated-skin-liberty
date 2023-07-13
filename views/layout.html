@@ -156,6 +156,8 @@
                         {% elseif skinInfo.viewName == 'history' %}
                         <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                         <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                        {% elseif skinInfo.viewName == 'thread' %}
+                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
                         {% endif %}
                     </div>
                 </div>
