@@ -148,7 +148,7 @@
                         {% endif %}
                         {% if skinInfo.viewName == 'edit' %}
                         <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger tools-btn">삭제</a>
+                        <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger">삭제</a>
                         <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
                         {% elseif skinInfo.viewName == 'xref' %}
                         <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
