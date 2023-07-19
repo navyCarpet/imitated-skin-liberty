@@ -56,7 +56,9 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
 						<div style="text-align: right; padding: 0;"><b style="font-size:1rem">{{ member.username }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>Member&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<div class="dropdown-divider"></div>
+			                        <div class="dropdown-divider"></div>
+						<a href="/settings" class="dropdown-item">설정</a>			
+			                        <div class="dropdown-divider"></div>
 						<a href="/member/mypage" class="dropdown-item">내 정보</a>
 						<a href="/w/{{ member.username | encode_userdoc }}" class="dropdown-item">내 사용자 문서</a>
 						<a href="/member/starred_documents" class="dropdown-item">내 문서함</a>
