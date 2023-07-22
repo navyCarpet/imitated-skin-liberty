@@ -75,8 +75,8 @@
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
                         <div style="text-align: right;"><b style="font-size:1rem">{{ req_ip }}&nbsp;&nbsp;&nbsp;&nbsp;</b><br>Please login!&nbsp;&nbsp;&nbsp;&nbsp;</div>
                         <div class="dropdown-divider view-logout"></div>
-                        <a href="/contribution/ip/#/document" class="dropdown-item">내 문서 기여 목록</a>
-                        <a href="/contribution/ip/#/discuss" class="dropdown-item">내 토론 기여 목록</a>
+                        <a href="/contribution/ip/{{ req_ip }}/document" class="dropdown-item">내 문서 기여 목록</a>
+                        <a href="/contribution/ip/{{ req_ip }}/discuss" class="dropdown-item">내 토론 기여 목록</a>
                         <div class="dropdown-divider"></div>
                         <a href="/member/login?redirect={{ url | url_encode }}" class="dropdown-item">로그인</a>
                     </div>
@@ -169,10 +169,13 @@
                     <a class="main_title_a" href="/w/{{ document|encode_doc }}">{{ skinInfo.title }}</a>
                 </h1>
         </div>
-        <div class="liberty-content-main wiki-article">
-            {% if config.getString('wiki.sitenotice', null) %}
-            <div style="border: 1px solid #BCDFF1; padding:8px; background-color:#D9EDF7; margin-bottom:0px; border-radius:5px; color:#31708F">
-            {{ config.getString('wiki.sitenotice', '')|safe }}</div>
+        <div class="alert alert-info fade in" id="userDiscussAlert" role="alert">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+              </button>
+                    {{ config.getString('wiki.sitenotice', '')|safe }}
+                </div>
             <hr>
             {% endif %}
             {% if user_document_discuss %}
