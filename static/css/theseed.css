@@ -25,9 +25,13 @@
 }
 
 .r-head {
-	background: #dbcfcf;
-	border-bottom: 0px;
-	padding: 5px 10px;
+	width: 100%;
+	padding: 7px 10px;
+    border-radius: 6px 6px 0px 0px;
+	border: 1px solid #888;
+	border-bottom: none;
+    background: #cecdcd;
+	display: inline-block;
 }
 
 .r-head.first-author {
@@ -44,19 +48,23 @@
 }
 
 .r-body {
-	background: whitesmoke;
-	padding: 10px;
-    overflow: scroll;
-    max-height: 50vh;
+	width: 100%;
+	padding: 13px;
+	border-radius: 0px 0px 6px 6px;
+	border: 1px solid #888;
+	border-top: none;
+	display: inline-block;
+	background: #f4f4f4;
+	max-height: 500px;
+	overflow-y: auto;
 }
 
 .more-box {
-	border: 1px solid black;
-	margin: 30px;
-	padding: 10px;
-	display: block;
-	width: 80px;
-	background: whitesmoke;
+	max-width: 100%;
+    min-width: 400px;
+	width: auto;
+	word-wrap: break-word;
+	position: relative;
 }
 
 .res.res-type-status .r-body {
@@ -64,15 +72,19 @@
 }
 
 .r-head.first-author {
-    background: #C4D7F5;
+    background: #b0d3ad;
 }
 
-.r-head, .r-body {
-    border: 1px solid gainsboro;
-}
 
 .r-body {
     padding-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+	.r-body {
+		min-width: 100%;
+		width: 100%;
+	}
 }
 
 #createBtn {
