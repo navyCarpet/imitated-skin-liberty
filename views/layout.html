@@ -135,9 +135,9 @@
                     <div class="btn-group" role="group" aria-label="content-tools">
                         {% if skinInfo.viewName == 'wiki' %}
                         {% if starred %}
-                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200">{{ star_count }}</span>
+                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200">&nbsp;{{ star_count }}</span>
                         {% else %}
-                        <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>{{ star_count }}</a>
+                        <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                         {% endif %}
                         <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                         <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
