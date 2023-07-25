@@ -161,6 +161,13 @@
                         {% elseif skinInfo.viewName == 'thread' %}
                         <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
                         {% endif %}
+		        {% if skinInfo.viewName == 'notfound' %}
+                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
+                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                        <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}
