@@ -1,5 +1,4 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 :root {
     --main-color: #4188f1; /* 스킨 메인 색생으로, 위키 퍼스널컬러로 하시는걸 추천합니다. */
     --sub-color: #5997f3; /* 네비바에서 최근 변경 등을 클릭했을때 나오는 백그라운드 색상입니다. */
