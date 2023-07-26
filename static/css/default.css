@@ -1,6 +1,10 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-/* 메인 색깔 #4188f1 */
-/* 테두리 색깔 #e1e8ed */
+
+:root {
+    --main-color: #4188f1; /* 스킨 메인 색생으로, 위키 퍼스널컬러로 하시는걸 추천합니다. */
+    --sub-color: #5997f3; /* 네비바에서 최근 변경 등을 클릭했을때 나오는 백그라운드 색상입니다. */
+    --border-color: #e1e8ed; /* 테두리 색상으로 굳이 건드실 필요 없습니다. */
+}
 
 /* 태그 수정 */
 * {
@@ -81,7 +85,7 @@ pre {
     word-break: break-all;
     word-wrap: break-word;
     background-color: #f5f8fa;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);
     border-radius: 0.35rem;
     padding: 0.8rem;
 }
@@ -124,12 +128,12 @@ input[type=search] {
 
 textarea {
     width: 100%;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);
     padding: 0.5rem;
 }
 
 hr {
-    border-top: 1px solid #e1e8ed;
+    border-top: 1px solid var(--border-color);
 }
 
 
@@ -163,7 +167,7 @@ del, s, strike {
 /* 네비 수정 */
 .Liberty .nav-wrapper {
     min-height: 2.8rem;
-    background-color: #4188f1;
+    background-color: var(--main-color);
     z-index: 1001;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -180,8 +184,6 @@ del, s, strike {
     background: transparent url("../img/logo.png") no-repeat center center/auto 1.9rem;
     padding: 0;
     margin: 0;
-    display: flex;
-    align-items: center;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-nav .nav-item {
@@ -201,7 +203,7 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover, .Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
-    background-color: #5997f3;
+    background-color: var(--sub-color);
     transition: 0.3s;
 }
 
@@ -226,14 +228,14 @@ del, s, strike {
     height: 2rem;
     width: 10.8rem;
     padding: 0.2rem 0.4rem;
-    border-color: #e1e8ed;
+    border-color: var(--border-color);;
     border-radius: 0;
     border-top-left-radius: 0.35rem;
     border-bottom-left-radius: 0.35rem;
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .form-control:focus {
-    border-right-color: #e1e8ed;
+    border-right-color: var(--border-color);;
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .btn {
@@ -243,8 +245,8 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .form-inline .btn:hover, .Liberty .nav-wrapper .navbar .form-inline .btn:focus {
-    background-color: #4188f1;
-    border-color: #5997f3;
+    background-color: var(--main-color);
+    border-color: var(--sub-color);
     color: #fff;
     outline: 0;
 }
@@ -291,7 +293,7 @@ del, s, strike {
     height: 2rem;
     border-radius: 0.35rem;
     margin: 0;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .logout-btn {
@@ -315,7 +317,7 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu:before {
-    border-bottom-color: #e1e8ed;
+    border-bottom-color: var(--border-color);;
     border-width: 0.8rem;
     left: auto;
     right: 1.15rem;
@@ -351,7 +353,7 @@ del, s, strike {
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-header .nav .nav-item {
     width: 15rem;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
     border-top-left-radius: 0.35rem;
     border-top-right-radius: 0.35rem;
     background-color: #f5f8fa;
@@ -387,12 +389,12 @@ del, s, strike {
     content: " ";
     width: 15rem;
     display: block;
-    border-bottom: 2px solid #4188f1;
+    border-bottom: 2px solid var(--main-color);
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content {
     background-color: #fff;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
     border-top: 0;
 }
 
@@ -401,7 +403,7 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content .live-recent-list li {
-    border-bottom: 1px solid #e1e8ed;
+    border-bottom: 1px solid var(--border-color);;
     padding: 0.2rem 0.6rem;
 }
 
@@ -421,7 +423,7 @@ del, s, strike {
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-footer {
     background-color: #f5f8fa;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
     border-top: 0;
     border-bottom-left-radius: 0.35rem;
     border-bottom-right-radius: 0.35rem;
@@ -430,7 +432,7 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-footer .label {
-    background-color: #5997f3;
+    background-color: var(--sub-color);
     padding: 0.4rem;
     font-size: 0.8rem;
     font-weight: 400;
@@ -460,7 +462,7 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header {
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
     border-radius: 0.35rem 0.35rem 0 0;
     background-color: #f5f8fa;
 }
@@ -494,11 +496,11 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:hover,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:focus,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:active {
-    background-color: #4188f1;
+    background-color: var(--main-color);
     color: #fff;
     transition: 0.3s;
     outline: 0;
-    border-color: #e1e8ed;
+    border-color: var(--border-color);;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .dropdown-menu {
@@ -520,18 +522,18 @@ del, s, strike {
     font-weight: bold;
 }
 
-.main_title_a, .main_title_a:hover, .main_title_a:active {
-    color: #000;
-}
-
 .Liberty .content-wrapper .liberty-content .liberty-content-header .header-ads {
     margin: 1rem;
     margin-bottom: 0;
 }
 
+.main_title_a, .main_title_a:hover, .main_title_a:active {
+    color: #000;
+}
+
 .Liberty .content-wrapper .liberty-content .liberty-content-main {
-    border-left: 1px solid #e1e8ed;
-    border-right: 1px solid #e1e8ed;
+    border-left: 1px solid var(--border-color);;
+    border-right: 1px solid var(--border-color);;
     background-color: #fff;
     padding: 1rem;
     overflow: hidden;
@@ -577,7 +579,7 @@ del, s, strike {
 
 /* 컨텐츠 하단 수정 */
 .Liberty .content-wrapper .liberty-footer {
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);;
     border-radius: 0 0 0.35rem 0.35rem;
     background-color: #f5f8fa;
     padding: 1rem;
@@ -615,17 +617,17 @@ del, s, strike {
 .dropdown-menu {
     font-size: 0.95rem;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    border-color: #e1e8ed;
+    border-color: var(--border-color);;
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #5997f3;
+    background-color: var(--sub-color);
     color: #fff;
     transition: 0.3s;
 }
 
 .dropdown-divider {
-    border-color: #e1e8ed;
+    border-color: var(--border-color);;
 }
 
 .form-control {
@@ -664,7 +666,4 @@ caption {
     color: #373a3c;
     caption-side: top;
 }
-/* 부트스트랩 커스텀 End*/
-}
-
 /* 부트스트랩 커스텀 End*/
