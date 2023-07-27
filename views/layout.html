@@ -42,8 +42,11 @@
                     {%if perms.has('login_history') %}
                         <a href="/admin/login_history" class="dropdown-item">로그인 기록 조회</a>
                     {% endif %}
-					{%if perms.has('aclgroup') %}
+		    {%if perms.has('aclgroup') %}
                         <a href="/aclgroup" class="dropdown-item">ACL Group</a>
+                    {% endif %}
+		    {%if perms.has('developer') %}
+                        <a href="/admin/config" class="dropdown-item">환경설정</a>
                     {% endif %}
                 </div>
             </li>
