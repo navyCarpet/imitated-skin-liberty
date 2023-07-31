@@ -173,7 +173,50 @@
             {% endif %}
             <div class="title">
                 <h1 id="main_title">
-                    <a class="main_title_a" href="/w/{{ document|encode_doc }}">{{ skinInfo.title }}</a>
+                                        {% if document %}
+                    {% if document.namespace != '문서' || document.forceShowNamespace %}
+                    <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
+                    {% else %}
+                    <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
+                    {% endif %}
+                    {% else %}
+                    {{ skinInfo.title }}
+                    {% endif %} 
+
+                    {% if skinInfo.viewName == 'edit' %}
+                        <small>(편집)</small>
+                    {% elseif skinInfo.viewName == 'thread' %}
+                        <small>(토론)</small>
+                    {% elseif skinInfo.viewName == 'thread_list' %}
+                        <small>(토론)</small>
+                    {% elseif skinInfo.viewName == 'thread_list_close' %}
+                        <small>(닫힌 토론)</small>
+                    {% elseif skinInfo.viewName == 'edit_request_list_close' %}
+                        <small>(닫힌 편집 요청)</small>
+                    {% elseif skinInfo.viewName == 'xref' %}
+                        <small>(역링크)</small>
+                    {% elseif skinInfo.viewName == 'history' %}
+                        <small>(문서 역사)</small>
+                    {% elseif skinInfo.viewName == 'move' %}
+                        <small>(이동)</small>
+                    {% elseif skinInfo.viewName == 'delete' %}
+                        <small>(삭제)</small>
+                    {% elseif skinInfo.viewName == 'diff' %}
+                        <small>(비교)</small>
+                    {% elseif skinInfo.viewName == 'acl' %}
+                        <small>(ACL)</small>
+                    {% elseif skinInfo.viewName == 'edit_request' %}
+                        <small>(편집 요청)</small>
+                    {% elseif skinInfo.viewName == 'blame' %}
+                        <small>(r{{ rev }} Blame)</small>
+                    {% elseif skinInfo.viewName == 'raw' %}
+                        <small>(r{{ rev }} RAW)</small>
+                    {% elseif skinInfo.viewName == 'revert' %}
+                        <small>(r{{ rev }}로 되돌리기)</small>
+                    {% endif %}
+                    {% if skinInfo.viewName == 'wiki' && rev %}
+                        <small>(r{{ rev }} 판)</small>
+                    {% endif %}
                 </h1>
         </div>
         <div class="liberty-content-main wiki-article">
