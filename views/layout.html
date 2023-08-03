@@ -128,6 +128,11 @@
             </div>
         </div>
     </div>
+    {% if config.getString('wiki.sitenotice', null) %}
+     <div class="container-fluid liberty-content" style="border: 1px solid #d9534f; padding:3px; background-color:#d9534f; margin-bottom:0px; border-radius:5px; color:#fff">
+      {{ config.getString('wiki.sitenotice', '')|safe }}</div>
+    {% endif %}​
+    <span style="line-height:200%"><br></span>
     <div class="container-fluid liberty-content">
         <div class="liberty-content-header">
             {% if document %}
