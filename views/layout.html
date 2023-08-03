@@ -225,16 +225,6 @@
                 </h1>
         </div>
         <div class="liberty-content-main wiki-article">
-            {% if config.getString('wiki.sitenotice', null) %}
-            <div class="alert alert-info fade in" id="userDiscussAlert" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                   <span class="sr-only">Close</span>
-                 </button>
-                       {{ config.getString('wiki.sitenotice', '')|safe }}
-                   </div>
-               <hr>
-            {% endif %}
             {% if user_document_discuss %}
                 <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
