@@ -496,11 +496,11 @@ del, s, strike {
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:hover,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:focus,
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .tools-btn:active {
-    background-color: var(--main-color);
-    color: #fff;
-    transition: 0.3s;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #000;
     outline: 0;
-    border-color: var(--border-color);;
+    transition: 0s
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header .content-tools .dropdown-menu {
@@ -611,6 +611,7 @@ del, s, strike {
     margin-right: 0.8rem;
     float: left;
 }
+
 /* 컨텐츠 하단 수정 End */
 
 /* 부트스트랩 커스텀 */
