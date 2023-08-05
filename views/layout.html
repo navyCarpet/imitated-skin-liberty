@@ -83,9 +83,6 @@
                 </div>
             {% endif %}
         </div>
-        <div id="pt-notifications" class="navbar-notification">
-            <a href="#"><span class="label label-danger"></span></a>
-        </div>
         <form id="searchform" class="form-inline">
             <div class="input-group">
                 <input type="search" name="q" placeholder="검색" accesskey="f" class="form-control" id="searchInput" autocomplete="off">
@@ -129,6 +126,11 @@
         </div>
     </div>
     <div class="container-fluid liberty-content">
+        {% if config.getString('wiki.sitenotice', null) %}
+        <div id="site-notice" class="notification">
+            <span class="label label-danger">{{ config.getString('wiki.sitenotice', null)|safe }}</span>
+        </div>
+        {% endif %}
         <div class="liberty-content-header">
             {% if document %}
                 <div class="content-tools">
@@ -219,15 +221,6 @@
                 </h1>
         </div>
         <div class="liberty-content-main wiki-article">
-	    {% if config.getString('wiki.sitenotice', null) %}
-            <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                {{ config.getString('wiki.sitenotice', '')|safe }}
-            </div>
-            {% endif %}​
             {% if user_document_discuss %}
                 <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

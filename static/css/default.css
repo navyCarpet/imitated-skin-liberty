@@ -255,17 +255,6 @@ del, s, strike {
     width: 0.9rem;
 }
 
-.Liberty .nav-wrapper .navbar .navbar-notification {
-    float: right;
-    padding-left: 0.8rem;
-}
-
-.Liberty .nav-wrapper .navbar .navbar-notification .label {
-    padding: 0.25rem 0.4rem;
-    line-height: 1rem;
-    margin: 0.6rem 0;
-}
-
 .Liberty .nav-wrapper .navbar .navbar-login {
     float: right;
     padding-left: 0.8rem;
@@ -459,6 +448,16 @@ del, s, strike {
     margin-right: 16rem;
     padding: 0;
     padding-bottom: 1rem;
+}
+
+.Liberty .content-wrapper .liberty-content .notification .label {
+    padding: 0.25rem 0.4rem;
+    line-height: 1rem;
+    margin: 0.6rem 0;
+    font-size: 1rem;
+    font-weight: normal;
+    width: 100%;
+    text-align: left;
 }
 
 .Liberty .content-wrapper .liberty-content .liberty-content-header {
