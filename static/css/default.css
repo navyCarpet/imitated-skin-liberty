@@ -161,8 +161,14 @@ del, s, strike {
 .Liberty .nav-wrapper {
     min-height: 2.8rem;
     background-color: var(--main-color);
-    z-index: 1001;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    font-weight: 700;
+    min-height: 2.8rem;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .Liberty .nav-wrapper .navbar {
@@ -321,8 +327,8 @@ del, s, strike {
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed {
-    position: fixed;
-    z-index: 999;
+    position: absolute;
+    z-index: 1;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent {

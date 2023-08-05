@@ -72,13 +72,10 @@ del:hover {
 
 .wiki-article div.wiki-category {
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: .9rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 4px 4px 4px 6px;
-    display: inline-block;
-    width: 100%;
+    margin-bottom: 1em;
+    padding: 3px 3px 3px 5px;
 }
 
 .r-body .wiki-quote p {
