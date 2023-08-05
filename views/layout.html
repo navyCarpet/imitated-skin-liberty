@@ -2,7 +2,7 @@
 <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
 <div class="nav-wrapper navbar-fixed-top">
     <nav class="navbar navbar-dark">
-        <a class="navbar-brand" href="/">{{ config.getString('wiki.logo_url', '') }}</a>                
+        <a class="navbar-brand" href="/">{{ config.getString('wiki.logo_url', '') }}</a>
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title"><b>최근 변경</b></span></a>
@@ -27,22 +27,22 @@
                     <a href="/RandomPage" class="dropdown-item">RandomPage</a>
                     <a href="/Upload" class="dropdown-item">파일 올리기</a>
                     <a href="/License" class="dropdown-item">라이선스</a>
-                    {%if perms.has('grant','login_history','aclgroup','ipacl','suspend_account') %}
+                    {% if perms.has('grant','login_history','aclgroup','ipacl','suspend_account') %}
 			            <div class="dropdown-divider"></div>
                     {% endif %}
-		            {%if perms.has('ipacl') %}
-                        <a href="/admin/ipacl" class="dropdown-item">IPACL</a>	
+		            {% if perms.has('ipacl') %}
+                        <a href="/admin/ipacl" class="dropdown-item">IPACL</a>
 		            {% endif %}
-		            {%if perms.has('suspend_account') %}
+		            {% if perms.has('suspend_account') %}
                         <a href="/admin/suspend_account" class="dropdown-item">계정 차단</a>
-                    {% endif %}	
-                    {%if perms.has('grant') %}
+                    {% endif %}
+                    {% if perms.has('grant') %}
                         <a href="/admin/grant" class="dropdown-item">권한</a>
                     {% endif %}
-                    {%if perms.has('login_history') %}
+                    {% if perms.has('login_history') %}
                         <a href="/admin/login_history" class="dropdown-item">로그인 기록 조회</a>
                     {% endif %}
-		    {%if perms.has('aclgroup') %}
+		            {% if perms.has('aclgroup') %}
                         <a href="/aclgroup" class="dropdown-item">ACL Group</a>
                     {% endif %}
                 </div>
@@ -134,53 +134,53 @@
                 <div class="content-tools">
                     <div class="btn-group" role="group" aria-label="content-tools">
                         {% if skinInfo.viewName == 'wiki' %}
-                        {% if starred %}
-                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200">&nbsp;{{ star_count }}</span>
-                        {% else %}
-                        <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                        {% endif %}
-                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
-                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                        {% if user %}
-                        <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
-                        {% endif %}
-                        <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                            {% if starred %}
+                            <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200">&nbsp;{{ star_count }}</span>
+                            {% else %}
+                            <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
+                            {% endif %}
+                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                            {% if user %}
+                            <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
+                            {% endif %}
+                            <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                         {% endif %}
                         {% if skinInfo.viewName == 'edit' %}
-                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger">삭제</a>
-                        <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
+                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger">삭제</a>
+                            <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
                         {% elseif skinInfo.viewName == 'xref' %}
-                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                         {% elseif skinInfo.viewName == 'history' %}
-                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                         {% elseif skinInfo.viewName == 'thread' %}
-                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
                         {% endif %}
-		        {% if skinInfo.viewName == 'notfound' %}
-                        <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
-                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                        <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+		                {% if skinInfo.viewName == 'notfound' %}
+                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                            <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                         {% endif %}
                     </div>
                 </div>
             {% endif %}
             <div class="title">
                 <h1 id="main_title">
-                                        {% if document %}
-                    {% if document.namespace != '문서' || document.forceShowNamespace %}
-                    <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
+                    {% if document %}
+                        {% if document.namespace != '문서' || document.forceShowNamespace %}
+                        <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
+                        {% else %}
+                        <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
+                        {% endif %}
                     {% else %}
-                    <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
-                    {% endif %}
-                    {% else %}
-                    {{ skinInfo.title }}
+                        {{ skinInfo.title }}
                     {% endif %} 
 
                     {% if skinInfo.viewName == 'edit' %}
@@ -213,8 +213,7 @@
                         <small>(r{{ rev }} RAW)</small>
                     {% elseif skinInfo.viewName == 'revert' %}
                         <small>(r{{ rev }}로 되돌리기)</small>
-                    {% endif %}
-                    {% if skinInfo.viewName == 'wiki' && rev %}
+                    {% elseif skinInfo.viewName == 'wiki' && rev %}
                         <small>(r{{ rev }} 판)</small>
                     {% endif %}
                 </h1>
