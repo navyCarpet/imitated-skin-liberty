@@ -142,7 +142,11 @@
                             <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% endif %}
                             <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
+                            {% if discuss_progress %}
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
+                            {% else %}
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
+                            {% endif %}
                             <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                             <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                             {% if user %}
