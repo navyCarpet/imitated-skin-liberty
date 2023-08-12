@@ -293,6 +293,7 @@ del, s, strike {
     top: 120%;
     right: -1rem;
     z-index: 1002;
+    font-weight: normal;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu:before, .Liberty .nav-wrapper .navbar .navbar-login .login-dropdown-menu:after {

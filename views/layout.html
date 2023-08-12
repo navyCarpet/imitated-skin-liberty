@@ -30,10 +30,10 @@
                     {% if perms.has('grant','login_history','aclgroup','ipacl','suspend_account') %}
 			            <div class="dropdown-divider"></div>
                     {% endif %}
-		            {% if perms.has('ipacl') %}
+                    {% if perms.has('ipacl') %}
                         <a href="/admin/ipacl" class="dropdown-item">IPACL</a>
-		            {% endif %}
-		            {% if perms.has('suspend_account') %}
+                    {% endif %}
+                    {% if perms.has('suspend_account') %}
                         <a href="/admin/suspend_account" class="dropdown-item">계정 차단</a>
                     {% endif %}
                     {% if perms.has('grant') %}
@@ -55,7 +55,7 @@
                         <img class="profile-img" src="{{ member|avatar_url }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-						<div style="text-align: right; padding: 0;"><b style="font-size:1rem">{{ member.username }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>Member&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						<div style="text-align: right; padding: 0 20px;"><b style="font-size:1rem">{{ member.username }}</b><br>Member</div>
 						<div class="dropdown-divider"></div>
 						<a href="/settings" class="dropdown-item">설정</a>
                         <div class="dropdown-divider"></div>
@@ -73,7 +73,7 @@
                 <div class="dropdown login-menu">
                     <a class="dropdown-toggle fa fa-user" style="text-decoration:none;padding:5px" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
-                        <div style="text-align: right;"><b style="font-size:1rem">{{ req_ip }}&nbsp;&nbsp;&nbsp;&nbsp;</b><br>Please login!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div style="text-align: right; padding: 0 20px;"><b style="font-size:1rem">{{ req_ip }}</b><br>Please login!</div>
                         <div class="dropdown-divider view-logout"></div>
                         <a href="/contribution/ip/{{ req_ip }}/document" class="dropdown-item">내 문서 기여 목록</a>
                         <a href="/contribution/ip/{{ req_ip }}/discuss" class="dropdown-item">내 토론 기여 목록</a>
@@ -137,7 +137,7 @@
                     <div class="btn-group" role="group" aria-label="content-tools">
                         {% if skinInfo.viewName == 'wiki' %}
                             {% if starred %}
-                            <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200">&nbsp;{{ star_count }}</span>
+                            <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% else %}
                             <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% endif %}
@@ -181,9 +181,9 @@
                 <h1 id="main_title">
                     {% if document %}
                         {% if document.namespace != '문서' || document.forceShowNamespace %}
-                        <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
+                            <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
                         {% else %}
-                        <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
+                            <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
                         {% endif %}
                     {% else %}
                         {{ skinInfo.title }}
