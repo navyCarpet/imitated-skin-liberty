@@ -5,5 +5,8 @@
 *porting by [namu-theseed](https://github.com/namu-theseed/theseed-skin-liberty)*  
 *forked from [COVERTIV/Liberty-skin](https://github.com/COVERTIV/Liberty-skin)*  
 
+## install
+Refer to [this issue](https://github.com/navyCarpet/imitated-skin-liberty/issues/1)
+
 ## License
 GPL-3.0 license
