@@ -1,3 +1,14 @@
+<style>
+body {
+    --liberty-navbar-color: {{ config.getString('skin.liberty.navbar_color', '#4188f1') }};
+    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image', 'none') }};
+    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width', '') }};
+    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width', '6.6rem') }};
+    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size', '1.9rem') }};
+    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding', '0') }};
+    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin', '0') }};
+}
+</style>
 <div id="top"></div>
 <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
 <div class="nav-wrapper navbar-fixed-top">
@@ -141,7 +152,7 @@
                             {% else %}
                             <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% endif %}
-                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                             {% if discuss_progress %}
                             <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
                             {% else %}
