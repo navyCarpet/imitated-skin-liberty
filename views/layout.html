@@ -9,6 +9,21 @@ body {
     --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin', '0') }};
 }
 </style>
+<script>
+let showEditMessage = false;
+function onClickEditBtn() {
+    if (showEditMessage) {
+        {% if editable === true && edit_acl_message %}
+            location.href = "/new_edit_request/{{ document|encode_doc }}"
+        {% else %}
+            location.href = "/edit/{{ document|encode_doc }}"
+        {% endif %}
+    }
+    else {
+        $('#editable').show();
+    }
+} 
+</script>
 <div id="top"></div>
 <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
 <div class="nav-wrapper navbar-fixed-top">
@@ -158,7 +173,13 @@ body {
                             {% else %}
                             <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                             {% endif %}
-                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                            {% if editable === true && edit_acl_message %}
+                            <a href="#" onclick="onClickEditBtn" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
+                            {% elseif editable === false && edit_acl_message %}
+                            <a href="#" onclick="onClickEditBtn" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
+                            {% else %}
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</nuxt-link>
+                            {% endif %}
                             <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                             {% if user %}
                             <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
@@ -236,6 +257,12 @@ body {
                 </h1>
         </div>
         <div class="liberty-content-main wiki-article">
+            <div id="editable" class="alert alert-danger" role="alert" style="display: none;">
+                <span>{{ edit_acl_message }}</span>
+                {% if editable === true && edit_acl_message %}
+                    <span>대신 <a href="/new_edit_request/{{ document|encode_doc }}">편집 요청</a>을 생성할 수 있습니다.</span>
+                {% endif %}
+            </div>
             {% if user_document_discuss %}
                 <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
