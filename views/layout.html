@@ -260,8 +260,7 @@ function onClickEditBtn() {
         <div class="liberty-content-main wiki-article">
             <div id="editable" class="alert alert-danger" role="alert" style="display: none;">
                 <span>
-                    {% block edit_acl_message %}
-                    {% endblock %}
+                    {{ block edit_acl_message|safe }}
                 </span>
                 {% if editable === true && edit_acl_message %}
                     <span>대신 <a href="/new_edit_request/{{ document|encode_doc }}">편집 요청</a>을 생성할 수 있습니다.</span>
