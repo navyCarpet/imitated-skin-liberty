@@ -14,13 +14,14 @@ let showEditMessage = false;
 function onClickEditBtn() {
     if (showEditMessage) {
         {% if editable === true && edit_acl_message %}
-            location.href = "/new_edit_request/{{ document|encode_doc }}"
+            location.href = "/new_edit_request/{{ document|encode_doc }}";
         {% else %}
-            location.href = "/edit/{{ document|encode_doc }}"
+            location.href = "/edit/{{ document|encode_doc }}";
         {% endif %}
     }
     else {
         $('#editable').show();
+        showEditMessage = true;
     }
 } 
 </script>
