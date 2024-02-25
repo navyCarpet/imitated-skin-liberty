@@ -178,11 +178,13 @@ del, s, strike {
 }
 
 .Liberty .nav-wrapper .navbar .navbar-brand {
-    height: 2.8rem;
-    width: 6.6rem;
-    background: transparent url("../img/logo.png") no-repeat center center/auto 1.9rem;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
+    width: 120px;
+    height: auto;
 }
 
 .Liberty .nav-wrapper .navbar .navbar-nav .nav-item {
