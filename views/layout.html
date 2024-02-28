@@ -165,7 +165,7 @@ function onClickEditBtn() {
                         {% if skinInfo.viewName == 'wiki' %}
                             {% if starred %}
                             <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                            {% else %}
+                            {% elseif star_count || star_count === 0 %}
                             <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% endif %}
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
