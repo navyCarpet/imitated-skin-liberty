@@ -47,6 +47,7 @@ function onClickEditBtn() {
                 <div class="dropdown-menu" role="menu">
                     <a href="/NeededPages" class="dropdown-item">작성이 필요한 문서</a>
                     <a href="/OrphanedPages" class="dropdown-item">고립된 문서</a>
+                    <a href="/UncategorizedPages" class="dropdown-item">분류가 되지 않은 문서</a>
                     <a href="/OldPages" class="dropdown-item">편집된 지 오래된 문서</a>
                     <a href="/ShortestPages" class="dropdown-item">내용이 짧은 문서</a>
                     <a href="/LongestPages" class="dropdown-item">내용이 긴 문서</a>
@@ -82,7 +83,9 @@ function onClickEditBtn() {
                         <img class="profile-img" src="{{ member|avatar_url }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
-						<div style="text-align: right; padding: 0 20px;"><b style="font-size:1rem">{{ member.username }}</b><br>Member</div>
+						<div class="username dropdown-item">
+                            <b>{{ member.username }}</b><br>Member
+                        </div>
 						<div class="dropdown-divider"></div>
 						<a href="/settings" class="dropdown-item">설정</a>
                         <div class="dropdown-divider"></div>
@@ -100,7 +103,9 @@ function onClickEditBtn() {
                 <div class="dropdown login-menu">
                     <a class="dropdown-toggle fa fa-user" style="text-decoration:none;padding:5px" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
-                        <div style="text-align: right; padding: 0 20px;"><b style="font-size:1rem">{{ req_ip }}</b><br>Please login!</div>
+                        <div class="username dropdown-item">
+                            <b>{{ req_ip }}</b><br>Please login!
+                        </div>
                         <div class="dropdown-divider view-logout"></div>
                         <a href="/contribution/ip/{{ req_ip }}/document" class="dropdown-item">내 문서 기여 목록</a>
                         <a href="/contribution/ip/{{ req_ip }}/discuss" class="dropdown-item">내 토론 기여 목록</a>
@@ -133,7 +138,7 @@ function onClickEditBtn() {
                     </ul>
                 </div>
                 <div class="live-recent-content">
-                    <ul class = "live-recent-list" id="live-recent-list">
+                    <ul class="live-recent-list" id="live-recent-list">
                         <li><span class="recent-item">&nbsp;</span></li>
                         <li><span class="recent-item">&nbsp;</span></li>
                         <li><span class="recent-item">&nbsp;</span></li>
@@ -273,7 +278,7 @@ function onClickEditBtn() {
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
-                    현재 진행중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.
+                    현재 진행 중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.
                 </div>
             {% endif %}
             {% block content %}
