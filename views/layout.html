@@ -79,7 +79,7 @@ function onClickEditBtn() {
         <div class="navbar-login">
             {% if member %}
                 <div class="dropdown login-menu">
-                    <a class="dropdown-toggle" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a id="login-menu" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="profile-img" src="{{ member|avatar_url }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu" aria-labelledby="login-menu">
@@ -95,18 +95,20 @@ function onClickEditBtn() {
 						<div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/contribution/author/{{ member.username }}/document">내 문서 기여 목록</a>
                         <a class="dropdown-item" href="/contribution/author/{{ member.username }}/discuss">내 토론 기여 목록</a>
-                        <div class="dropdown-divider view-logout"></div>
-                        <a href="/member/logout?redirect={{ url | url_encode }}" class="dropdown-item view-logout">로그아웃</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/member/logout?redirect={{ url | url_encode }}" class="dropdown-item">로그아웃</a>
                     </div>
                 </div>
             {% else %}
                 <div class="dropdown login-menu">
-                    <a class="dropdown-toggle fa fa-user" style="text-decoration:none;padding:5px" type="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+                    <a id="login-menu" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-user"></span>
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
                         <div class="username dropdown-item">
                             <b>{{ req_ip }}</b><br>Please login!
                         </div>
-                        <div class="dropdown-divider view-logout"></div>
+                        <div class="dropdown-divider"></div>
                         <a href="/contribution/ip/{{ req_ip }}/document" class="dropdown-item">내 문서 기여 목록</a>
                         <a href="/contribution/ip/{{ req_ip }}/discuss" class="dropdown-item">내 토론 기여 목록</a>
                         <div class="dropdown-divider"></div>
@@ -212,15 +214,21 @@ function onClickEditBtn() {
                 <h1 id="main_title">
                     {% if document %}
                         {% if document.namespace != '문서' || document.forceShowNamespace %}
-                            <a href="/w/{{ document|encode_doc }}"><span class=wiki-document-namespace>{{ document.namespace }}:</span><span class="main_title_a">{{ document.title }}</span></a>
+                            <a href="/w/{{ document|encode_doc }}"><span class="namespace">{{ document.namespace }}:</span>{{ document.title }}</a>
                         {% else %}
-                            <a href="/w/{{ document|encode_doc }}"><span class=main_title_a>{{ document.title }}</span></a>
+                            <a href="/w/{{ document|encode_doc }}">{{ document.title }}</a>
                         {% endif %}
                     {% else %}
                         {{ skinInfo.title }}
                     {% endif %} 
 
-                    {% if skinInfo.viewName == 'edit' %}
+                    {% if skinInfo.viewName == 'edit_edit_request' || skinInfo.viewName == 'edit_request' %}
+                        <small>(편집 요청)</small>
+                    {% elseif skinInfo.viewName == 'edit' && body.section %}
+                        <small>(r{{ body.baserev }} 문단 편집)</small>
+                    {% elseif skinInfo.viewName == 'edit' && body.baserev === '0' %}
+                        <small>(새 문서 생성)</small>
+                    {% elseif skinInfo.viewName == 'edit' %}
                         <small>(편집)</small>
                     {% elseif skinInfo.viewName == 'thread' %}
                         <small>(토론)</small>
@@ -242,13 +250,11 @@ function onClickEditBtn() {
                         <small>(비교)</small>
                     {% elseif skinInfo.viewName == 'acl' %}
                         <small>(ACL)</small>
-                    {% elseif skinInfo.viewName == 'edit_request' %}
-                        <small>(편집 요청)</small>
-                    {% elseif skinInfo.viewName == 'blame' %}
+                    {% elseif skinInfo.viewName == 'blame' && rev %}
                         <small>(r{{ rev }} Blame)</small>
-                    {% elseif skinInfo.viewName == 'raw' %}
+                    {% elseif skinInfo.viewName == 'raw' && rev %}
                         <small>(r{{ rev }} RAW)</small>
-                    {% elseif skinInfo.viewName == 'revert' %}
+                    {% elseif skinInfo.viewName == 'revert' && rev %}
                         <small>(r{{ rev }}로 되돌리기)</small>
                     {% elseif skinInfo.viewName == 'wiki' && rev %}
                         <small>(r{{ rev }} 판)</small>
@@ -285,7 +291,7 @@ function onClickEditBtn() {
             </ul>
             {% endif %}
             <ul class="footer-places">
-
+                {{ config.getString('skin.liberty.footer_html', '')|safe }}
             </ul>
             <ul class="footer-icons">
                 <li class="footer-poweredbyico">
