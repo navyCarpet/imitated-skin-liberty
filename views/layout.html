@@ -167,7 +167,7 @@ function onClickEditBtn() {
             {% if document %}
                 <div class="content-tools">
                     <div class="btn-group" role="group" aria-label="content-tools">
-                        {% if skinInfo.viewName == 'wiki' %}
+                        {% if skinInfo.viewName == 'wiki' || skinInfo.viewName == 'notfound' %}
                             {% if starred %}
                             <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                             {% elseif star_count || star_count === 0 %}
@@ -193,7 +193,7 @@ function onClickEditBtn() {
                             <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                         {% endif %}
                         {% if skinInfo.viewName == 'edit' %}
-                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                             <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger">삭제</a>
                             <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
                         {% elseif skinInfo.viewName == 'xref' %}
@@ -201,16 +201,9 @@ function onClickEditBtn() {
                             <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                         {% elseif skinInfo.viewName == 'history' %}
                             <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                         {% elseif skinInfo.viewName == 'thread' %}
                             <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
-                        {% endif %}
-		                {% if skinInfo.viewName == 'notfound' %}
-                            <a href="/xref/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn" id="topic_color">토론</a>
-                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
-                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                            <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                         {% endif %}
                     </div>
                 </div>
