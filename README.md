@@ -1,5 +1,6 @@
 ## Liberty Skin on imitated-seed engine
-**Powered by [imitated-seed](https://github.com/gdl-blue/imitated-seed-2)**  
+**Powered by [imitated-seed-2](https://github.com/gdl-blue/imitated-seed-2)**  
+Recommended setting "theseed_version" to "4.22.7^"
 
 *original source [librewiki/liberty-skin](https://github.com/librewiki/liberty-skin)*  
 *porting by [namu-theseed](https://github.com/namu-theseed/theseed-skin-liberty)*  
