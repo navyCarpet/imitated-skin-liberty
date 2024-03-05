@@ -170,45 +170,54 @@ function onClickEditBtn() {
                 <div class="content-tools">
                     <div class="btn-group" role="group" aria-label="content-tools">
                         {% if skinInfo.viewName == 'wiki' || skinInfo.viewName == 'notfound' %}
-                            {% if starred %}
-                            <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                            {% elseif star_count || star_count === 0 %}
-                            <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                            {% endif %}
-                            <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                            {% if discuss_progress %}
-                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
-                            {% else %}
-                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
-                            {% endif %}
-                            {% if editable === true && edit_acl_message %}
-                            <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
-                            {% elseif editable === false && edit_acl_message %}
-                            <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
-                            {% else %}
-                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</nuxt-link>
-                            {% endif %}
-                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                            {% if user %}
-                            <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
-                            {% endif %}
-                            <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                        {% if starred %}
+                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
+                        {% elseif star_count || star_count === 0 %}
+                        <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
                         {% endif %}
-                        {% if skinInfo.viewName == 'edit' %}
+                        <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                        {% if discuss_progress %}
+                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
+                        {% else %}
+                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
+                        {% endif %}
+                        {% if editable === true && edit_acl_message %}
+                        <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
+                        {% elseif editable === false && edit_acl_message %}
+                        <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
+                        {% else %}
+                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                        {% endif %}
+                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                        {% if user %}
+                        <a href="/contribution/author/{{ document.title|url_encode }}/document" class="btn btn-secondary tools-btn">기여</a>
+                        {% endif %}
+                        <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                        <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <a href="/raw/{{ document|encode_doc }}" class="dropdown-item">RAW</a>
+                            <!-- blame에 들어가면 서버 터져서 링크 작성 안함 -->
+                            <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a>
+                            <a href="/diff/{{ document|encode_doc }}" class="dropdown-item">이전 리비전과 비교</a>
+                        </div>
+                            {% endif %}
+                            {% if skinInfo.viewName == 'edit' %}
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                            <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger">삭제</a>
+                            <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;border-color: #adadad;">삭제</a>
                             <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
-                        {% elseif skinInfo.viewName == 'xref' %}
+                            {% elseif skinInfo.viewName == 'xref' %}
                             <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                             <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                        {% elseif skinInfo.viewName == 'history' %}
+                            {% elseif skinInfo.viewName == 'history' %}
                             <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        {% elseif skinInfo.viewName == 'thread' %}
+                            {% elseif skinInfo.viewName == 'thread' %}
                             <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
             {% endif %}
             <div class="title">
                 <h1 id="main_title">
@@ -245,7 +254,7 @@ function onClickEditBtn() {
                     {% elseif skinInfo.viewName == 'move' %}
                         <small>(이동)</small>
                     {% elseif skinInfo.viewName == 'delete' %}
-                        <small>(삭제)</small>
+                               (삭제)
                     {% elseif skinInfo.viewName == 'diff' %}
                         <small>(비교)</small>
                     {% elseif skinInfo.viewName == 'acl' %}
