@@ -214,7 +214,7 @@ function onClickEditBtn() {
                             <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                             {% elseif skinInfo.viewName == 'thread' %}
-                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론 목록</a>
+                            <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                             {% endif %}
                         </div>
                     </div>
