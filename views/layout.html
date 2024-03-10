@@ -7,6 +7,12 @@ body {
     --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size', '1.9rem') }};
     --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding', '0') }};
     --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin', '0') }};
+    --brand-color-1: {{ config.getString('skin.liberty.brand_color_1', null) ?? '#4188f1' }};
+    --brand-color-2: {{ config.getString('skin.liberty.brand_color_2', null) ?? config.getString('skin.liberty.brand_color_1', null) ?? '#4188f1' }};
+    --brand-bright-color-1: {{ config.getString('skin.liberty.brand_bright_color_1', null) ?? '#5997f3' }};
+    --brand-bright-color-2: {{ config.getString('skin.liberty.brand_bright_color_2', null) ?? config.getString('skin.liberty.brand_bright_color_1', null) ?? '#5997f3' }};
+    --text-color: {{ config.getString('skin.liberty.text_color', null) ?? '#373a3c' }};
+    --article-background-color: {{ config.getString('skin.liberty.article_background_color', null) ?? '#f5f5f5' }};
 }
 </style>
 <script>
@@ -23,13 +29,13 @@ function onClickEditBtn() {
         $('#editable').show();
         showEditMessage = true;
     }
-} 
+}
 </script>
 <div id="top"></div>
 <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
 <div class="nav-wrapper navbar-fixed-top">
     <nav class="navbar navbar-dark">
-        <a class="navbar-brand" href="/">{{ config.getString('wiki.logo_url', '') }}</a>
+        <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text', null) }}</a>
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></a>
@@ -170,52 +176,72 @@ function onClickEditBtn() {
                 <div class="content-tools">
                     <div class="btn-group" role="group" aria-label="content-tools">
                         {% if skinInfo.viewName == 'wiki' || skinInfo.viewName == 'notfound' %}
-                        {% if starred %}
-                        <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                        {% elseif star_count || star_count === 0 %}
-                        <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-star-o" style="color:#ff6200"></span>&nbsp;{{ star_count }}</a>
-                        {% endif %}
-                        <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                        {% if discuss_progress %}
-                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
-                        {% else %}
-                        <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
-                        {% endif %}
-                        {% if editable === true && edit_acl_message %}
-                        <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
-                        {% elseif editable === false && edit_acl_message %}
-                        <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
-                        {% else %}
-                        <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
-                        {% endif %}
-                        <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                        <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
-                        <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <span class="caret"></span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" role="menu">
-                            {% if user %}
-                            <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여 내역</a>
+                            {% if starred %}
+                                <a href="/member/unstar/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">
+                                    <span class="fa fa-star"></span>
+                                    <span class="star-count">{{ star_count }}</span>
+                                </a>
+                            {% elseif star_count || star_count === 0 %}
+                                <a href="/member/star/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="star-count">{{ star_count }}</span>
+                                </a>
                             {% endif %}
-                            <a href="/raw/{{ document|encode_doc }}" class="dropdown-item">RAW</a>
-                            <!-- blame에 들어가면 서버 터져서 링크 작성 안함 -->
-                            <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
-                            <a href="/diff/{{ document|encode_doc }}" class="dropdown-item">이전 리비전과 비교</a>
-                        </div>
+                                <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                            {% if discuss_progress %}
+                                <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
+                            {% else %}
+                                <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                             {% endif %}
-                            {% if skinInfo.viewName == 'edit' %}
+                            {% if editable === true && edit_acl_message %}
+                                <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
+                            {% elseif editable === false && edit_acl_message %}
+                                <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
+                            {% else %}
+                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                            {% endif %}
+                            {% if rev %}
+                                <a href="/history/{{ document|encode_doc }}?from={{ rev }}" class="btn btn-secondary tools-btn">역사</a>
+                            {% else %}
+                                <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                            {% endif %}
+                            <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                            <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                {% if user %}
+                                    <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여 내역</a>
+                                {% endif %}
+                                {% if rev %}
+                                    <a href="/raw/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">RAW</a>
+                                    <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
+                                    <a href="/diff/{{ document|encode_doc }}?rev={{ rev }}&oldrev={{ rev - 1 }}" class="dropdown-item">이전 리비전과 비교</a>
+                                    <a href="/revert/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">이 리버전으로 되돌리기</a>
+                                {% else %}
+                                    <a href="/raw/{{ document|encode_doc }}" class="dropdown-item">RAW</a>
+                                    <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
+                                    <a href="/diff/{{ document|encode_doc }}" class="dropdown-item">이전 리비전과 비교</a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if skinInfo.viewName == 'edit' %}
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                             <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger tools-btn">삭제</a>
                             <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
-                            {% elseif skinInfo.viewName == 'xref' %}
-                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                        {% elseif skinInfo.viewName == 'xref' %}
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
                             <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                            {% elseif skinInfo.viewName == 'history' %}
-                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                        {% elseif skinInfo.viewName == 'history' %}
                             <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                            {% elseif skinInfo.viewName == 'thread' %}
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                        {% elseif skinInfo.viewName == 'thread' %}
                             <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
-                            {% endif %}
+                        {% elseif skinInfo.viewName == 'raw' || skinInfo.viewName == 'blame' || skinInfo.viewName == 'diff' %}
+                            <a href="/w/{{ document|encode_doc }}?rev={{ rev }}" class="btn btn-secondary tools-btn">보기</a>
+                            <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                            <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                        {% endif %}
                         </div>
                     </div>
             {% endif %}
@@ -273,9 +299,10 @@ function onClickEditBtn() {
         </div>
         <div class="liberty-content-main wiki-article">
             <div id="editable" class="alert alert-danger" role="alert" style="display: none;">
-                <span>
-                    {{ edit_acl_message|safe }}
-                </span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <span>{{ edit_acl_message|safe }}</span>
                 {% if editable === true && edit_acl_message %}
                     <span>대신 <a href="/new_edit_request/{{ document|encode_doc }}">편집 요청</a>을 생성할 수 있습니다.</span>
                 {% endif %}
@@ -284,7 +311,6 @@ function onClickEditBtn() {
                 <div class="alert alert-info fade in" id="userDiscussAlert" role="alert" data-id="{{ member.username }}-{{ user_document_discuss }}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
                     </button>
                     현재 진행 중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.
                 </div>
