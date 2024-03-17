@@ -6,7 +6,6 @@
 		"css/font/Noto Sans KR.css",
 		"css/default.css",
 		"css/default_mobile.css",
-		"css/theseed.css",
 		"css/jquery-ui.min.css",
 		"css/imitated_fix.css",
 		"js/lib/bootstrap.min.js",
@@ -42,7 +41,6 @@
 			"css/default.css",
 			"css/default_mobile.css",
 			"css/jquery-ui.min.css",
-			"css/theseed.css",
 			"css/imitated_fix.css"
 		]
 	},

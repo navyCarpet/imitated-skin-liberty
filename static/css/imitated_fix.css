@@ -1,7 +1,147 @@
+button.btn.btn-block:hover {
+    background: #5d92de;
+    color: white;
+}
+
 .wiki-article .wiki-list {
     padding-left: 0.5rem;
 }
 
 .wiki-article .seed-acl-div table.table {
     white-space: nowrap;
+}
+
+.wiki-article button#createBtn {
+    float: right;
+    width: 8rem;
+}
+
+.wiki-article div.wiki-category {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: .9rem;
+    margin: 0 0 1em;
+    padding: 0.2rem 0.5rem;
+    position: relative;
+}
+
+.wiki-article div.wiki-category ul li:after {
+    border-left: 1px solid #888;
+    content: "";
+    display: inline-block;
+    height: 0.8rem;
+    margin: 0 0.4rem -0.1rem;
+}
+
+.wiki-article .wiki-quote {
+    background: #eee;
+    border: 2px dashed #ccc;
+    border-left: 5px solid #71bc6d;
+    display: table;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.wiki-article #editForm #previewFrame {
+    height: 30rem;
+    overflow: auto;
+    padding: 10px;
+}
+
+.wiki-article #editForm .bordered {
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.wiki-article #res-container .res-wrapper {
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.wiki-article #res-container .r-head {
+    margin: 0;
+    padding: 7px 7px 7px 10px;
+}
+
+.wiki-article #res-container .r-body.r-hidden-body {
+    background: #6b6b6b;
+    color: #fff;
+}
+
+.wiki-article #res-container .res.res-type-status .r-body {
+    background: #fc6;
+}
+
+.wiki-article #res-container .r-head.first-author {
+    background: #b0d3ad;
+}
+
+.wiki-article .more-box {
+    background: #f4f4f4;
+    border: 1px solid gray;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+}
+
+.wiki-article table.diff tbody {
+    font-family: "";
+}
+
+.wiki-article #res-container .res-loading .r-body {
+    height: 80px;
+}
+
+.wiki-article #res-container .res-loading {
+    animation-direction: alternate;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-name: RN7RBgOJ;
+    opacity: .25;
+}
+
+@keyframes RN7RBgOJ {
+    0% {
+        opacity: .25
+    }
+
+    25% {
+        opacity: .37
+    }
+
+    50% {
+        opacity: .52
+    }
+
+    75% {
+        opacity: .81
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.wiki-article #res-container .res {
+    word-wrap: break-word;
+    background: #d5d5d5;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display: inline-block;
+    max-width: 100%;
+    min-width: 400px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+    .wiki-article #res-container .res {
+        display: block;
+        min-width: 100%;
+        width: 100%;
+    }
 }
