@@ -11,6 +11,7 @@
 		"css/imitated_fix.css",
 		"bootstrap/js/bootstrap.min.js",
 		"js/jquery-2.2.4.min.js",
+		"js/jquery-ui.min.js",
 		"js/live_Recents.js",
 		"js/layout.js",
 		"js/theseed.js"
@@ -22,6 +23,9 @@
 			},
 			{
 				"path": "js/jquery-2.2.4.min.js"
+			},
+			{
+				"path": "js/jquery-ui.min.js"
 			},
 			{
 				"path": "js/live_Recents.js"
