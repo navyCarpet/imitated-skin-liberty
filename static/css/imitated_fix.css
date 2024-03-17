@@ -56,6 +56,10 @@ button.btn.btn-block:hover {
     width: 80px;
 }
 
+.wiki-article .more-box:hover {
+    background: #bac6f2;
+}
+
 .wiki-article table.diff tbody {
     font-family: "";
 }
