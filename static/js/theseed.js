@@ -90,6 +90,7 @@ $(function() {
 	});
 
 	const localTheme = window.matchMedia('(prefers-color-scheme: dark)')
+	localTheme.matches ? document.body.classList.add('theseed-dark-mode') : 0
 	localTheme.addEventListener('change', function(value){
 		value.matches ? document.body.classList.add('theseed-dark-mode') : document.body.classList.remove('theseed-dark-mode')
 	});
