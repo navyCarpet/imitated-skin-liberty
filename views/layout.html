@@ -15,22 +15,29 @@ body {
     --article-background-color: {{ config.getString('skin.liberty.article_background_color', null) || '#f5f5f5' }};
 }
 </style>
+{% if editable === true && edit_acl_message %}
 <script>
-let showEditMessage = false;
 function onClickEditBtn() {
-    if (showEditMessage) {
-        {% if editable === true && edit_acl_message %}
-            location.href = "/new_edit_request/{{ document|encode_doc }}";
-        {% else %}
-            location.href = "/edit/{{ document|encode_doc }}";
-        {% endif %}
+    if ($('#editable').css('display') == 'none') {
+        location.href = "/new_edit_request/{{ document|encode_doc }}";
     }
     else {
         $('#editable').show();
-        showEditMessage = true;
     }
 }
 </script>
+{% else %}
+<script>
+function onClickEditBtn() {
+    if ($('#editable').css('display') == 'none') {
+        location.href = "/edit/{{ document|encode_doc }}";
+    }
+    else {
+        $('#editable').show();
+    }
+}
+</script>
+{% endif %}
 <div class="Liberty">
     <div id="top"></div>
     <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
