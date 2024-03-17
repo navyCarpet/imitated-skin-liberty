@@ -9,8 +9,8 @@
 		"css/default_mobile.css",
 		"css/jquery-ui.min.css",
 		"css/imitated_fix.css",
-		"js/lib/bootstrap.min.js",
-		"js/lib/jquery-ui.min.js",
+		"bootstrap/js/bootstrap.min.js",
+		"js/jquery-2.2.4.min.js",
 		"js/live_Recents.js",
 		"js/layout.js",
 		"js/theseed.js"
@@ -18,10 +18,10 @@
 	"auto_js_targets": {
 		"*": [
 			{
-				"path": "js/lib/bootstrap.min.js"
+				"path": "bootstrap/js/bootstrap.min.js"
 			},
 			{
-				"path": "js/lib/jquery-ui.min.js"
+				"path": "js/jquery-2.2.4.min.js"
 			},
 			{
 				"path": "js/live_Recents.js"
