@@ -32,6 +32,7 @@ button.btn.btn-block:hover {
     display: inline-block;
     height: 0.8rem;
     margin: 0 0.4rem -0.1rem;
+    padding: 0;
 }
 
 .wiki-article .wiki-quote {
