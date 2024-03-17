@@ -18,7 +18,7 @@ body {
 {% if editable === true && edit_acl_message %}
 <script>
 function onClickEditBtn() {
-    if ($('#editable').css('display') == 'none') {
+    if ($('#editable').css('display') == 'block') {
         location.href = "/new_edit_request/{{ document|encode_doc }}";
     }
     else {
@@ -29,7 +29,7 @@ function onClickEditBtn() {
 {% else %}
 <script>
 function onClickEditBtn() {
-    if ($('#editable').css('display') == 'none') {
+    if ($('#editable').css('display') == 'block') {
         location.href = "/edit/{{ document|encode_doc }}";
     }
     else {
