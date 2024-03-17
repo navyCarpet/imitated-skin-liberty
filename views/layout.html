@@ -307,7 +307,7 @@ function onClickEditBtn() {
             </div>
             <div class="liberty-content-main wiki-article">
                 <div id="editable" class="alert alert-danger" role="alert" style="display: none;">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" onclick="return $(this).parent.hide()" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <span>{{ edit_acl_message|safe }}</span>
