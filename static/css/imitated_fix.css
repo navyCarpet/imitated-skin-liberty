@@ -85,34 +85,34 @@ button.btn.btn-block:hover {
     border-top: none;
 }
 
-.wiki-article #res-container .res-wrapper {
+.wiki-article .res-wrapper {
     margin: 0;
     padding-bottom: 20px;
 }
 
-.wiki-article #res-container .r-head {
+.wiki-article .r-head {
     margin: 0;
     padding: 7px 7px 7px 10px;
 }
 
-.wiki-article #res-container .r-body.r-hidden-body {
+.wiki-article .r-body.r-hidden-body {
     background: #6b6b6b;
     color: #fff;
 }
 
-.wiki-article #res-container .res.res-type-status .r-body {
+.wiki-article .res.res-type-status .r-body {
     background: #fc6;
 }
 
-.wiki-article #res-container .r-head.first-author {
+.wiki-article .r-head.first-author {
     background: #b0d3ad;
 }
 
-.wiki-article #res-container .res-loading .r-body {
+.wiki-article .res-loading .r-body {
     height: 80px;
 }
 
-.wiki-article #res-container .r-body {
+.wiki-article .r-body {
     word-wrap: break-word;
     background: #f4f4f4;
     max-height: 500px;
@@ -120,12 +120,31 @@ button.btn.btn-block:hover {
     padding: 13px;
 }
 
-.wiki-article #res-container .res-loading {
+.wiki-article .res-loading {
     animation-direction: alternate;
     animation-duration: .5s;
     animation-iteration-count: infinite;
     animation-name: RN7RBgOJ;
     opacity: .25;
+}
+
+.wiki-article .res {
+    word-wrap: break-word;
+    background: #d5d5d5;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display: inline-block;
+    max-width: 100%;
+    min-width: 400px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+    .wiki-article .res {
+        display: block;
+        min-width: 100%;
+        width: 100%;
+    }
 }
 
 @keyframes RN7RBgOJ {
@@ -147,24 +166,5 @@ button.btn.btn-block:hover {
 
     to {
         opacity: 1
-    }
-}
-
-.wiki-article #res-container .res {
-    word-wrap: break-word;
-    background: #d5d5d5;
-    border: 1px solid gray;
-    border-radius: 4px;
-    display: inline-block;
-    max-width: 100%;
-    min-width: 400px;
-    overflow: hidden;
-}
-
-@media screen and (max-width: 700px) {
-    .wiki-article #res-container .res {
-        display: block;
-        min-width: 100%;
-        width: 100%;
     }
 }
