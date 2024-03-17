@@ -63,6 +63,8 @@ button.btn.btn-block:hover {
     height: 30rem;
     overflow: auto;
     padding: 10px;
+    border: none;
+    width: 100%;
 }
 
 .wiki-article #editForm .bordered {
