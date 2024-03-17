@@ -60,9 +60,16 @@ button.btn.btn-block:hover {
 }
 
 .wiki-article #editForm #textInput {
-    width: 100%;
-    height: 30rem;
     border: none;
+    border-radius: 0;
+    color: #55595c;
+    font-family: inherit;
+    font-size: .9rem;
+    height: 30rem;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    resize: vertical;
+    width: 100%;
 }
 
 .wiki-article #editForm #previewFrame {
