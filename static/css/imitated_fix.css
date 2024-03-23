@@ -191,16 +191,16 @@ button.btn.btn-block:hover {
     color: #ddd;
 }
 
-.theseed-dark-mode .nav-tabs {
+.theseed-dark-mode ul.nav-tabs {
     border-bottom: 1px solid #383b40;
 }
 
-.theseed-dark-mode .nav-item > .nav-link {
+.theseed-dark-mode ul.nav-tabs > li.nav-item > .nav-link {
     border-color: #383b40 #383b40 transparent;
     color: #ddd;
 }
 
-.theseed-dark-mode .nav-item > .nav-link.active {
+.theseed-dark-mode ul.nav-tabs > li.nav-item > .nav-link.active {
     background-color: #27292d;
 }
 
