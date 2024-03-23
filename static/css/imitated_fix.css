@@ -75,6 +75,7 @@ button.btn.btn-block:hover {
     padding: 0.25rem 0.5rem;
     resize: vertical;
     width: 100%;
+    box-shadow: none;
 }
 
 .wiki-article #editForm #previewFrame {
@@ -95,12 +96,12 @@ button.btn.btn-block:hover {
     padding-bottom: 20px;
 }
 
-.wiki-article .r-head {
+.wiki-article .res .r-head {
     margin: 0;
     padding: 7px 7px 7px 10px;
 }
 
-.wiki-article .r-body.r-hidden-body {
+.wiki-article .res .r-body.r-hidden-body {
     background: #6b6b6b;
     color: #fff;
 }
@@ -109,7 +110,7 @@ button.btn.btn-block:hover {
     background: #fc6;
 }
 
-.wiki-article .r-head.first-author {
+.wiki-article .res .r-head.first-author {
     background: #b0d3ad;
 }
 
@@ -191,11 +192,11 @@ button.btn.btn-block:hover {
     color: #ddd;
 }
 
-.theseed-dark-mode .wiki-article form#editForm div.bordered {
+.theseed-dark-mode .wiki-article form div.bordered {
     border-color: #383b40;
 }
 
-.theseed-dark-mode .wiki-article form#editForm input#logInput, .theseed-dark-mode form#editForm textarea#textInput {
+.theseed-dark-mode .wiki-article form input#logInput, .theseed-dark-mode form textarea#textInput {
     background-color: #27292d;
     border-color: #383b40;
     color: #ddd;
@@ -214,19 +215,19 @@ button.btn.btn-block:hover {
     background-color: #27292d;
 }
 
-.theseed-dark-mode div.res {
+.theseed-dark-mode .res {
     background-color: #2d2f34;
     border-color: #383b40;
 }
 
-.theseed-dark-mode div.res div.r-head.first-author {
+.theseed-dark-mode .res .r-head.first-author {
     background-color: #324432;
 }
 
-.theseed-dark-mode div.res div.r-body {
+.theseed-dark-mode .res .r-body {
     background: #27292d;
 }
 
-.theseed-dark-mode div.res.res-type-status div.r-body {
+.theseed-dark-mode .res.res-type-status .r-body {
     background: #54411a;
 }
