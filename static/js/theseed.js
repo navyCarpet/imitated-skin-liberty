@@ -110,7 +110,6 @@ $(function() {
 	$("#theme").click(function(){
 		var now = $(this).text() === '다크 테마로';
 		changeTheme(now);
-		return false;
 	});
 });
 
