@@ -153,6 +153,14 @@ button.btn.btn-block:hover {
     }
 }
 
+.wiki-article form.settings-section {
+    border-bottom: 1px solid #ccc;
+    clear: both;
+    margin-bottom: 1rem;
+    margin-top: 1em;
+    padding-bottom: 1rem;
+}
+
 @keyframes RN7RBgOJ {
     0% {
         opacity: .25
@@ -172,6 +180,13 @@ button.btn.btn-block:hover {
 
     to {
         opacity: 1
+    }
+}
+
+@media screen and (min-width: 34rem) {
+    .login-form {
+        margin:0 auto;
+        width: 28rem
     }
 }
 
@@ -215,6 +230,10 @@ button.btn.btn-block:hover {
     background-color: #27292d;
 }
 
+.theseed-dark-mode ul.nav-tabs > li.nav-item > .nav-link > form > button {
+    color: #ddd;
+}
+
 .theseed-dark-mode .res {
     background-color: #2d2f34;
     border-color: #383b40;
@@ -230,4 +249,16 @@ button.btn.btn-block:hover {
 
 .theseed-dark-mode .res.res-type-status .r-body {
     background: #54411a;
+}
+
+.theseed-dark-mode .res .r-head .pull-right span > button {
+    background-color: #27292d;
+    border-color: #383b40;
+    color: #ddd;
+}
+
+.theseed-dark-mode form.settings-section input, .theseed-dark-mode form.settings-section select {
+    background-color: #27292d;
+    border-color: #383b40;
+    color: #ddd;
 }
