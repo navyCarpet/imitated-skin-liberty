@@ -89,10 +89,28 @@ $(function() {
 		return false;
 	});
 
+	function changeTheme(theme){
+		if (theme) {
+			document.body.classList.remove('theseed-light-mode');
+			document.body.classList.add('theseed-dark-mode');
+		}
+		else {
+			document.body.classList.add('theseed-light-mode');
+			document.body.classList.remove('theseed-dark-mode');
+		}
+
+		$("#theme").text(theme ? '라이트 테마로' : '다크 테마로');
+	};
+
 	const localTheme = window.matchMedia('(prefers-color-scheme: dark)')
-	localTheme.matches ? document.body.classList.add('theseed-dark-mode') : 0
-	localTheme.addEventListener('change', function(value){
-		value.matches ? document.body.classList.add('theseed-dark-mode') : document.body.classList.remove('theseed-dark-mode')
+	changeTheme(localTheme.matches);
+
+	localTheme.addEventListener('change', (value) => changeTheme(value.matches));
+
+	$("#theme").click(function(){
+		var now = $(this).text() === '다크 테마로';
+		changeTheme(now);
+		return false;
 	});
 });
 
