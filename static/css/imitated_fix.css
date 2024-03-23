@@ -175,6 +175,22 @@ button.btn.btn-block:hover {
 }
 
 /* 다크 모드 */
+.theseed-dark-mode .wiki-article .wiki-category {
+    background-color: #1c1d1f;
+    border-color: #555;
+}
+
+.theseed-dark-mode .wiki-article .wiki-quote {
+    background-color: #2d2f34;
+    border-color: #383b40 #383b40 #383b40 #666c75;
+    color: #ddd;
+}
+
+.theseed-dark-mode .wiki-article .more-box {
+    background-color: #325a56;
+    color: #ddd;
+}
+
 .theseed-dark-mode div.res {
     background-color: #2d2f34;
     border-color: #383b40;
