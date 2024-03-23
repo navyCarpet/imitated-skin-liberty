@@ -191,6 +191,16 @@ button.btn.btn-block:hover {
     color: #ddd;
 }
 
+.theseed-dark-mode .wiki-article form#editForm div.bordered {
+    border-color: #383b40;
+}
+
+.theseed-dark-mode .wiki-article form#editForm input#logInput, .theseed-dark-mode form#editForm textarea#textInput {
+    background-color: #27292d;
+    border-color: #383b40;
+    color: #ddd;
+}
+
 .theseed-dark-mode ul.nav-tabs {
     border-bottom: 1px solid #383b40;
 }
