@@ -15,29 +15,17 @@ body {
     --article-background-color: {{ config.getString('skin.liberty.article_background_color', null) || '#f5f5f5' }};
 }
 </style>
-{% if editable === true && edit_acl_message %}
 <script>
-function onClickEditBtn() {
+function onClickEditBtn(route) {
     if ($('#editable').css('display') == 'block') {
-        location.href = "/new_edit_request/{{ document|encode_doc }}";
+        location.href = `/${route}/{{ document|encode_doc }}`;
     }
     else {
         $('#editable').show();
     }
+    return false;
 }
 </script>
-{% else %}
-<script>
-function onClickEditBtn() {
-    if ($('#editable').css('display') == 'block') {
-        location.href = "/edit/{{ document|encode_doc }}";
-    }
-    else {
-        $('#editable').show();
-    }
-}
-</script>
-{% endif %}
 <div class="Liberty">
     <div id="top"></div>
     <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
@@ -205,9 +193,9 @@ function onClickEditBtn() {
                                     <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                                 {% endif %}
                                 {% if editable === true && edit_acl_message %}
-                                    <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
+                                    <a href="#" onclick="onClickEditBtn('new_edit_request')" class="btn btn-secondary tools-btn"><span class="fa fa-pencil-square"></span> 편집 요청</a>
                                 {% elseif editable === false && edit_acl_message %}
-                                    <a href="#" onclick="onClickEditBtn()" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
+                                    <a href="#" onclick="onClickEditBtn('edit')" class="btn btn-secondary tools-btn"><span class="fa fa-lock"></span> 편집</a>
                                 {% else %}
                                     <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
                                 {% endif %}
