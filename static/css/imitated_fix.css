@@ -173,3 +173,21 @@ button.btn.btn-block:hover {
         opacity: 1
     }
 }
+
+/* 다크 모드 */
+.theseed-dark-mode div.res {
+    background-color: #2d2f34;
+    border-color: #383b40;
+}
+
+.theseed-dark-mode div.res div.r-head.first-author {
+    background-color: #324432;
+}
+
+.theseed-dark-mode div.res div.r-body {
+    background: #27292d;
+}
+
+.theseed-dark-mode div.res.res-type-status div.r-body {
+    background: #54411a;
+}
