@@ -17,34 +17,42 @@ function ShowAjaxRecentList(parent)
 			for(var i = 0 ; i < res.length && i < 10 ; i++)
 			{
 				var item = res[i];
-        html += '<li><a class="recent-item" href = "/w/' + encodeURIComponent(item.document) + '" title="' + item.document +'">';
+        		html += '<li><a class="recent-item" href = "/w/' + encodeURIComponent(item.document) + '" title="' + item.document +'">';
 				var time = new Date(item.date * 1000);
-				var hour = time.getHours();
-				var minute = time.getMinutes();
-				var second = time.getSeconds();
-				if(hour < 10)
-				{
-					hour = "0" + hour;
+				if (Math.floor(time.getTime() / 1000) - 86400 > item.date) {
+					var year = time.getFullYear();
+					var month = time.getMonth() + 1;
+					var day = time.getDate();
+					if(month < 10)
+					{
+						month = "0" + month;
+					}
+					if(day < 10)
+					{
+						day = "0" + day;
+					}
+					time = year + "-" + month + "-" + day;
 				}
-				if(minute < 10)
+				else
 				{
-					minute = "0" + minute;
+					var hour = time.getHours();
+					var minute = time.getMinutes();
+					var second = time.getSeconds();
+					if(hour < 10)
+					{
+						hour = "0" + hour;
+					}
+					if(minute < 10)
+					{
+						minute = "0" + minute;
+					}
+					if(second < 10)
+					{
+						second = "0" + second;
+					}
+					time = hour + ":" + minute + ":" + second;
 				}
-				if(second < 10)
-				{
-					second = "0" + second;
-				}
-				time = hour + ":" + minute + ":" + second;
-
-				html += "[" + time + "] ";
-				var text = item.document;
-				if(text.length > 13)
-				{
-					text = text.substr(0,13);
-					text +="...";
-				}
-				html += text;
-				html += "</a></li>"
+				html += "[" + time + "] " + item.document + "</a></li>";
 			}
 			if(parent != null)
 			{
