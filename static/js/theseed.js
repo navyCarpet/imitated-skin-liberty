@@ -89,6 +89,9 @@ $(function() {
 		return false;
 	});
 
+	let storage = localStorage.theseed_settings;
+	if (storage) storage = JSON.parse(storage);
+
 	function changeTheme(theme){
 		if (theme) {
 			document.body.classList.remove('theseed-light-mode');
@@ -102,13 +105,16 @@ $(function() {
 		$("#theme").text(theme ? '라이트 테마로' : '다크 테마로');
 	};
 
-	const localTheme = window.matchMedia('(prefers-color-scheme: dark)')
-	changeTheme(localTheme.matches);
+	const localTheme = window.matchMedia('(prefers-color-scheme: dark)');
+	changeTheme(storage['wiki.theme'] === 'dark' || localTheme.matches);
 
-	localTheme.addEventListener('change', (value) => changeTheme(value.matches));
+	localTheme.addEventListener('change', (value) => storage['wiki.theme'] === 'auto' ? changeTheme(value.matches) : '');
 
 	$("#theme").click(function(){
 		var now = $(this).text() === '다크 테마로';
+
+		storage['wiki.theme'] = now ? 'dark' : 'light';
+		localStorage.theseed_settings = JSON.stringify(storage);
 		changeTheme(now);
 	});
 });
