@@ -91,6 +91,7 @@ $(function() {
 
 	let storage = localStorage.theseed_settings;
 	if (storage) storage = JSON.parse(storage);
+	else storage = {};
 
 	function changeTheme(theme){
 		if (theme) {
