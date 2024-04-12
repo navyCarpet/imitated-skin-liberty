@@ -91,7 +91,9 @@ $(function() {
 
 	let storage = localStorage.theseed_settings;
 	if (storage) storage = JSON.parse(storage);
-	else storage = {};
+	else storage = {
+		'wiki.theme': 'auto'
+	};
 
 	function changeTheme(theme){
 		if (theme) {
@@ -109,7 +111,7 @@ $(function() {
 	const localTheme = window.matchMedia('(prefers-color-scheme: dark)');
 	changeTheme(storage['wiki.theme'] === 'dark' || localTheme.matches);
 
-	localTheme.addEventListener('change', (value) => (!storage['wiki.theme'] || storage['wiki.theme'] === 'auto') ? changeTheme(value.matches) : '');
+	localTheme.addEventListener('change', (value) => storage['wiki.theme'] === 'auto' ? changeTheme(value.matches) : '');
 
 	$("#theme").click(function(){
 		var now = $(this).text() === '다크 테마로';
