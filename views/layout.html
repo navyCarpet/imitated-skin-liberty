@@ -1,18 +1,38 @@
 <style>
-body {
-    --liberty-navbar-color: {{ config.getString('skin.liberty.navbar_color', '#4188f1') }};
-    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image', 'none') }};
-    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width', '') }};
-    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width', '6.6rem') }};
-    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size', '1.9rem') }};
-    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding', '0') }};
-    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin', '0') }};
-    --brand-color-1: {{ config.getString('skin.liberty.brand_color_1', null) || '#4188f1' }};
-    --brand-color-2: {{ config.getString('skin.liberty.brand_color_2', null) || config.getString('skin.liberty.brand_color_1', null) || '#4188f1' }};
-    --brand-bright-color-1: {{ config.getString('skin.liberty.brand_bright_color_1', null) || '#5997f3' }};
-    --brand-bright-color-2: {{ config.getString('skin.liberty.brand_bright_color_2', null) || config.getString('skin.liberty.brand_bright_color_1', null) || '#5997f3' }};
-    --text-color: {{ config.getString('skin.liberty.text_color', null) || '#373a3c' }};
-    --article-background-color: {{ config.getString('skin.liberty.article_background_color', null) || '#f5f5f5' }};
+body.theseed-light-mode {
+    --liberty-brand-color: {{ config.getString('skin.liberty.brand_color_1') || '#4188f1' }};
+    --liberty-brand-dark-color: {{ config.getString('skin.liberty.brand_dark_color_1') || darkenColor(this.brand_color) }};
+    --liberty-brand-bright-color: {{ config.getString('skin.liberty.brand_bright_color_1') || lightenColor(this.brand_color) }};
+    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image') }};
+    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width') }};
+    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width') }};
+    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size') }};
+    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding') }};
+    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin') }};
+    --brand-color-1: 'var(--liberty-brand-color)';
+    --brand-color-2: {{ config.getString('skin.liberty.brand_color_2') || 'var(--liberty-brand-color)' }};
+    --brand-bright-color-1: 'var(--liberty-brand-bright-color)';
+    --brand-bright-color-2: {{ config.getString('skin.liberty.brand_bright_color_2') || 'var(--liberty-brand-bright-color)' }};
+    --text-color: '#373a3c';
+    --article-background-color: '#f5f5f5';
+}
+
+body.theseed-dark-mode {
+    --liberty-brand-color: '#2d2f34';
+    --liberty-brand-dark-color: '#16171a';
+    --liberty-brand-bright-color: '#383b40';
+    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image') }};
+    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width') }};
+    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width') }};
+    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size') }};
+    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding') }};
+    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin') }};
+    --brand-color-1: 'var(--liberty-brand-color)';
+    --brand-color-2: 'var(--liberty-brand-color)';
+    --brand-bright-color-1: 'var(--liberty-brand-bright-color)';
+    --brand-bright-color-2: 'var(--liberty-brand-bright-color)';
+    --text-color: '#ddd';
+    --article-background-color: '#000';
 }
 </style>
 <script>
@@ -31,7 +51,7 @@ function onClickEditBtn(route) {
     <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
     <div class="nav-wrapper navbar-fixed-top">
         <nav class="navbar navbar-dark">
-            <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text', null) }}</a>
+            <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text') }}</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></a>
@@ -325,7 +345,7 @@ function onClickEditBtn(route) {
                 </ul>
                 {% endif %}
                 <ul class="footer-places">
-                    {{ config.getString('skin.liberty.footer_html', '')|safe }}
+                    {{ config.getString('skin.liberty.footer_html')|safe }}
                 </ul>
                 <ul class="footer-icons">
                     <li class="footer-poweredbyico">
