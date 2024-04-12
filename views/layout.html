@@ -1,14 +1,14 @@
 <style>
 body {
     --liberty-brand-color: {{ config.getString('skin.liberty.brand_color_1') || '#4188f1' }};
-    --liberty-brand-dark-color: {{ config.getString('skin.liberty.brand_dark_color_1') }};
-    --liberty-brand-bright-color: {{ config.getString('skin.liberty.brand_bright_color_1') }};
-    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image') }};
-    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width') }};
-    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width') }};
-    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size') }};
-    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding') }};
-    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin') }};
+    --liberty-brand-dark-color: {{ config.getString('skin.liberty.brand_dark_color_1') || '#214479' }};
+    --liberty-brand-bright-color: {{ config.getString('skin.liberty.brand_bright_color_1') || '#a0c4f8' }};
+    --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image') || 'none' }};
+    --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width') || '5rem' }};
+    --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width') || '6.6rem' }};
+    --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size') || '1.9rem' }};
+    --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding') || '0' }};
+    --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin') || '0' }};
     --brand-color-1: var(--liberty-brand-color);
     --brand-color-2: {{ config.getString('skin.liberty.brand_color_2') || 'var(--liberty-brand-color)' }};
     --brand-bright-color-1: var(--liberty-brand-bright-color);
