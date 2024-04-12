@@ -9,9 +9,9 @@ body {
     --liberty-navbar-logo-size: {{ config.getString('skin.liberty.navbar_logo_size') }};
     --liberty-navbar-logo-padding: {{ config.getString('skin.liberty.navbar_logo_padding') }};
     --liberty-navbar-logo-margin: {{ config.getString('skin.liberty.navbar_logo_margin') }};
-    --brand-color-1: 'var(--liberty-brand-color)';
+    --brand-color-1: var(--liberty-brand-color);
     --brand-color-2: {{ config.getString('skin.liberty.brand_color_2') || 'var(--liberty-brand-color)' }};
-    --brand-bright-color-1: 'var(--liberty-brand-bright-color)';
+    --brand-bright-color-1: var(--liberty-brand-bright-color);
     --brand-bright-color-2: {{ config.getString('skin.liberty.brand_bright_color_2') || 'var(--liberty-brand-bright-color)' }};
     --text-color: '#373a3c';
     --article-background-color: '#f5f5f5';
@@ -21,10 +21,10 @@ body.theseed-dark-mode {
     --liberty-brand-color: '#2d2f34';
     --liberty-brand-dark-color: '#16171a';
     --liberty-brand-bright-color: '#383b40';
-    --brand-color-1: 'var(--liberty-brand-color)';
-    --brand-color-2: 'var(--liberty-brand-color)';
-    --brand-bright-color-1: 'var(--liberty-brand-bright-color)';
-    --brand-bright-color-2: 'var(--liberty-brand-bright-color)';
+    --brand-color-1: var(--liberty-brand-color);
+    --brand-color-2: var(--liberty-brand-color);
+    --brand-bright-color-1: var(--liberty-brand-bright-color);
+    --brand-bright-color-2: var(--liberty-brand-bright-color);
     --text-color: '#ddd';
     --article-background-color: '#000';
 }
