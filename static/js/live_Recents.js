@@ -31,7 +31,7 @@ function ShowAjaxRecentList(parent)
 					{
 						day = "0" + day;
 					}
-					time = year + "-" + month + "-" + day;
+					time = year + "/" + month + "/" + day;
 				}
 				else
 				{
