@@ -1,8 +1,8 @@
 <style>
 body.theseed-light-mode {
     --liberty-brand-color: {{ config.getString('skin.liberty.brand_color_1') || '#4188f1' }};
-    --liberty-brand-dark-color: {{ config.getString('skin.liberty.brand_dark_color_1') || darkenColor(this.brand_color) }};
-    --liberty-brand-bright-color: {{ config.getString('skin.liberty.brand_bright_color_1') || lightenColor(this.brand_color) }};
+    --liberty-brand-dark-color: {{ config.getString('skin.liberty.brand_dark_color_1') }};
+    --liberty-brand-bright-color: {{ config.getString('skin.liberty.brand_bright_color_1') }};
     --liberty-navbar-logo-image: {{ config.getString('skin.liberty.navbar_logo_image') }};
     --liberty-navbar-logo-minimum-width: {{ config.getString('skin.liberty.navbar_logo_minimum_width') }};
     --liberty-navbar-logo-width: {{ config.getString('skin.liberty.navbar_logo_width') }};
