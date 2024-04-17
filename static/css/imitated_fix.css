@@ -248,3 +248,8 @@ button.btn.btn-block:hover {
     border-color: #383b40;
     color: #ddd;
 }
+
+/* issue #13 */
+.wiki-article .res {
+    overflow: unset !important;
+}
