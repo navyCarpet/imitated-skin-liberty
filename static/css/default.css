@@ -16,11 +16,11 @@ body {
 }
 
 body, h1, h2, h3, h4, h5, h6 {
-    font-family: "Nanum Gothic", "KoPubDotum M", "Noto Sans Korean", "Noto Sans", "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-family: "Noto Sans Korean", "Noto Sans", "Nanum Gothic", "KoPubDotum M", "Malgun Gothic", "맑은 고딕", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, b {
-    font-family: "Nanum Gothic", "KoPubDotum B", "Noto Sans Korean", "Noto Sans", "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-family:  "Noto Sans Korean", "Noto Sans", "Nanum Gothic", "KoPubDotum B","Malgun Gothic", "맑은 고딕", sans-serif;
 }
 
 input[type=password] {
@@ -420,6 +420,10 @@ del, s, strike {
     color: #b73333;
 }
 
+.Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-content .live-recent-list .recent-item.removed {
+    text-decoration: line-through;
+}
+
 .Liberty .content-wrapper .liberty-sidebar .liberty-right-fixed .live-recent .live-recent-footer {
     background-color: #f5f8fa;
     border: 1px solid #e1e8ed;
@@ -458,6 +462,14 @@ del, s, strike {
     padding: 0;
     padding-bottom: 1rem;
     word-break: break-all;
+}
+
+.Liberty .content-wrapper.hide-sidebar .liberty-sidebar {
+    display: none;
+}
+
+.Liberty .content-wrapper.hide-sidebar .liberty-content {
+    margin-right: 0 !important;
 }
 
 .Liberty .content-wrapper .liberty-content .notification .label {
@@ -687,6 +699,10 @@ caption {
     color: #373a3c;
     caption-side: top;
 }
+
+.float-right {
+    float: right;
+}
 /* 부트스트랩 커스텀 End*/
 
 div.scroll-buttons {
@@ -717,4 +733,8 @@ div.scroll-buttons a {
 
 .scroll-buttons a:link, .scroll-buttons a:visited {
     color: white;
+}
+
+#searchSuggest {
+    line-height: 2.1rem;
 }

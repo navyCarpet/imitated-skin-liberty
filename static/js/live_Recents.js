@@ -17,7 +17,7 @@ function ShowAjaxRecentList(parent)
 			for(var i = 0 ; i < res.length && i < 10 ; i++)
 			{
 				var item = res[i];
-				html += '<li><a class="recent-item" href = "/w/' + encodeURIComponent(item.document) + '" title="' + item.document +'">';
+				html += '<li><a class="recent-item' + item.status === 'delete' ? 'removed' : '' + '" href = "/w/' + encodeURIComponent(item.document) + '" title="' + item.document +'">';
 				var time = new Date(item.date * 1000);
 				if (Math.floor((new Date()).getTime() / 1000) - 86400 > item.date) {
 					var year = time.getFullYear();

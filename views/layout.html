@@ -43,7 +43,7 @@ function onClickEditBtn(route) {
 <div class="Liberty">
     <div id="top"></div>
     <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
-    <div class="nav-wrapper navbar-fixed-top">
+    <div class="nav-wrapper">
         <nav class="navbar navbar-dark">
             <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text') }}</a>
             <ul class="nav navbar-nav">
@@ -243,17 +243,22 @@ function onClickEditBtn(route) {
                                 <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger tools-btn">삭제</a>
                                 <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
                             {% elseif skinInfo.viewName == 'xref' %}
-                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                                 <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                             {% elseif skinInfo.viewName == 'history' %}
                                 <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                             {% elseif skinInfo.viewName == 'thread' %}
                                 <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                             {% elseif skinInfo.viewName == 'raw' || skinInfo.viewName == 'blame' || skinInfo.viewName == 'diff' %}
                                 <a href="/w/{{ document|encode_doc }}?rev={{ rev }}" class="btn btn-secondary tools-btn">보기</a>
-                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
+                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
                                 <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                            {% elseif skinInfo.viewName == 'contribution' || skinInfo.viewName == 'contribution_discuss' %}
+                                <a href="/w/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">사용자 문서</a>
+                                {% if perms.has('aclgroup') %}
+                                    <a href="#" class="btn btn-danger tools-btn">차단</a>
+                                {% endif %}
                             {% endif %}
                             </div>
                         </div>
@@ -326,6 +331,13 @@ function onClickEditBtn(route) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                         현재 진행 중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.
+                    </div>
+                {% endif %}
+                {% if skinInfo.viewName == 'notfound' %}
+                    <div class="alert alert-info" role="alert">
+                        '{{ skinInfo.title }}'을(를) 검색하시겠습니까?
+                        <div class="float-right"><a href="/Search?q={{ skinInfo.title }}" class="btn btn-secondary btn-sm">검색</a></div>
+                        <div class="clearfix"></div>
                     </div>
                 {% endif %}
                 {% block content %}
