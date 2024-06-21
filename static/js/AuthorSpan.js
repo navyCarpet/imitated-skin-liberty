@@ -1,4 +1,4 @@
-(() => {
+window.onload = function() {
     document.querySelectorAll("a[href^='/w/사용자:']").forEach(item => {
         const popover = document.createElement('div');
         popover.style.display = 'none';
@@ -15,4 +15,4 @@
         item.parentElement.style.position = 'relative'
         item.after(popover);
     });
-})()
+}
