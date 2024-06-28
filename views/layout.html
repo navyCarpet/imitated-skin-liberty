@@ -89,9 +89,6 @@ function onClickEditBtn(route) {
                         {% if perms.has('aclgroup') %}
                             <a href="/aclgroup" class="dropdown-item">ACL Group</a>
                         {% endif %}
-                        {% if perms.has('developer') %}
-                            <a href="/admin/config" class="dropdown-item">환경설정</a>
-                        {% endif %}
                     </div>
                 </li>
             </ul>
