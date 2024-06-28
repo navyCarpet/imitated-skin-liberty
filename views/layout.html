@@ -336,7 +336,7 @@ function onClickEditBtn(route) {
                 {% if skinInfo.viewName == 'notfound' %}
                     <div class="alert alert-info" role="alert">
                         '{{ skinInfo.title }}'을(를) 검색하시겠습니까?
-                        <div class="float-right"><a href="/Search?q={{ skinInfo.title }}" class="btn btn-secondary btn-sm">검색</a></div>
+                        <div class="float-right"><a href="/search/{{ skinInfo.title }}" class="btn btn-secondary btn-sm">검색</a></div>
                         <div class="clearfix"></div>
                     </div>
                 {% endif %}
