@@ -229,12 +229,10 @@ function onClickEditBtn(route) {
                                     {% if rev %}
                                         <a href="/raw/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">RAW</a>
                                         <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
-                                        <a href="/diff/{{ document|encode_doc }}?rev={{ rev }}&oldrev={{ rev - 1 }}" class="dropdown-item">이전 리비전과 비교</a>
                                         <a href="/revert/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">이 리버전으로 되돌리기</a>
                                     {% else %}
                                         <a href="/raw/{{ document|encode_doc }}" class="dropdown-item">RAW</a>
                                         <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
-                                        <a href="/diff/{{ document|encode_doc }}" class="dropdown-item">이전 리비전과 비교</a>
                                     {% endif %}
                                 </div>
                             {% endif %}
