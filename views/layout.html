@@ -29,6 +29,13 @@ body.theseed-dark-mode {
     --article-background-color: '#000';
 }
 </style>
+{% if perms.has('aclgroup') %}
+<style>
+.popper .admin-tool {
+    display: block !important;
+}
+</style>
+{% endif %}
 <script>
 function onClickEditBtn(route) {
     if ($('#editable').css('display') == 'block') {

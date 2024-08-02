@@ -3,7 +3,7 @@ window.onload = function() {
         const popover = document.createElement('div');
         popover.className = 'author-span';
         popover.style.display = 'none';
-        popover.style.zIndex = 9999;
+        popover.style.zIndex = 1000;
         popover.style.position = 'absolute';
         popover.style.top = '25px';
         popover.style.right = '0px';
@@ -18,6 +18,12 @@ window.onload = function() {
                 <hr style="border: 0; border-top: 1px solid #d5d5d5; margin: .25rem 0;">
                 <a href="/contribution/author/${item.textContent}/document" class="popper_btn" role="button">문서 기여 내역</a>
                 <a href="/contribution/author/${item.textContent}/discuss" class="popper_btn" role="button">토론 기여 내역</a>
+                <div class="admin-tool">
+                    <hr style="border: 0; border-top: 1px solid #d5d5d5; margin: .25rem 0;">
+                    <a href="/BlockHistory?target=text&query=${item.textContent}" class="popper_btn" role="button">차단 내역 조회</a>
+                    <hr style="border: 0; border-top: 1px solid #d5d5d5; margin: .25rem 0;">
+                    <a class="popper_btn" style="background-color: #d64a58; color: #fff !important;" role="button">차단</a>
+                </div>
             </div>`;
         item.setAttribute('onclick', `$('.author-span').hide(); $(this).next().fadeToggle('fast'); return false;`);
         item.parentElement.style.position = 'relative';
@@ -37,6 +43,7 @@ window.onload = function() {
             padding: .25rem 0;
             word-break: break-all;
             font-weight: normal;
+            text-align: left;
         }
 
         .popper_btn {
@@ -60,6 +67,10 @@ window.onload = function() {
 
         .popper_btn:hover {
             background-color: #f2f2f2;
+        }
+
+        .admin-tool {
+            display: none;
         }
     `;
     document.body.appendChild(style);
