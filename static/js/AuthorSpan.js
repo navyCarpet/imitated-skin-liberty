@@ -1,7 +1,9 @@
 window.onload = function() {
+    let i = 0;
     document.querySelectorAll("a[href^='/w/사용자:']").forEach(item => {
         const popover = document.createElement('div');
         popover.className = 'author-span';
+        popover.setAttribute('num', i);
         popover.style.display = 'none';
         popover.style.zIndex = 1000;
         popover.style.position = 'absolute';
@@ -25,7 +27,7 @@ window.onload = function() {
                     <a class="popper_btn" style="background-color: #d64a58; color: #fff !important;" role="button">차단</a>
                 </div>
             </div>`;
-        item.setAttribute('onclick', `$('.author-span').hide(); $(this).next().fadeToggle('fast'); return false;`);
+        item.setAttribute('onclick', `$('.author-span[num!=${i++}]').hide(); $(this).next().fadeToggle('fast'); return false;`);
         item.parentElement.style.position = 'relative';
         item.after(popover);
     });
