@@ -207,7 +207,7 @@ function onClickEditBtn(route) {
                                         <span class="star-count">{{ star_count }}</span>
                                     </a>
                                 {% endif %}
-                                    <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                                <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
                                 {% if discuss_progress %}
                                     <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary btn-discuss-progress tools-btn">토론</a>
                                 {% else %}
@@ -220,43 +220,37 @@ function onClickEditBtn(route) {
                                 {% else %}
                                     <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn"><span class="fa fa-edit"></span> 편집</a>
                                 {% endif %}
-                                {% if rev %}
-                                    <a href="/history/{{ document|encode_doc }}?from={{ rev }}" class="btn btn-secondary tools-btn">역사</a>
-                                {% else %}
-                                    <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
-                                {% endif %}
+                                <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
                                 <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
-                                <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="caret"></span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                    {% if user %}
-                                        <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여 내역</a>
-                                    {% endif %}
-                                    {% if rev %}
-                                        <a href="/raw/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">RAW</a>
-                                        <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
-                                        <a href="/diff/{{ document|encode_doc }}?rev={{ rev }}&oldrev={{ rev - 1 }}" class="dropdown-item">이전 리비전과 비교</a>
-                                        <a href="/revert/{{ document|encode_doc }}?rev={{ rev }}" class="dropdown-item">이 리버전으로 되돌리기</a>
-                                    {% else %}
-                                        <a href="/raw/{{ document|encode_doc }}" class="dropdown-item">RAW</a>
-                                        <!-- <a href="//{{ document|encode_doc }}" class="dropdown-item">Blame</a> -->
-                                        <a href="/diff/{{ document|encode_doc }}" class="dropdown-item">이전 리비전과 비교</a>
-                                    {% endif %}
-                                </div>
+                                {% if user %}
+                                    <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a href="/contribution/author/{{ document.title|url_encode }}/document" class="dropdown-item">기여 목록</a>
+                                    </div>
+                                {% endif %}
                             {% endif %}
                             {% if skinInfo.viewName == 'edit' %}
-                                <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
-                                <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger tools-btn">삭제</a>
                                 <a href="/move/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">이동</a>
-                            {% elseif skinInfo.viewName == 'xref' %}
-                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                                <a href="/delete/{{ document|encode_doc }}" class="btn btn-danger tools-btn">삭제</a>
                                 <a href="/history/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역사</a>
+                                <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                             {% elseif skinInfo.viewName == 'history' %}
-                                <a href="/backlink/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">역링크</a>
+                                <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
                                 <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                                <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                             {% elseif skinInfo.viewName == 'thread' %}
                                 <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
+                                <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                            {% elseif skinInfo.viewName == 'thread_list' %}
+                                <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
+                                <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
+                            {% elseif skinInfo.viewName == 'thread_list_close' || skinInfo.viewName == 'edit_request_close' %}
+                                <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
+                            {% elseif skinInfo.viewName == 'edit_request' %}
+                                <a href="/discuss/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">토론</a>
+                                <a href="/acl/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">ACL</a>
                             {% elseif skinInfo.viewName == 'raw' || skinInfo.viewName == 'blame' || skinInfo.viewName == 'diff' %}
                                 <a href="/w/{{ document|encode_doc }}?rev={{ rev }}" class="btn btn-secondary tools-btn">보기</a>
                                 <a href="/edit/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">편집</a>
@@ -264,7 +258,13 @@ function onClickEditBtn(route) {
                             {% elseif skinInfo.viewName == 'contribution' || skinInfo.viewName == 'contribution_discuss' %}
                                 <a href="/w/{{ document|encode_doc }}" class="btn btn-secondary tools-btn">사용자 문서</a>
                                 {% if perms.has('aclgroup') %}
-                                    <a href="#" class="btn btn-danger tools-btn">차단</a>
+                                    <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a href="#" class="dropdown-item admin">차단</a>
+                                        <!-- <a href="/BlockHistory?query={{  }}&target=text" class="dropdown-item admin">차단 내역</a> -->
+                                    </div>
                                 {% endif %}
                             {% endif %}
                             </div>
